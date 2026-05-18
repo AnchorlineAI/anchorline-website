@@ -713,10 +713,10 @@
   </a>
   <div class="nav-links">
     <a href="#engines">What We Build</a>
-    <a href="#mission">Mission</a>
+    <a href="#mission">Mission</a>h
     <a href="#serve">Who We Serve</a>
     <a href="#mission">About</a>
-    <a href="https://amg.anchorlineai.com" target="_blank">Client Portal</a>
+    <a href="https://amg.anchorlineai.com/sign-in" target="_blank">Client Portal</a>h
     <a href="#connect" class="nav-cta">Get Started</a>
   </div>
 </nav>
@@ -895,4 +895,30 @@
 
     try {
       const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
-   
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + MAILERLITE_API_KEY
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.status === 200 || res.status === 201) {
+        note.textContent = '✓ You\'re in. Welcome to the Intelligence Loop.';
+        note.style.color = '#c9a84c';
+        e.target.reset();
+        btn.textContent = 'Subscribed!';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.message || 'Subscription failed. Please try again.');
+      }
+    } catch (err) {
+      note.textContent = err.message || 'Something went wrong. Email kris@anchorlineai.com to subscribe.';
+      note.style.color = '#ff6b6b';
+      btn.textContent = 'Subscribe';
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
