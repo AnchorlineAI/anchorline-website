@@ -843,8 +843,12 @@
   <div class="section-label" style="justify-content:center;">Anchorline Insider</div>
   <h2>Stay in the Intelligence Loop</h2>
   <p>Strategy, systems, and insight for serious operators. No filler. No fluff.</p>
-  <form class="capture-form" onsubmit="handleSubmit(event)">
-    <input type="email" id="email-input" placeholder="Your email address" required>
+  <form class="capture-form" name="anchorline-insider" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+    <input type="hidden" name="form-name" value="anchorline-insider">
+    <p style="display:none;">
+      <label>Do not fill this out: <input name="bot-field"></label>
+    </p>
+    <input type="email" id="email-input" name="email" placeholder="Your email address" required>
     <button type="submit">Subscribe</button>
   </form>
   <p class="capture-note" id="form-note">Join operators, ministry leaders, and founders building with AI.</p>
@@ -856,7 +860,7 @@
     <div class="footer-copy">© 2026 Anchorline Systems LLC — Pennsylvania. All rights reserved.</div>
   </div>
   <div class="footer-links">
-    <a href="mailto:kris@anchorlineai.com">Contact</a>
+    <a href="#connect">Contact</a>
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
   </div>
@@ -873,47 +877,37 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // ── MailerLite Integration ──────────────────────────────────────────────────
-  // Replace the two values below with your real credentials from MailerLite →
-  // Account → Integrations → API → Developer API
-  const MAILERLITE_API_KEY  = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMTgyOTRmNjY4ZWM1MDhkNDEwNjllNzMzZmJjZjM3MzM4NDk1ZjJmM2RiNGE3MGY2MTcyZjY3Yjc5ZWEwZjY2YzJkNzY5M2QzN2M0MGRiNzMiLCJpYXQiOjE3NzkwNjc2ODcuNzQ5NzQyLCJuYmYiOjE3NzkwNjc2ODcuNzQ5NzQ0LCJleHAiOjQ5MzQ3NDEyODcuNzQ1Mjc1LCJzdWIiOiIyMzAwNjEyIiwic2NvcGVzIjpbXX0.dxCuOchmKtJOAbmytb3tToKr-rRjNo_xz6N0nrwCGXeZs28573hvOIX6y6bJuURGZeDbVoexyfgU1z8wkloHtw9LAsXFerD5Wf5yMjJvjvWoGM6bbxONAbbtMeU5-1l4Uuw2ZVq20eODSgamCLKtWed_4mCB4JCzflHuyN8aBTOoRGYrZIVIrclb9p0ep8DAkp9y65yfUgi7Thh_8ZDA1PqJUGDsIp9ZwHWx4qF4Y9sLakd2L0NJo8s8rAtjJTBmfBWZXOzqejj_NwnYvwsKPurQ_i5d8HMz9b6ps5YcGTmthiDVLxi-1IciHbEmNgNKtfHeb8gxToiT2lN8vJM4bymoDqCQvWMDgINPgpp9bytGqKVIVqeRLO0z-baMT7pUK5LBWESPMOThkCg5bqFz72APw-wi7a-XSRpUec4NLeAEckE9OacRcYfIVPgdybYWcLPvkNqkU2wib1SKTjyzQ5-R1os1PpvKxclueiiNU_SfNpq11w36VOdqKLoXyUKDrM_T0ERnnOzyp3amKao5Uh2jzJe3-mqw6Dioieuxkybfn2TvU_nsrqRkEKZC_hBFVpYkhRxVZjQcZN8dsyLz3nEgvZuXpX3TShz4g2xd4sO5QAycNsXGGPQyt-50XHJJFFCpZWtPZn40kdDWXmcFW4EM9gi3PVuInnFsAnDP-WY';
-  const MAILERLITE_GROUP_ID = '185821507935536527'; // Anchorline Insider group
-
+  // Submit through Netlify Forms. Do not place email provider API keys in this public page.
   async function handleSubmit(e) {
     e.preventDefault();
+    const form = e.target;
     const email = document.getElementById('email-input').value.trim();
-    const btn   = e.target.querySelector('button');
-    const note  = document.getElementById('form-note');
+    const btn = form.querySelector('button');
+    const note = document.getElementById('form-note');
 
     if (!email) return;
 
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    const payload = { email, fields: { name: '' } };
-    if (MAILERLITE_GROUP_ID) payload.groups = [MAILERLITE_GROUP_ID];
-
     try {
-      const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+      const formData = new FormData(form);
+      const res = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + MAILERLITE_API_KEY
-        },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
       });
 
-      if (res.status === 200 || res.status === 201) {
-        note.textContent = '✓ You\'re in. Welcome to the Intelligence Loop.';
-        note.style.color = '#c9a84c';
-        e.target.reset();
-        btn.textContent = 'Subscribed!';
-      } else {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.message || 'Subscription failed. Please try again.');
+      if (!res.ok) {
+        throw new Error('Subscription failed. Please try again.');
       }
+
+      note.textContent = "You're in. Welcome to the Intelligence Loop.";
+      note.style.color = '#c9a84c';
+      form.reset();
+      btn.textContent = 'Subscribed!';
     } catch (err) {
-      note.textContent = err.message || 'Something went wrong. Email kris@anchorlineai.com to subscribe.';
+      note.textContent = err.message || 'Something went wrong. Use the contact link below and we will add you manually.';
       note.style.color = '#ff6b6b';
       btn.textContent = 'Subscribe';
       btn.disabled = false;
