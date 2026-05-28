@@ -3,9 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anchorline Systems — AI-Driven Business Infrastructure</title>
-<meta name="description" content="Anchorline Systems designs and deploys intelligent agent ecosystems that generate revenue, produce content, and deliver executive-level intelligence — autonomously.">
+<title>Anchorline Systems - Governed Business Infrastructure</title>
+<meta name="description" content="Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness, with private access managed through Anchorline Command.">
+<meta property="og:title" content="Anchorline Systems - Governed Business Infrastructure">
+<meta property="og:description" content="Governed systems for executive intelligence, growth, philanthropy, and financial readiness.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="Anchorline_Logo.PNG">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -14,14 +20,18 @@
     --navy: #080c18;
     --navy-mid: #0e1526;
     --navy-light: #16213a;
+    --graphite: #111827;
     --gold: #c9a84c;
     --gold-light: #e2c47a;
     --gold-dim: rgba(201,168,76,0.15);
     --white: #ffffff;
-    --off-white: #f4f2ec;
-    --text-muted: rgba(255,255,255,0.55);
-    --text-body: rgba(255,255,255,0.78);
-    --border: rgba(201,168,76,0.2);
+    --light: #f5f5f7;
+    --ink: #111214;
+    --muted-ink: #5f6470;
+    --text-muted: rgba(255,255,255,0.58);
+    --text-body: rgba(255,255,255,0.8);
+    --border: rgba(201,168,76,0.22);
+    --light-border: rgba(17,18,20,0.11);
   }
 
   html { scroll-behavior: smooth; }
@@ -32,6 +42,8 @@
     color: var(--white);
     overflow-x: hidden;
   }
+
+  a { color: inherit; }
 
   /* NAV */
   nav {
@@ -86,7 +98,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 32px;
   }
 
   .nav-links a {
@@ -101,7 +113,8 @@
 
   .nav-links a:hover { color: var(--gold); }
 
-  .nav-cta {
+  .nav-cta,
+  .mobile-cta {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 13px;
     font-weight: 600;
@@ -112,10 +125,13 @@
     padding: 10px 24px;
     border-radius: 2px;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.1s;
   }
 
-  .nav-cta:hover { background: var(--gold-light); }
+  .nav-cta:hover,
+  .mobile-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .mobile-cta { display: none; padding: 9px 18px; }
 
   /* HERO */
   .hero {
@@ -125,7 +141,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 120px 48px 80px;
+    padding: 128px 48px 84px;
     position: relative;
     overflow: hidden;
   }
@@ -146,7 +162,7 @@
       linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
   }
 
   .hero-badge {
@@ -207,8 +223,18 @@
     font-weight: 300;
     color: var(--text-body);
     line-height: 1.75;
-    max-width: 580px;
-    margin-bottom: 48px;
+    max-width: 690px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-command-line {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 46px;
     position: relative;
     z-index: 1;
   }
@@ -223,37 +249,41 @@
     justify-content: center;
   }
 
-  .btn-gold {
+  .btn-gold,
+  .btn-ghost,
+  .btn-dark {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    background: var(--gold);
-    color: var(--navy);
     padding: 16px 36px;
     border-radius: 2px;
     text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
   }
 
   .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   .btn-ghost {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
     color: var(--text-body);
     border: 1px solid rgba(255,255,255,0.2);
-    padding: 15px 36px;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
   }
 
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .btn-dark {
+    background: var(--ink);
+    color: var(--white);
+    border: 1px solid var(--ink);
+  }
+
+  .btn-dark:hover { background: #000; transform: translateY(-1px); }
 
   .hero-scroll {
     position: absolute;
@@ -287,13 +317,6 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  /* DIVIDER */
-  .gold-rule {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
   /* INTRO STRIP */
   .intro-strip {
     background: var(--navy-mid);
@@ -307,6 +330,7 @@
   }
 
   .intro-stat {
+    min-width: 132px;
     text-align: center;
   }
 
@@ -326,9 +350,14 @@
     margin-top: 4px;
   }
 
-  /* ENGINES */
+  /* SHARED SECTIONS */
   .section {
     padding: 100px 48px;
+  }
+
+  .section-inner {
+    max-width: 1180px;
+    margin: 0 auto;
   }
 
   .section-label {
@@ -353,7 +382,7 @@
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 4vw, 54px);
+    font-size: clamp(36px, 4vw, 56px);
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 16px;
@@ -366,158 +395,289 @@
     font-weight: 300;
     color: var(--text-body);
     line-height: 1.75;
-    max-width: 540px;
+    max-width: 640px;
     margin-bottom: 60px;
   }
 
-  .engines-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2px;
-    background: var(--border);
+  /* SYSTEMS */
+  .systems-section {
+    background:
+      linear-gradient(180deg, #f7f7f8 0%, #f1f2f4 100%);
+    color: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.72);
   }
 
-  .engine-card {
-    background: var(--navy-mid);
-    padding: 40px 36px;
+  .systems-section .section-label { color: var(--gold); }
+  .systems-section .section-sub {
+    color: #525865;
+    max-width: 710px;
+  }
+
+  .systems-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .system-card {
+    min-height: 318px;
+    background:
+      linear-gradient(180deg, #ffffff 0%, #fbfbfc 100%);
+    border: 1px solid rgba(17,18,20,0.13);
+    border-radius: 8px;
+    padding: 38px 38px 34px;
     position: relative;
     overflow: hidden;
-    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.95) inset,
+      0 18px 48px rgba(8,12,24,0.055);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
   }
 
-  .engine-card::before {
+  .system-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0; left: 38px; right: 38px;
     height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    transform-origin: left;
+    background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.18));
   }
 
-  .engine-card:hover { background: var(--navy-light); }
-  .engine-card:hover::before { transform: scaleX(1); }
+  .system-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.5);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.95) inset,
+      0 22px 58px rgba(8,12,24,0.105);
+  }
 
-  .engine-number {
+  .system-number {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
-    font-weight: 400;
-    color: rgba(201,168,76,0.1);
+    font-size: 46px;
+    color: rgba(201,168,76,0.48);
     line-height: 1;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
-  .engine-name {
+  .system-name {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 12px;
+    color: var(--ink);
+    margin-bottom: 18px;
+    width: 100%;
   }
 
-  .engine-desc {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--text-body);
-    line-height: 1.7;
-    margin-bottom: 24px;
+  .system-desc {
+    color: #48505b;
+    font-size: 16px;
+    line-height: 1.72;
+    margin-bottom: 28px;
+    width: 100%;
   }
 
-  .engine-tag {
-    display: inline-block;
-    font-size: 10px;
-    letter-spacing: 2px;
+  .system-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 6px 13px;
+    border: 1px solid rgba(201,168,76,0.48);
+    color: #7d641f;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--border);
-    padding: 4px 12px;
-    border-radius: 1px;
+    background: rgba(201,168,76,0.08);
+    margin-top: auto;
   }
 
-  /* MISSION */
-  .mission {
-    background: var(--navy-mid);
-    padding: 100px 48px;
+  /* COMMAND CONTRAST SECTION */
+  .command {
+    background:
+      radial-gradient(ellipse 70% 46% at 50% 0%, rgba(201,168,76,0.13), transparent 64%),
+      linear-gradient(180deg, #101622 0%, #070b16 100%);
+    padding: 118px 48px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     position: relative;
     overflow: hidden;
   }
 
-  .mission::before {
+  .command::before {
     content: '';
     position: absolute;
+    inset: 34px 48px;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .command-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 68px 58px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.06) inset,
+      0 34px 90px rgba(0,0,0,0.24);
+  }
+
+  .command .section-label {
+    justify-content: center;
+    color: var(--gold-light);
+  }
+
+  .command .section-label::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .command-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 500;
+    line-height: 1.04;
+    margin-bottom: 24px;
+  }
+
+  .command-body {
+    max-width: 720px;
+    margin: 0 auto 36px;
+    color: var(--text-body);
+    font-size: 18px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .command-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 42px;
+  }
+
+  .command-pill {
+    border: 1px solid rgba(201,168,76,0.23);
+    background: rgba(255,255,255,0.07);
+    color: var(--white);
+    padding: 10px 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;
+  }
+
+  .command .btn-gold {
+    box-shadow: 0 14px 34px rgba(201,168,76,0.12);
+  }
+
+  .command-note {
+    margin: 24px auto 0;
+    max-width: 620px;
+    color: rgba(255,255,255,0.62);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    line-height: 1.65;
+  }
+
+  /* FOUNDATION */
+  .foundation {
+    background: var(--navy-mid);
+    padding: 108px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .foundation::before,
+  .foundation::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+  }
+
+  .foundation::before {
     right: -100px;
     top: -100px;
     width: 400px;
     height: 400px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
     opacity: 0.4;
   }
 
-  .mission::after {
-    content: '';
-    position: absolute;
+  .foundation::after {
     right: -60px;
     top: -60px;
     width: 280px;
     height: 280px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
     opacity: 0.3;
   }
 
-  .mission-inner {
-    max-width: 800px;
+  .foundation-inner {
+    max-width: 900px;
     position: relative;
     z-index: 1;
   }
 
-  .mission-quote {
+  .foundation-quote {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 3.5vw, 44px);
     font-style: italic;
     font-weight: 400;
     line-height: 1.3;
     color: var(--white);
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     padding-left: 32px;
     border-left: 3px solid var(--gold);
   }
 
-  .mission-body {
-    font-size: 16px;
+  .foundation-body {
+    font-size: 17px;
     font-weight: 300;
-    color: var(--text-body);
-    line-height: 1.85;
-    margin-bottom: 40px;
+    color: rgba(255,255,255,0.76);
+    line-height: 1.82;
     padding-left: 32px;
-  }
-
-  .mission-attr {
-    padding-left: 32px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
+    max-width: 790px;
   }
 
   /* WHO WE SERVE */
+  #clients {
+    padding-top: 108px;
+    padding-bottom: 112px;
+  }
+
+  #clients .section-title {
+    max-width: 680px;
+  }
+
   .serve-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    margin-top: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-top: 54px;
   }
 
   .serve-card {
-    border: 1px solid var(--border);
-    padding: 32px 28px;
+    border: 1px solid rgba(201,168,76,0.2);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008));
+    padding: 34px 30px;
     border-radius: 2px;
     position: relative;
+    min-height: 236px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
   }
 
   .serve-card::after {
@@ -528,98 +688,101 @@
     background: linear-gradient(90deg, var(--gold), transparent);
   }
 
-  .serve-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 20px;
-    opacity: 0.7;
+  .serve-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(201,168,76,0.36);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.014));
+  }
+
+  .serve-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: rgba(201,168,76,0.42);
+    margin-bottom: 22px;
   }
 
   .serve-title {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--white);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .serve-desc {
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.7;
+    color: rgba(255,255,255,0.64);
+    line-height: 1.76;
   }
 
-  /* EMAIL CAPTURE */
+  /* REQUEST ACCESS */
   .capture {
     background: var(--navy-light);
-    padding: 80px 48px;
+    padding: 96px 48px;
     text-align: center;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
 
+  .capture .section-label {
+    justify-content: center;
+  }
+
+  .capture .section-label::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
   .capture h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(34px, 4vw, 52px);
     font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
-  .capture p {
-    font-size: 16px;
-    font-weight: 300;
+  .contact-card {
+    max-width: 760px;
+    margin: 38px auto 0;
+    border: 1px solid rgba(201,168,76,0.26);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.027));
+    padding: 42px;
+    position: relative;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.06) inset,
+      0 28px 70px rgba(0,0,0,0.16);
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 42px;
+    right: 42px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .contact-card p {
     color: var(--text-body);
-    margin-bottom: 36px;
+    font-weight: 300;
+    line-height: 1.78;
+    margin-bottom: 24px;
   }
-
-  .capture-form {
-    display: flex;
-    gap: 0;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .capture-form input {
-    flex: 1;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-right: none;
-    padding: 16px 20px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 15px;
-    color: var(--white);
-    outline: none;
-    border-radius: 2px 0 0 2px;
-  }
-
-  .capture-form input::placeholder { color: var(--text-muted); }
-  .capture-form input:focus { border-color: var(--gold); }
-
-  .capture-form button {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--navy);
-    border: none;
-    padding: 16px 28px;
-    cursor: pointer;
-    border-radius: 0 2px 2px 0;
-    transition: background 0.2s;
-  }
-
-  .capture-form button:hover { background: var(--gold-light); }
 
   .capture-note {
     font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 16px;
+    color: rgba(255,255,255,0.56);
+    margin: 18px auto 0;
+    max-width: 560px;
     letter-spacing: 0.5px;
+    line-height: 1.65;
   }
 
   /* FOOTER */
@@ -677,7 +840,7 @@
   .fade-up {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.7s ease var(--stagger-delay, 0ms), transform 0.7s ease var(--stagger-delay, 0ms);
   }
 
   .fade-up.visible {
@@ -686,18 +849,52 @@
   }
 
   /* RESPONSIVE */
+  @media (max-width: 1040px) {
+    nav { padding: 18px 28px; }
+    .nav-links { gap: 22px; }
+    .systems-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+    nav { padding: 14px 18px; gap: 12px; }
     .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; }
-    .section { padding: 60px 24px; }
-    .mission { padding: 60px 24px; }
-    .capture { padding: 60px 24px; }
-    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
-    .intro-strip { padding: 24px; gap: 32px; }
-    .capture-form { flex-direction: column; }
-    .capture-form input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; border-radius: 2px 2px 0 0; }
-    .capture-form button { border-radius: 0 0 2px 2px; }
+    .mobile-cta { display: inline-flex; padding: 8px 10px; font-size: 10px; letter-spacing: 1.3px; white-space: nowrap; }
+    .nav-logo { gap: 10px; min-width: 0; }
+    .nav-logo img { height: 32px; width: 32px; }
+    .nav-wordmark .line1 { font-size: 14px; letter-spacing: 2px; }
+    .nav-wordmark .line2 { font-size: 9px; letter-spacing: 2.5px; }
+    .hero { padding: 112px 20px 66px; min-height: auto; }
+    .hero-badge { max-width: 100%; padding: 7px 12px; }
+    .hero-badge span { font-size: 10px; letter-spacing: 2px; }
+    .hero h1 { font-size: clamp(38px, 10.5vw, 46px); max-width: 340px; }
+    .hero-sub { font-size: 16px; max-width: 340px; }
+    .hero-command-line { font-size: 14px; max-width: 340px; }
+    .hero-scroll { display: none; }
+    .intro-strip { padding: 24px; gap: 22px; justify-content: center; }
+    .intro-stat { min-width: 100%; }
+      .section, .systems-section, .foundation, .command, .capture { padding: 64px 24px; }
+      .section-title { font-size: clamp(33px, 9vw, 42px); }
+      #clients { padding-top: 72px; padding-bottom: 74px; }
+      .systems-grid { gap: 16px; }
+      .system-card { padding: 32px 24px 28px; min-height: auto; }
+      .system-card::before { left: 24px; right: 24px; }
+      .command-inner { padding: 48px 24px; }
+      .command::before { inset: 24px 20px; }
+      .command-pills { gap: 9px; }
+      .command-pill { flex: 1 1 calc(50% - 10px); text-align: center; }
+      .foundation-quote, .foundation-body { padding-left: 24px; }
+      .serve-grid { gap: 16px; margin-top: 36px; }
+      .serve-card { min-height: auto; padding: 30px 24px; }
+      .contact-card { padding: 34px 24px; }
+      .contact-card::before { left: 24px; right: 24px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+
+  @media (max-width: 420px) {
+    .hero-actions { width: 100%; }
+    .hero-actions a { width: 100%; max-width: 260px; }
+    .contact-card { padding: 28px 22px; }
+    .footer-links { flex-wrap: wrap; }
   }
 </style>
 </head>
@@ -705,30 +902,31 @@
 
 <nav>
   <a href="#" class="nav-logo">
-    <img src="logo.PNG" alt="Anchorline Systems">
+    <img src="Anchorline_Logo.PNG" alt="Anchorline Systems">
     <div class="nav-wordmark">
       <span class="line1">ANCHORLINE</span>
       <span class="line2">SYSTEMS</span>
     </div>
   </a>
   <div class="nav-links">
-    <a href="#engines">What We Build</a>
-    <a href="#mission">Mission</a>
-    <a href="#serve">Who We Serve</a>
-    <a href="#mission">About</a>
-    <a href="https://amg.anchorlineai.com/sign-in" target="_blank">Client Portal</a>
-    <a href="#connect" class="nav-cta">Get Started</a>
+    <a href="#systems">Systems</a>
+    <a href="#foundation">Foundation</a>
+    <a href="#clients">Clients</a>
+    <a href="#command">Command</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
   </div>
+  <a href="#contact" class="mobile-cta">Get Started</a>
 </nav>
 
 <section class="hero">
   <div class="hero-grid"></div>
-  <div class="hero-badge"><span>AI-Driven Business Infrastructure</span></div>
+  <div class="hero-badge"><span>GOVERNED BUSINESS INFRASTRUCTURE</span></div>
   <h1>The Intelligence<br>Your Business<br><em>Was Built For.</em></h1>
-  <p class="hero-sub">Anchorline Systems designs and deploys intelligent agent ecosystems that generate revenue, produce content, and deliver executive-level intelligence — autonomously.</p>
+  <p class="hero-sub">Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness — giving leaders clearer visibility, disciplined workflows, and a secure operating layer for complex work.</p>
+  <p class="hero-command-line">Built around Anchorline Command, the secure access layer for approved workspaces, reports, action queues, and product modules.</p>
   <div class="hero-actions">
-    <a href="#connect" class="btn-gold">Work With Us</a>
-    <a href="#engines" class="btn-ghost">See How It Works</a>
+    <a href="#systems" class="btn-gold">Explore Systems</a>
+    <a href="#command" class="btn-ghost">Command</a>
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>
@@ -736,122 +934,122 @@
   </div>
 </section>
 
-<div class="intro-strip">
+<div class="intro-strip" aria-label="Anchorline system categories">
   <div class="intro-stat">
-    <div class="number">24/7</div>
-    <div class="label">Autonomous Operation</div>
+    <div class="number">01</div>
+    <div class="label">Intelligence</div>
   </div>
   <div class="intro-stat">
-    <div class="number">4</div>
-    <div class="label">Agent Engines</div>
+    <div class="number">02</div>
+    <div class="label">Growth</div>
   </div>
   <div class="intro-stat">
-    <div class="number">1</div>
-    <div class="label">Governing Intelligence</div>
+    <div class="number">03</div>
+    <div class="label">Philanthropy</div>
   </div>
   <div class="intro-stat">
-    <div class="number">∞</div>
-    <div class="label">Scale Potential</div>
+    <div class="number">04</div>
+    <div class="label">Financial Readiness</div>
   </div>
 </div>
 
-<section class="section" id="engines">
-  <div class="section-label">What We Build</div>
-  <h2 class="section-title">Four Engines.<br><em>One Ecosystem.</em></h2>
-  <p class="section-sub">Governed by Anchor — our Meta-Agent — every system works in concert to build, optimize, and scale your business autonomously.</p>
+<section class="section systems-section" id="systems">
+  <div class="section-inner">
+    <div class="section-label">Systems</div>
+    <h2 class="section-title">Four Systems. One Governing Layer.</h2>
+    <p class="section-sub">Anchorline builds productized systems around the work leaders already carry: intelligence, growth, philanthropy, and financial readiness. Each system can become a governed workspace, reporting layer, or execution module inside the Anchorline environment.</p>
 
-  <div class="engines-grid">
-    <div class="engine-card fade-up">
-      <div class="engine-number">01</div>
-      <div class="engine-name">Content Engine</div>
-      <p class="engine-desc">Worldview-aligned content produced at scale across every platform. Articles, scripts, campaigns, and brand messaging that reflects your actual belief system — not generic internet copy.</p>
-      <span class="engine-tag">Always On</span>
-    </div>
-    <div class="engine-card fade-up">
-      <div class="engine-number">02</div>
-      <div class="engine-name">Sales Engine</div>
-      <p class="engine-desc">Funnels, copy, and conversion systems that turn attention into revenue. Lead qualification, nurture sequences, offer positioning, and campaign optimization — all autonomous.</p>
-      <span class="engine-tag">Revenue Focused</span>
-    </div>
-    <div class="engine-card fade-up">
-      <div class="engine-number">03</div>
-      <div class="engine-name">Intelligence Engine</div>
-      <p class="engine-desc">Raw operational data transformed into executive clarity. KPI dashboards, trend analysis, risk detection, and strategic recommendations for nonprofit, ministry, and business leaders.</p>
-      <span class="engine-tag">Decision Ready</span>
-    </div>
-    <div class="engine-card fade-up">
-      <div class="engine-number">04</div>
-      <div class="engine-name">Revenue Engine</div>
-      <p class="engine-desc">Autonomous affiliate marketing, e-commerce, and digital product systems pursuing maximum ROI within your defined parameters. Runs 24/7 without requiring your attention.</p>
-      <span class="engine-tag">Autonomous</span>
+    <div class="systems-grid">
+      <div class="system-card fade-up">
+        <div class="system-number">01</div>
+        <div class="system-name">Intelligence Systems</div>
+        <p class="system-desc">Executive visibility, KPI synthesis, reporting structure, and risk review that turn scattered inputs into governed insight.</p>
+        <span class="system-tag">DECISION READY</span>
+      </div>
+      <div class="system-card fade-up">
+        <div class="system-number">02</div>
+        <div class="system-name">Growth Systems</div>
+        <p class="system-desc">Websites, content, referral pipelines, lead qualification, campaign execution, and demand visibility — built for organizations that need revenue without operational sprawl.</p>
+        <span class="system-tag">REVIEW FIRST</span>
+      </div>
+      <div class="system-card fade-up">
+        <div class="system-number">03</div>
+        <div class="system-name">Philanthropy Systems</div>
+        <p class="system-desc">Donor, grant, stewardship, and impact-reporting systems for mission-driven organizations and ministry networks operating with discipline.</p>
+        <span class="system-tag">MISSION GRADE</span>
+      </div>
+      <div class="system-card fade-up">
+        <div class="system-number">04</div>
+        <div class="system-name">Financial Readiness Systems</div>
+        <p class="system-desc">Board-ready models, cash-flow scenarios, budget review, and operating-readiness structures for leaders who need finance to support action.</p>
+        <span class="system-tag">BOARD READY</span>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="gold-rule"></div>
-
-<section class="mission" id="mission">
-  <div class="mission-inner">
-    <div class="section-label">Our Foundation</div>
-    <blockquote class="mission-quote">"Because He is, we are — and everything we build reflects that reality."</blockquote>
-    <p class="mission-body">Anchorline Systems exists at the intersection of theological conviction and operational excellence. We believe that technology, rightly ordered, becomes an instrument of leverage for those called to lead, serve, and build. Our systems are not philosophically neutral — they are architected from a worldview that begins with the Creator-creature distinction and works outward into every sphere of life and business.</p>
-    <div class="mission-attr">— Kris McFadden, Founder &amp; CEO</div>
+<section class="command" id="command">
+  <div class="command-inner">
+    <div class="section-label">Anchorline Command</div>
+    <h2 class="command-title">Your Secure Operating Layer</h2>
+    <p class="command-body">Anchorline Command is the approved access point for deployed Anchorline Systems workspaces. Review reports, action queues, source materials, and assigned product modules from one authenticated environment.</p>
+    <div class="command-pills" aria-label="Anchorline Command capabilities">
+      <span class="command-pill">Workspaces</span>
+      <span class="command-pill">Reports</span>
+      <span class="command-pill">Queues</span>
+      <span class="command-pill">Modules</span>
+    </div>
+    <a href="#contact" class="btn-gold">Request Access</a>
+    <p class="command-note">Access is private and approval-based. No public registration or self-service provisioning.</p>
   </div>
 </section>
 
-<section class="section" id="serve">
-  <div class="section-label">Who We Serve</div>
-  <h2 class="section-title">Built for Leaders<br><em>Who Think in Systems.</em></h2>
+<section class="foundation" id="foundation">
+  <div class="foundation-inner">
+    <div class="section-label">Foundation</div>
+    <blockquote class="foundation-quote">"Because He is, we are — and everything we build reflects that reality."</blockquote>
+    <p class="foundation-body">Anchorline Systems exists at the intersection of conviction and operational excellence. We believe that technology, rightly ordered, becomes an instrument of leverage for those called to lead, serve, and build.</p>
+  </div>
+</section>
 
-  <div class="serve-grid">
-    <div class="serve-card fade-up">
-      <svg class="serve-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="12" width="24" height="18" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
-        <path d="M14 12V10a6 6 0 0112 0v2" stroke="#c9a84c" stroke-width="1.5"/>
-        <circle cx="20" cy="21" r="3" stroke="#c9a84c" stroke-width="1.5"/>
-      </svg>
-      <div class="serve-title">Ministry Leaders</div>
-      <p class="serve-desc">Nonprofit executives and ministry operators who have data, need insight, and can't afford to guess at decisions that affect people's lives.</p>
-    </div>
-    <div class="serve-card fade-up">
-      <svg class="serve-icon" viewBox="0 0 40 40" fill="none">
-        <path d="M10 30V20l10-10 10 10v10" stroke="#c9a84c" stroke-width="1.5"/>
-        <rect x="16" y="22" width="8" height="8" stroke="#c9a84c" stroke-width="1.5"/>
-      </svg>
-      <div class="serve-title">Business Operators</div>
-      <p class="serve-desc">Founders and CEOs who need leverage — more output, more revenue, more intelligence — without adding proportional overhead or headcount.</p>
-    </div>
-    <div class="serve-card fade-up">
-      <svg class="serve-icon" viewBox="0 0 40 40" fill="none">
-        <circle cx="20" cy="14" r="6" stroke="#c9a84c" stroke-width="1.5"/>
-        <path d="M8 32c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <div class="serve-title">Faith-Based Orgs</div>
-      <p class="serve-desc">Organizations that operate from conviction and need AI systems that reflect — not flatten — their worldview and communication standards.</p>
-    </div>
-    <div class="serve-card fade-up">
-      <svg class="serve-icon" viewBox="0 0 40 40" fill="none">
-        <path d="M20 8l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
-      </svg>
-      <div class="serve-title">High-Performance Families</div>
-      <p class="serve-desc">Families pursuing elite athletic, academic, and leadership development who need systems and frameworks grounded in identity, not just performance.</p>
+<section class="section" id="clients">
+  <div class="section-inner">
+    <div class="section-label">Who We Serve</div>
+    <h2 class="section-title">Built for Leaders<br><em>Who Think in Systems.</em></h2>
+
+    <div class="serve-grid">
+      <div class="serve-card fade-up">
+        <div class="serve-number">01</div>
+        <div class="serve-title">Service Providers &amp; Growth Teams</div>
+        <p class="serve-desc">For organizations that need stronger websites, clearer positioning, better follow-up, referral visibility, and qualified demand.</p>
+      </div>
+      <div class="serve-card fade-up">
+        <div class="serve-number">02</div>
+        <div class="serve-title">Executives &amp; Operators</div>
+        <p class="serve-desc">For leaders responsible for visibility, execution, reporting, and decisions across complex work.</p>
+      </div>
+      <div class="serve-card fade-up">
+        <div class="serve-number">03</div>
+        <div class="serve-title">Nonprofits &amp; Ministry Networks</div>
+        <p class="serve-desc">For organizations carrying donor, program, reporting, growth, and operational complexity with limited capacity.</p>
+      </div>
+      <div class="serve-card fade-up">
+        <div class="serve-number">04</div>
+        <div class="serve-title">Finance &amp; Board Leaders</div>
+        <p class="serve-desc">For leaders responsible for budgets, sustainability, cash-flow scenarios, board reporting, and operating-risk decisions.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="capture" id="connect">
-  <div class="section-label" style="justify-content:center;">Anchorline Insider</div>
-  <h2>Stay in the Intelligence Loop</h2>
-  <p>Strategy, systems, and insight for serious operators. No filler. No fluff.</p>
-  <form class="capture-form" name="anchorline-insider" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
-    <input type="hidden" name="form-name" value="anchorline-insider">
-    <p style="display:none;">
-      <label>Do not fill this out: <input name="bot-field"></label>
-    </p>
-    <input type="email" id="email-input" name="email" placeholder="Your email address" required>
-    <button type="submit">Subscribe</button>
-  </form>
-  <p class="capture-note" id="form-note">Join operators, ministry leaders, and founders building with AI.</p>
+<section class="capture" id="contact">
+  <div class="section-label">Request Access</div>
+  <h2>Request a Private Conversation</h2>
+  <div class="contact-card">
+      <p>To request access, contact your Anchorline representative directly. A governed intake form is planned for future release.</p>
+      <a href="#" class="btn-gold" onclick="showContactNote(event)">Request Access</a>
+      <p class="capture-note" id="form-note">Forms, email capture, analytics, and self-service portal registration remain disabled for this private preview.</p>
+  </div>
 </section>
 
 <footer>
@@ -860,7 +1058,7 @@
     <div class="footer-copy">© 2026 Anchorline Systems LLC — Pennsylvania. All rights reserved.</div>
   </div>
   <div class="footer-links">
-    <a href="#connect">Contact</a>
+    <a href="#contact">Contact</a>
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
   </div>
@@ -868,50 +1066,22 @@
 
 <script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+        entry.target.style.setProperty('--stagger-delay', `${index * 90}ms`);
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-  // Submit through Netlify Forms. Do not place email provider API keys in this public page.
-  async function handleSubmit(e) {
+  function showContactNote(e) {
     e.preventDefault();
-    const form = e.target;
-    const email = document.getElementById('email-input').value.trim();
-    const btn = form.querySelector('button');
-    const note = document.getElementById('form-note');
-
-    if (!email) return;
-
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    try {
-      const formData = new FormData(form);
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      });
-
-      if (!res.ok) {
-        throw new Error('Subscription failed. Please try again.');
-      }
-
-      note.textContent = "You're in. Welcome to the Intelligence Loop.";
+      const note = document.getElementById('form-note');
+      note.textContent = 'To request access, contact your Anchorline representative directly. A governed intake form is planned for future release.';
       note.style.color = '#c9a84c';
-      form.reset();
-      btn.textContent = 'Subscribed!';
-    } catch (err) {
-      note.textContent = err.message || 'Something went wrong. Use the contact link below and we will add you manually.';
-      note.style.color = '#ff6b6b';
-      btn.textContent = 'Subscribe';
-      btn.disabled = false;
-    }
   }
 </script>
 </body>
