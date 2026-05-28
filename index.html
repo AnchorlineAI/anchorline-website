@@ -246,38 +246,15 @@
     z-index: 1;
   }
 
-  .hero-action-panel {
-    width: min(760px, 100%);
-    margin-top: 26px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(201,168,76,0.24);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 22px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-command-line {
-    font-size: 16px;
-    color: rgba(255,255,255,0.74);
-    line-height: 1.65;
-    max-width: 700px;
-    margin: 0;
-  }
-
-  .hero-command-line strong {
-    color: var(--gold-light);
-    font-weight: 500;
-  }
-
   .hero-actions {
     display: flex;
     gap: 16px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
   }
 
   .btn-gold,
@@ -317,15 +294,7 @@
   .btn-dark:hover { background: #000; transform: translateY(-1px); }
 
   .hero-scroll {
-    position: absolute;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0.4;
+    display: none;
   }
 
   .hero-scroll span {
@@ -901,9 +870,7 @@
     .hero-line-one { display: inline; font-size: 1em; max-width: 100%; }
     .hero-line-two { font-size: 0.94em; }
     .hero-sub { font-size: 16px; max-width: 344px; line-height: 1.65; }
-    .hero-action-panel { max-width: 344px; margin-top: 22px; padding-top: 20px; gap: 18px; }
-    .hero-command-line { font-size: 14.5px; max-width: 344px; }
-    .hero-actions { width: 100%; flex-direction: column; }
+    .hero-actions { width: 100%; flex-direction: column; margin-top: 30px; }
     .hero-actions a { width: 100%; max-width: 260px; }
     .hero-scroll { display: none; }
     .intro-strip { padding: 24px; gap: 22px; justify-content: center; }
@@ -958,19 +925,12 @@
   <div class="hero-grid"></div>
   <div class="hero-badge"><span>GOVERNED BUSINESS INFRASTRUCTURE</span></div>
     <h1><span class="hero-line-one">The <strong>Intelligence</strong></span><br><span class="hero-line-two">Your Business</span><br><em>Was Built For.</em></h1>
-    <p class="hero-sub">Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness — giving leaders clearer visibility, disciplined workflows, and a secure operating layer for complex work.</p>
-    <div class="hero-action-panel">
-      <p class="hero-command-line">Built around <strong>Anchorline Command</strong>, the secure access layer for approved workspaces, reports, action queues, and product modules.</p>
-      <div class="hero-actions">
-        <a href="#systems" class="btn-gold">Explore Systems</a>
-        <a href="#command" class="btn-ghost">Command</a>
-      </div>
+      <p class="hero-sub">Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness — giving leaders clearer visibility, disciplined workflows, and a secure operating layer for complex work.</p>
+    <div class="hero-actions">
+      <a href="#systems" class="btn-gold">Explore Systems</a>
+      <a href="#command" class="btn-ghost">Command</a>
     </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
-  </div>
-</section>
+  </section>
 
 <div class="intro-strip" aria-label="Anchorline system categories">
   <div class="intro-stat">
@@ -1082,11 +1042,11 @@
 
 <section class="capture" id="contact">
   <div class="section-label">Request Access</div>
-  <h2>Request a Private Conversation</h2>
-  <div class="contact-card">
-      <p>To request access, contact your Anchorline representative directly. A governed intake form is planned for future release.</p>
-      <a href="#" class="btn-gold" onclick="showContactNote(event)">Request Access</a>
-      <p class="capture-note" id="form-note">Forms, email capture, analytics, and self-service portal registration remain disabled for this private preview.</p>
+    <h2>Start a Conversation</h2>
+    <div class="contact-card">
+        <p>For access or a scoped conversation, contact Anchorline directly. We will route the request to the right system, workspace, or next discussion.</p>
+        <a href="#" class="btn-gold" onclick="showContactNote(event)">Request Access</a>
+        <p class="capture-note" id="form-note">Access conversations are handled directly. Public self-service registration is not enabled.</p>
   </div>
 </section>
 
@@ -1118,7 +1078,7 @@
   function showContactNote(e) {
     e.preventDefault();
       const note = document.getElementById('form-note');
-      note.textContent = 'To request access, contact your Anchorline representative directly. A governed intake form is planned for future release.';
+      note.textContent = 'Access conversations are handled directly. Public self-service registration is not enabled.';
       note.style.color = '#c9a84c';
   }
 </script>
