@@ -135,13 +135,13 @@
 
   /* HERO */
   .hero {
-    min-height: 100vh;
+    min-height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 128px 48px 84px;
+    padding: 116px 48px 68px;
     position: relative;
     overflow: hidden;
   }
@@ -151,7 +151,7 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 56% 46% at 50% 52%, rgba(201,168,76,0.06) 0%, transparent 68%),
       radial-gradient(ellipse 40% 30% at 20% 20%, rgba(201,168,76,0.04) 0%, transparent 60%);
   }
 
@@ -162,7 +162,7 @@
       linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse 54% 54% at 50% 48%, black 28%, transparent 76%);
   }
 
   .hero-badge {
@@ -173,7 +173,7 @@
     background: var(--gold-dim);
     padding: 8px 20px;
     border-radius: 2px;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     position: relative;
     z-index: 1;
   }
@@ -205,46 +205,77 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(48px, 7vw, 88px);
     font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -1px;
-    margin-bottom: 28px;
+    line-height: 0.99;
+    letter-spacing: -0.4px;
+    margin-bottom: 24px;
     position: relative;
     z-index: 1;
     max-width: 900px;
   }
 
+  .hero-line-one {
+    display: inline-block;
+    font-size: 1.08em;
+  }
+
+  .hero-line-one strong {
+    font-weight: 600;
+  }
+
+  .hero-line-two {
+    display: inline-block;
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.9);
+  }
+
   .hero h1 em {
+    display: inline-block;
     font-style: italic;
     color: var(--gold);
+    font-size: 0.93em;
   }
 
   .hero-sub {
     font-size: 18px;
     font-weight: 300;
-    color: var(--text-body);
-    line-height: 1.75;
-    max-width: 690px;
-    margin-bottom: 18px;
+    color: rgba(255,255,255,0.86);
+    line-height: 1.68;
+    max-width: 750px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-action-panel {
+    width: min(760px, 100%);
+    margin-top: 26px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(201,168,76,0.24);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
     position: relative;
     z-index: 1;
   }
 
   .hero-command-line {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 680px;
-    margin-bottom: 46px;
-    position: relative;
-    z-index: 1;
+    font-size: 16px;
+    color: rgba(255,255,255,0.74);
+    line-height: 1.65;
+    max-width: 700px;
+    margin: 0;
+  }
+
+  .hero-command-line strong {
+    color: var(--gold-light);
+    font-weight: 500;
   }
 
   .hero-actions {
     display: flex;
     gap: 16px;
     align-items: center;
-    position: relative;
-    z-index: 1;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -287,7 +318,7 @@
 
   .hero-scroll {
     position: absolute;
-    bottom: 40px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -863,12 +894,17 @@
     .nav-logo img { height: 32px; width: 32px; }
     .nav-wordmark .line1 { font-size: 14px; letter-spacing: 2px; }
     .nav-wordmark .line2 { font-size: 9px; letter-spacing: 2.5px; }
-    .hero { padding: 112px 20px 66px; min-height: auto; }
-    .hero-badge { max-width: 100%; padding: 7px 12px; }
+    .hero { padding: 104px 20px 58px; min-height: auto; }
+    .hero-badge { max-width: 100%; padding: 7px 12px; margin-bottom: 22px; }
     .hero-badge span { font-size: 10px; letter-spacing: 2px; }
-    .hero h1 { font-size: clamp(38px, 10.5vw, 46px); max-width: 340px; }
-    .hero-sub { font-size: 16px; max-width: 340px; }
-    .hero-command-line { font-size: 14px; max-width: 340px; }
+    .hero h1 { font-size: clamp(32px, 8.4vw, 35px); max-width: 330px; margin-bottom: 20px; letter-spacing: 0; }
+    .hero-line-one { display: inline; font-size: 1em; max-width: 100%; }
+    .hero-line-two { font-size: 0.94em; }
+    .hero-sub { font-size: 16px; max-width: 344px; line-height: 1.65; }
+    .hero-action-panel { max-width: 344px; margin-top: 22px; padding-top: 20px; gap: 18px; }
+    .hero-command-line { font-size: 14.5px; max-width: 344px; }
+    .hero-actions { width: 100%; flex-direction: column; }
+    .hero-actions a { width: 100%; max-width: 260px; }
     .hero-scroll { display: none; }
     .intro-strip { padding: 24px; gap: 22px; justify-content: center; }
     .intro-stat { min-width: 100%; }
@@ -921,13 +957,15 @@
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-badge"><span>GOVERNED BUSINESS INFRASTRUCTURE</span></div>
-  <h1>The Intelligence<br>Your Business<br><em>Was Built For.</em></h1>
-  <p class="hero-sub">Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness — giving leaders clearer visibility, disciplined workflows, and a secure operating layer for complex work.</p>
-  <p class="hero-command-line">Built around Anchorline Command, the secure access layer for approved workspaces, reports, action queues, and product modules.</p>
-  <div class="hero-actions">
-    <a href="#systems" class="btn-gold">Explore Systems</a>
-    <a href="#command" class="btn-ghost">Command</a>
-  </div>
+    <h1><span class="hero-line-one">The <strong>Intelligence</strong></span><br><span class="hero-line-two">Your Business</span><br><em>Was Built For.</em></h1>
+    <p class="hero-sub">Anchorline Systems designs governed systems for executive intelligence, growth, philanthropy, and financial readiness — giving leaders clearer visibility, disciplined workflows, and a secure operating layer for complex work.</p>
+    <div class="hero-action-panel">
+      <p class="hero-command-line">Built around <strong>Anchorline Command</strong>, the secure access layer for approved workspaces, reports, action queues, and product modules.</p>
+      <div class="hero-actions">
+        <a href="#systems" class="btn-gold">Explore Systems</a>
+        <a href="#command" class="btn-ghost">Command</a>
+      </div>
+    </div>
   <div class="hero-scroll">
     <span>Scroll</span>
     <div class="hero-scroll-line"></div>
