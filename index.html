@@ -759,7 +759,7 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
 
-  .contact-card p {
+  .contact-intro {
     color: var(--text-body);
     font-weight: 300;
     line-height: 1.78;
@@ -767,10 +767,89 @@
     max-width: 590px;
   }
 
+  .request-form {
+    margin: 0 auto;
+    max-width: 590px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  .field-group.full {
+    grid-column: 1 / -1;
+  }
+
+  .field-group label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .field-group input,
+  .field-group select,
+  .field-group textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(5,8,16,0.48);
+    color: var(--white);
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 13px 14px;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .field-group textarea {
+    min-height: 112px;
+    resize: vertical;
+  }
+
+  .field-group input:focus,
+  .field-group select:focus,
+  .field-group textarea:focus {
+    border-color: rgba(201,168,76,0.58);
+    background: rgba(5,8,16,0.66);
+  }
+
+  .field-group input::placeholder,
+  .field-group textarea::placeholder {
+    color: rgba(255,255,255,0.34);
+  }
+
+  .form-honeypot {
+    display: none;
+  }
+
   .contact-card .btn-gold {
+    border: 0;
+    cursor: pointer;
     display: inline-flex;
     justify-content: center;
     min-width: 176px;
+  }
+
+  .safety-note {
+    color: rgba(255,255,255,0.66);
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin: 4px auto 22px;
+    max-width: 560px;
   }
 
   .capture-note {
@@ -820,9 +899,11 @@
   .footer-links {
     display: flex;
     gap: 28px;
+    align-items: center;
   }
 
-  .footer-links a {
+  .footer-links a,
+  .footer-note {
     font-size: 12px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -908,6 +989,7 @@
       .serve-card { min-height: auto; padding: 30px 24px; }
       .contact-card { padding: 34px 24px; }
       .contact-card::before { left: 24px; right: 24px; }
+      .form-grid { grid-template-columns: 1fr; }
       footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
     }
 
@@ -928,7 +1010,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">
+  <a href="/" class="nav-logo" aria-label="Anchorline Systems home">
     <img src="Anchorline_Logo.PNG" alt="Anchorline Systems">
     <div class="nav-wordmark">
       <span class="line1">ANCHORLINE</span>
@@ -1068,9 +1150,45 @@
   <div class="section-label">Request Access</div>
     <h2>Start a Conversation</h2>
     <div class="contact-card">
-        <p>For access or a scoped conversation, contact Anchorline directly. We will route the request to the right system, workspace, or next discussion.</p>
-        <a href="#" class="btn-gold" onclick="showContactNote(event)">Request Access</a>
-        <p class="capture-note" id="form-note">Access conversations are handled directly. Public self-service registration is not enabled.</p>
+        <p class="contact-intro">Use this form for a non-sensitive business inquiry, access request, or scoped conversation. Anchorline will route the request to the right system, workspace, or next discussion.</p>
+        <form name="request-access" method="POST" action="/?request=received#contact" data-netlify="true" netlify-honeypot="bot-field" class="request-form">
+          <input type="hidden" name="form-name" value="request-access">
+          <input type="hidden" name="subject" value="AnchorlineAI.com request access inquiry">
+          <p class="form-honeypot">
+            <label>Leave this field empty <input name="bot-field"></label>
+          </p>
+          <div class="form-grid">
+            <div class="field-group">
+              <label for="request-name">Name</label>
+              <input id="request-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field-group">
+              <label for="request-email">Work email</label>
+              <input id="request-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field-group">
+              <label for="request-org">Organization</label>
+              <input id="request-org" name="organization" type="text" autocomplete="organization">
+            </div>
+            <div class="field-group">
+              <label for="request-type">Inquiry</label>
+              <select id="request-type" name="inquiry_type" required>
+                <option value="">Select one</option>
+                <option value="Systems conversation">Systems conversation</option>
+                <option value="Growth Systems">Growth Systems</option>
+                <option value="Anchorline Command access">Anchorline Command access</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field-group full">
+              <label for="request-message">Message</label>
+              <textarea id="request-message" name="message" placeholder="Briefly describe the business need or access request." required></textarea>
+            </div>
+          </div>
+          <p class="safety-note">Do not submit patient information, credentials, confidential client data, or urgent matters through this form.</p>
+          <button type="submit" class="btn-gold">Request Access</button>
+        </form>
+        <p class="capture-note" id="form-note">Access conversations are approval-based. Public self-service registration is not enabled.</p>
   </div>
 </section>
 
@@ -1081,8 +1199,8 @@
   </div>
   <div class="footer-links">
     <a href="#contact">Contact</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
+    <a href="#command">Command</a>
+    <span class="footer-note">Policies by request</span>
   </div>
 </footer>
 
@@ -1099,11 +1217,12 @@
 
   document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-  function showContactNote(e) {
-    e.preventDefault();
-      const note = document.getElementById('form-note');
-      note.textContent = 'Access conversations are handled directly. Public self-service registration is not enabled.';
+  if (new URLSearchParams(window.location.search).get('request') === 'received') {
+    const note = document.getElementById('form-note');
+    if (note) {
+      note.textContent = 'Request received. Anchorline will review the inquiry and respond through the appropriate channel.';
       note.style.color = '#c9a84c';
+    }
   }
 </script>
 </body>
