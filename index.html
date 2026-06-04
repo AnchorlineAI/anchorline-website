@@ -767,9 +767,55 @@
     max-width: 590px;
   }
 
+  .form-success {
+    max-width: 590px;
+    margin: 0 auto 28px;
+    padding: 26px 26px 24px;
+    border: 1px solid rgba(201,168,76,0.4);
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.13), rgba(201,168,76,0.045)),
+      rgba(5,8,16,0.36);
+    box-shadow: 0 18px 46px rgba(0,0,0,0.18);
+    text-align: left;
+  }
+
+  .form-success[hidden] {
+    display: none;
+  }
+
+  .success-kicker {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .form-success h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--white);
+    margin: 0 0 12px;
+  }
+
+  .form-success p {
+    color: var(--text-body);
+    font-size: 15px;
+    line-height: 1.72;
+    margin: 0;
+  }
+
   .request-form {
     margin: 0 auto;
     max-width: 590px;
+  }
+
+  .request-form.is-hidden {
+    display: none;
   }
 
   .form-grid {
@@ -989,6 +1035,7 @@
       .serve-card { min-height: auto; padding: 30px 24px; }
       .contact-card { padding: 34px 24px; }
       .contact-card::before { left: 24px; right: 24px; }
+      .form-success { padding: 22px 20px 20px; }
       .form-grid { grid-template-columns: 1fr; }
       footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
     }
@@ -1003,6 +1050,7 @@
     .hero-actions { width: 100%; }
     .hero-actions a { width: 100%; max-width: 260px; }
     .contact-card { padding: 28px 22px; }
+    .form-success { padding: 20px 18px 18px; }
     .footer-links { flex-wrap: wrap; }
   }
 </style>
@@ -1151,6 +1199,11 @@
     <h2>Start a Conversation</h2>
     <div class="contact-card">
         <p class="contact-intro">Use this form for a non-sensitive business inquiry, access request, or scoped conversation. Anchorline will route the request to the right system, workspace, or next discussion.</p>
+        <div class="form-success" id="request-success" role="status" aria-live="polite" tabindex="-1" hidden>
+          <div class="success-kicker">Request received</div>
+          <h3>Thank you. Your inquiry is in the review queue.</h3>
+          <p>Anchorline will review the request and respond through the appropriate business channel. Public self-service registration is not enabled.</p>
+        </div>
         <form name="request-access" method="POST" action="/?request=received#contact" data-netlify="true" netlify-honeypot="bot-field" class="request-form">
           <input type="hidden" name="form-name" value="request-access">
           <input type="hidden" name="subject" value="AnchorlineAI.com request access inquiry">
@@ -1195,7 +1248,7 @@
 <footer>
   <div class="footer-left">
     <div class="footer-brand"><span>Anchorline</span> Systems LLC</div>
-    <div class="footer-copy">© 2026 Anchorline Systems LLC — Pennsylvania. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 Anchorline Systems LLC &mdash; Pennsylvania. All rights reserved.</div>
   </div>
   <div class="footer-links">
     <a href="#contact">Contact</a>
@@ -1218,9 +1271,20 @@
   document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
   if (new URLSearchParams(window.location.search).get('request') === 'received') {
+    document.body.classList.add('request-received');
+    const success = document.getElementById('request-success');
+    const form = document.querySelector('form[name="request-access"]');
     const note = document.getElementById('form-note');
+    if (success) {
+      success.hidden = false;
+      setTimeout(() => success.focus({ preventScroll: true }), 0);
+    }
+    if (form) {
+      form.classList.add('is-hidden');
+      form.setAttribute('aria-hidden', 'true');
+    }
     if (note) {
-      note.textContent = 'Request received. Anchorline will review the inquiry and respond through the appropriate channel.';
+      note.textContent = 'Request received. Anchorline will review the inquiry before any access conversation or workspace assignment.';
       note.style.color = '#c9a84c';
     }
   }
