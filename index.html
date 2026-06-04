@@ -36,6 +36,8 @@
 
   html { scroll-behavior: smooth; }
 
+  [id] { scroll-margin-top: 96px; }
+
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--navy);
@@ -399,6 +401,14 @@
     max-width: 710px;
   }
 
+  .systems-connection {
+    color: #4d5460;
+    font-size: 15.5px;
+    line-height: 1.7;
+    max-width: 760px;
+    margin: -28px 0 42px;
+  }
+
   .systems-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -467,9 +477,10 @@
     width: 100%;
   }
 
-  .system-tag {
+  .system-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     min-height: 28px;
     padding: 6px 13px;
     border: 1px solid rgba(156,119,30,0.52);
@@ -481,6 +492,94 @@
     text-transform: uppercase;
     background: rgba(201,168,76,0.11);
     margin-top: auto;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  .system-link:hover,
+  .system-link:focus-visible {
+    color: var(--navy);
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  .system-details {
+    margin-top: 46px;
+    display: grid;
+    gap: 22px;
+  }
+
+  .system-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 34px;
+    padding: 34px;
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(17,18,20,0.13);
+    border-radius: 8px;
+    box-shadow: 0 18px 42px rgba(8,12,24,0.06);
+  }
+
+  .detail-kicker {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8c6a1d;
+    margin-bottom: 14px;
+  }
+
+  .system-detail h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(31px, 3.2vw, 44px);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+
+  .system-detail p {
+    color: #39414c;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .detail-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .detail-block {
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(17,18,20,0.1);
+    border-radius: 6px;
+  }
+
+  .detail-block h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 9px;
+  }
+
+  .detail-block p {
+    font-size: 14.5px;
+    line-height: 1.58;
+    color: #4b5360;
+  }
+
+  .detail-cta {
+    align-self: start;
+    justify-self: start;
+    margin-top: 4px;
   }
 
   /* COMMAND CONTRAST SECTION */
@@ -977,6 +1076,7 @@
     nav { padding: 18px 28px; }
     .nav-links { gap: 22px; }
     .systems-grid { grid-template-columns: 1fr; }
+    .system-detail { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
@@ -1022,10 +1122,14 @@
       .section, .systems-section, .foundation, .command, .capture { padding: 64px 24px; }
       .section-inner, .section-sub { max-width: 100%; }
       .section-title { font-size: clamp(33px, 9vw, 42px); }
+      .systems-connection { margin: -22px 0 32px; }
       #clients { padding-top: 72px; padding-bottom: 74px; }
       .systems-grid { gap: 16px; }
       .system-card { padding: 32px 24px 28px; min-height: auto; }
       .system-card::before { left: 24px; right: 24px; }
+      .system-details { margin-top: 34px; gap: 16px; }
+      .system-detail { padding: 26px 22px; gap: 22px; }
+      .detail-columns { grid-template-columns: 1fr; gap: 12px; }
       .command-inner { padding: 46px 24px; }
       .command::before { inset: 24px 20px; }
       .command-pills { gap: 9px; }
@@ -1110,32 +1214,143 @@
     <div class="section-label">Systems</div>
     <h2 class="section-title">Four Systems. One Governing Layer.</h2>
     <p class="section-sub">Anchorline builds productized systems around the work leaders already carry: intelligence, growth, philanthropy, and financial readiness. Each system can become a governed workspace, reporting layer, or execution module inside the Anchorline environment.</p>
+    <p class="systems-connection">Each system can stand alone or connect to Anchorline Command when a governed workspace is approved.</p>
 
     <div class="systems-grid">
       <div class="system-card fade-up">
         <div class="system-number">01</div>
         <div class="system-name">Intelligence Systems</div>
-        <p class="system-desc">Executive visibility, KPI synthesis, reporting structure, and risk review that turn scattered inputs into governed insight.</p>
-        <span class="system-tag">DECISION READY</span>
+        <p class="system-desc">Executive visibility, KPI synthesis, source review, operating briefs, and decision-ready reporting for leaders managing complex work across teams, programs, and operating lanes.</p>
+        <a href="#intelligence-systems" class="system-link">Explore Intelligence</a>
       </div>
       <div class="system-card fade-up">
         <div class="system-number">02</div>
         <div class="system-name">Growth Systems</div>
-        <p class="system-desc">Websites, content, referral pipelines, lead qualification, campaign execution, and demand visibility — built for organizations that need revenue without operational sprawl.</p>
-        <span class="system-tag">REVIEW FIRST</span>
+        <p class="system-desc">Governed websites, content operations, referral visibility, campaign readiness, and demand reporting for organizations that need disciplined growth without unmanaged lead-chasing.</p>
+        <a href="#growth-systems" class="system-link">Explore Growth</a>
       </div>
       <div class="system-card fade-up">
         <div class="system-number">03</div>
         <div class="system-name">Philanthropy Systems</div>
-        <p class="system-desc">Donor, grant, stewardship, and impact-reporting systems for mission-driven organizations and ministry networks operating with discipline.</p>
-        <span class="system-tag">MISSION GRADE</span>
+        <p class="system-desc">Donor, grant, stewardship, ministry-reporting, and impact-visibility systems for mission-driven organizations that need clearer execution and stronger accountability.</p>
+        <a href="#philanthropy-systems" class="system-link">Explore Philanthropy</a>
       </div>
       <div class="system-card fade-up">
         <div class="system-number">04</div>
         <div class="system-name">Financial Readiness Systems</div>
-        <p class="system-desc">Board-ready models, cash-flow scenarios, budget review, and operating-readiness structures for leaders who need finance to support action.</p>
-        <span class="system-tag">BOARD READY</span>
+        <p class="system-desc">Board-ready models, cash-flow scenarios, budget review, operating-risk snapshots, and finance narratives for leaders who need numbers translated into decisions.</p>
+        <a href="#financial-readiness-systems" class="system-link">Explore Financials</a>
       </div>
+    </div>
+
+    <div class="system-details">
+      <article class="system-detail fade-up" id="intelligence-systems">
+        <div>
+          <div class="detail-kicker">01 / Intelligence Systems</div>
+          <h3>Decision-ready reporting for complex operations.</h3>
+          <p>Intelligence Systems turn scattered source material, performance signals, and operating updates into governed reporting that leaders can actually use.</p>
+        </div>
+        <div class="detail-columns">
+          <div class="detail-block">
+            <h4>Organizes</h4>
+            <p>Executive dashboards, KPI synthesis, source review, operating briefs, decision logs, governed reporting, and cross-team visibility.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Outputs</h4>
+            <p>Leadership briefs, visibility dashboards, risk reviews, decision-ready summaries, and repeatable reporting structures.</p>
+          </div>
+          <div class="detail-block">
+            <h4>For</h4>
+            <p>Executives, operators, program leaders, and teams responsible for decisions across complex work.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Command</h4>
+            <p>Approved workspaces can house reports, source materials, decision logs, and action queues inside Anchorline Command.</p>
+          </div>
+          <a href="#contact" class="system-link detail-cta">Request Access</a>
+        </div>
+      </article>
+
+      <article class="system-detail fade-up" id="growth-systems">
+        <div>
+          <div class="detail-kicker">02 / Growth Systems</div>
+          <h3>Governed growth infrastructure without unmanaged lead-chasing.</h3>
+          <p>Growth Systems help organizations organize the public-facing and operational pieces of growth so demand, messaging, follow-up, and reporting stay disciplined.</p>
+        </div>
+        <div class="detail-columns">
+          <div class="detail-block">
+            <h4>Organizes</h4>
+            <p>Websites, content systems, referral visibility, campaign readiness, demand reporting, source tracking, and approval-controlled execution.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Outputs</h4>
+            <p>Website readiness maps, content operations, source reports, campaign briefs, follow-up structures, and growth visibility reviews.</p>
+          </div>
+          <div class="detail-block">
+            <h4>For</h4>
+            <p>Service providers, growth teams, operators, and business leaders who need clearer demand systems without operational sprawl.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Command</h4>
+            <p>Approved workspaces can connect growth materials, reporting, review queues, and execution modules inside Anchorline Command.</p>
+          </div>
+          <a href="#contact" class="system-link detail-cta">Request Access</a>
+        </div>
+      </article>
+
+      <article class="system-detail fade-up" id="philanthropy-systems">
+        <div>
+          <div class="detail-kicker">03 / Philanthropy Systems</div>
+          <h3>Mission execution made visible and accountable.</h3>
+          <p>Philanthropy Systems help mission-driven organizations bring donor, grant, stewardship, and impact work into clearer operating rhythm.</p>
+        </div>
+        <div class="detail-columns">
+          <div class="detail-block">
+            <h4>Organizes</h4>
+            <p>Donor reporting, grant readiness, stewardship workflows, ministry impact reporting, campaign planning, board communication, and mission visibility.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Outputs</h4>
+            <p>Impact summaries, grant-readiness views, stewardship trackers, campaign plans, and board-ready communication structures.</p>
+          </div>
+          <div class="detail-block">
+            <h4>For</h4>
+            <p>Nonprofits, ministry networks, advancement teams, and mission leaders carrying high accountability with limited capacity.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Command</h4>
+            <p>Approved workspaces can organize donor visibility, reporting materials, grant notes, and action queues inside Anchorline Command.</p>
+          </div>
+          <a href="#contact" class="system-link detail-cta">Request Access</a>
+        </div>
+      </article>
+
+      <article class="system-detail fade-up" id="financial-readiness-systems">
+        <div>
+          <div class="detail-kicker">04 / Financial Readiness Systems</div>
+          <h3>Finance translated into operating decisions.</h3>
+          <p>Financial Readiness Systems help leaders turn budget, cash-flow, risk, and funding questions into structures that support action.</p>
+        </div>
+        <div class="detail-columns">
+          <div class="detail-block">
+            <h4>Organizes</h4>
+            <p>Cash-flow scenarios, budget review, operating risk, board narratives, funding readiness, decision support, and scenario planning.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Outputs</h4>
+            <p>Board-ready models, cash-flow views, operating-risk snapshots, funding-readiness narratives, and decision-support briefs.</p>
+          </div>
+          <div class="detail-block">
+            <h4>For</h4>
+            <p>Finance leaders, board-facing operators, founders, executives, and organizations preparing for higher-stakes decisions.</p>
+          </div>
+          <div class="detail-block">
+            <h4>Command</h4>
+            <p>Approved workspaces can hold finance models, scenarios, review notes, and assigned action queues inside Anchorline Command.</p>
+          </div>
+          <a href="#contact" class="system-link detail-cta">Request Access</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
