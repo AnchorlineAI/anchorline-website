@@ -1,0 +1,10 @@
+/about.html /about/ 301
+/sales-engine /growth-engine/b2b/ 301
+/sales-engine.html /growth-engine/b2b/ 301
+/content-engine /growth-engine/ 301
+/content-engine.html /growth-engine/ 301
+/intelligence-engine /growth-engine/ 301
+/intelligence-engine.html /growth-engine/ 301
+/web-digital /growth-engine/local/ 301
+/web-digital.html /growth-engine/local/ 301
+# No redirects to unapproved policy content or protected environments.
