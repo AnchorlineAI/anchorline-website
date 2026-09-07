@@ -12,7 +12,8 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
     <div class="audit-intro">
       <p class="eyebrow">REQUEST YOUR GROWTH AUDIT</p><h1>
         Three priorities.<br /><span class="accent-word"
-          >A clearer next step.</span>
+          >A clearer next step.</span
+        >
       </h1><p class="hero-lede">
         We’ll review your current growth system and identify the three
         highest-priority opportunities to improve how you attract, convert, and
@@ -35,18 +36,18 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
     </div>
     <div class="form-panel">
       <div class="form-panel-heading">
-        <span class="mono">OWNER-REVIEW TEST FORM</span><span class="test-badge"
-          >PREVIEW ONLY</span>
+        <span class="mono">GROWTH AUDIT REQUEST</span><span class="test-badge"
+          >NO-COST · QUALIFICATION-BASED</span
+        >
       </div><h2>Tell us about your business.</h2><p class="form-context">
-        This preview is not live intake. Use clearly synthetic test details
-        only. Do not enter personal, client, confidential, or production
-        information.
+        Share the essentials below. Please do not include credentials,
+        confidential client information, or other sensitive data.
       </p>
       <div class="isolation-notice" id="isolation-notice">
         {
           previewFormSubmissionEnabled
-            ? "Isolated preview submission is enabled for authorized synthetic tests."
-            : "Submission is locked while test-form registration and downstream isolation are verified. Field validation can be reviewed without sending data."
+            ? "Your request will be securely recorded through Netlify Forms. Immediate confirmation means the request was received."
+            : "Submission is temporarily unavailable."
         }
       </div>
       <form
@@ -63,12 +64,7 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
         <input
           type="hidden"
           name="subject"
-          value="SYNTHETIC PREVIEW TEST — NOT PRODUCTION INTAKE"
-        />
-        <input
-          type="hidden"
-          name="test_context"
-          value="anchorline-owner-review-preview"
+          value="New Anchorline Growth Audit request"
         />
         <p class="honeypot" aria-hidden="true">
           <label
@@ -76,7 +72,8 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
               name="bot-field"
               tabindex="-1"
               autocomplete="off"
-            /></label>
+            /></label
+          >
         </p>
         <div class="field-grid">
           <div class="field">
@@ -144,8 +141,8 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
             maxlength="1500"></textarea>
         </div>
         <p class="form-data-note">
-          Synthetic test data only. No notification to public intake is
-          authorized. Never submit credentials or confidential material.
+          Do not submit credentials, confidential client information, or other
+          sensitive material.
         </p>
         <p
           class="form-status"
@@ -158,8 +155,8 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
         <button class="button submit-button" type="button" data-form-submit
           >{
             previewFormSubmissionEnabled
-              ? "Send Synthetic Test Request"
-              : "Validate Test Fields"
+              ? "Request Your Growth Audit"
+              : "Submission Temporarily Unavailable"
           }<span aria-hidden="true">→</span></button
         >
         <noscript
@@ -171,8 +168,8 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
       </form>
       <div class="form-after">
         <span class="mono">WHAT HAPPENS NEXT?</span><p>
-          A successful authorized test confirms receipt only. It does not create
-          an engagement or start a production audit.
+          A successful submission confirms receipt only. Anchorline will review
+          the request before determining fit or recommending a next step.
         </p>
       </div>
     </div>

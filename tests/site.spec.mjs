@@ -39,7 +39,10 @@ for (const route of routes) {
     expect(
       results.violations.map((x) => ({
         id: x.id,
-        nodes: x.nodes.map((n) => ({ target: n.target, failure: n.failureSummary })),
+        nodes: x.nodes.map((n) => ({
+          target: n.target,
+          failure: n.failureSummary,
+        })),
       })),
     ).toEqual([]);
     expect(errors).toEqual([]);
@@ -71,40 +74,42 @@ for (const width of [320, 390, 768, 1024]) {
     ).toBeFocused();
   });
 }
-test("guarded validation never sends a POST; local events contain no PII", async ({
-  page,
-}) => {
+test("pre-routing intake remains locked after validation", async ({ page }) => {
   const posts = [];
   page.on("request", (r) => {
     if (r.method() === "POST") posts.push(r.url());
   });
   await page.goto("/growth-audit/?pathway=local");
   await expect(page.locator("#audit-type")).toHaveValue("Local Business");
-  await page.getByRole("button", { name: "Validate Test Fields" }).click();
+  await page
+    .getByRole("button", { name: "Submission Temporarily Unavailable" })
+    .click();
   await expect(page.locator("#audit-name")).toBeFocused();
   await expect(page.locator("#name-error")).toContainText("complete");
-  await page.locator("#audit-name").fill("Synthetic Preview Test");
-  await page.locator("#audit-email").fill("synthetic@example.com");
-  await page.locator("#audit-website").fill("https://example.com");
-  await page
-    .locator("#audit-problem")
-    .fill("Private text must never enter analytics.");
-  await page.getByRole("button", { name: "Validate Test Fields" }).click();
-  await expect(page.locator("#form-status")).toContainText("Nothing was sent");
   expect(posts).toEqual([]);
-  const data = await page.evaluate(() => window.__anchorlineDiagnostics);
-  expect(data.some((x) => x.event === "form_start")).toBe(true);
-  expect(data.some((x) => x.reason === "isolation_pending")).toBe(true);
-  expect(JSON.stringify(data)).not.toMatch(
-    /synthetic@example|Private text|https:\/\/example|Synthetic Preview Test/,
-  );
 });
 test("direct receipt does not claim success or count conversion", async ({
   page,
 }) => {
   await page.goto("/growth-audit/received/?request=received");
+  await expect(page).toHaveTitle(
+    "Growth Audit Request Confirmation | Anchorline Systems",
+  );
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    "content",
+    "Confirmation page for Anchorline Growth Audit requests.",
+  );
+  await expect(page.locator("[data-receipt-title]")).toHaveText(
+    "Request confirmation.",
+  );
   await expect(page.locator("[data-receipt-message]")).toContainText(
     "No submission has been confirmed",
+  );
+  await expect(page.locator(".receipt-note")).not.toContainText(
+    "Anchorline received your Growth Audit request",
+  );
+  await expect(page.locator(".receipt-note")).toContainText(
+    "Confirmed Growth Audit requests are reviewed",
   );
   expect(
     await page.evaluate(

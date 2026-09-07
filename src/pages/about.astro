@@ -12,7 +12,8 @@ import AuditClose from "../components/AuditClose.astro";
   <section class="container page-hero about-hero">
     <p class="eyebrow">ABOUT ANCHORLINE SYSTEMS</p><h1>
       Built to connect<br />what growth<br /><span class="accent-word"
-        >depends on.</span>
+        >depends on.</span
+      >
     </h1><div class="about-intro">
       <p class="large-copy">
         Anchorline Systems exists to turn intelligence, digital capability, and
@@ -28,12 +29,19 @@ import AuditClose from "../components/AuditClose.astro";
   <section class="section founder-section">
     <div class="container editorial-split">
       <div>
-        <p class="eyebrow">FOUNDER & LEADERSHIP</p><div
-          class="founder-monogram"
-          aria-hidden="true"
+        <p class="eyebrow">FOUNDER & LEADERSHIP</p><figure
+          class="founder-portrait"
         >
-          <span>KM</span><i></i>
-        </div>
+          <img
+            src="/kris-mcfadden.webp"
+            alt="Kris McFadden, founder and CEO of Anchorline Systems"
+            width="600"
+            height="601"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="portrait-line" aria-hidden="true"></span>
+        </figure>
       </div><div class="editorial-copy">
         <h2>Kris McFadden</h2><p class="mono founder-role">
           FOUNDER & CEO / ANCHORLINE SYSTEMS LLC
@@ -108,8 +116,10 @@ import AuditClose from "../components/AuditClose.astro";
         research, decisions, and action can support the same client objective.
       </p><a href="/growth-engine/" class="text-link"
         >See what the Growth Engine enables <span aria-hidden="true">↗</span
-        ></a>
+        ></a
+      >
     </div>
   </section>
   <AuditClose />
 </Site>
+

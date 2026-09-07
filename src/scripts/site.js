@@ -158,22 +158,10 @@ if (form) {
       status.textContent = "The test could not be submitted.";
       return;
     }
-    // Never send genuine intake. Tests require obvious synthetic name + reserved example domain.
-    if (
-      !/synthetic|preview test/i.test(form.elements.name.value) ||
-      !/@(?:example\.(?:com|net|org)|[^@]+\.test)$/i.test(
-        form.elements.email.value,
-      )
-    ) {
-      status.textContent =
-        "This is test-only intake. Use a name containing “Synthetic” or “Preview Test” and an example.com, example.net, example.org, or .test email address.";
-      status.focus();
-      return;
-    }
     sending = true;
     button.disabled = true;
     button.setAttribute("aria-busy", "true");
-    status.textContent = "Sending the synthetic preview test…";
+    status.textContent = "Sending your Growth Audit request…";
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 12000);
     try {
@@ -195,14 +183,14 @@ if (form) {
         throw new Error("backend");
       }
       recordEvent("audit_request_success", { page, pathway: getPathway() });
-      const receipt = { form: "growth-audit-preview", receivedAt: Date.now() };
+      const receipt = { form: "growth-audit", receivedAt: Date.now() };
       try {
         sessionStorage.setItem(
           "anchorline-preview-receipt",
           JSON.stringify(receipt),
         );
       } catch {}
-      status.textContent = "Synthetic test request received.";
+      status.textContent = "Growth Audit request received.";
       status.classList.add("is-success");
       location.assign("/growth-audit/received/");
     } catch (error) {
@@ -231,13 +219,13 @@ if (page === "receipt") {
       sessionStorage.getItem("anchorline-preview-receipt") || "null",
     );
     if (
-      receipt?.form === "growth-audit-preview" &&
+      receipt?.form === "growth-audit" &&
       Date.now() - receipt.receivedAt < 10 * 60 * 1000
     ) {
       document.querySelector("[data-receipt-title]").textContent =
-        "Test request received.";
+        "Growth Audit request received.";
       document.querySelector("[data-receipt-message]").textContent =
-        "Your synthetic preview request was received.";
+        "Your Growth Audit request was received.";
     }
   } catch {}
   // Receipt page visits do not fire conversion events.

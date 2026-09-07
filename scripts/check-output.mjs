@@ -58,10 +58,12 @@ for (const file of htmls) {
   );
 }
 const form = await readFile(path.join(root, "growth-audit/index.html"), "utf8");
-assert(form.includes('name="growth-audit-preview"'));
+assert(form.includes('name="growth-audit"'));
+assert(form.includes('data-submission-enabled="false"'));
+assert(form.includes('name="bot-field"'), "Growth Audit honeypot missing");
 assert(
-  form.includes('data-submission-enabled="false"'),
-  "Preview submission must remain locked until isolation review. Update this assertion only with the reviewed gate change.",
+  form.includes(">Submission Temporarily Unavailable<"),
+  "Pre-routing submission lock missing",
 );
 assert(!all.some((f) => f.includes("/privacy/") || f.includes("/terms/")));
 console.log(
