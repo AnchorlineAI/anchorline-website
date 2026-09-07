@@ -14,13 +14,11 @@ The visual identity is white-led editorial enterprise design with ink, blue and 
 
 All diagrams/examples are conceptual and labeled. The Founder & Leadership section uses the exact owner-provided approved founder photograph with a responsive crop; the source JPEG is already compact and is preserved without face alteration. Foundation wording preserves the existing public statement, with surrounding draft copy for owner review. The public 2ndBrainOS explanation is supporting, not a competing offer. Only the footer Client Login links to the existing protected portal.
 
-## Test-form safety gate
+## Growth Audit intake verification state
 
-Form: growth-audit-preview. It is included in static build output for Netlify registration. Fields match the approved schema. Test subject/context are unmistakably synthetic. The form is JavaScript guarded and has no native submitting button. src/settings.ts keeps previewFormSubmissionEnabled=false until registration AND downstream isolation are verified. Required field validation works while this gate is closed; clicking validates but sends nothing.
+Form: growth-audit. It is included in static build output for Netlify registration, uses the approved field schema, and preserves the Netlify honeypot. Netlify registration is verified. The dedicated form notification growth-audit → hello@anchorlineai.com is verified, with no global rule and legacy rules unchanged. src/settings.ts sets previewFormSubmissionEnabled=true, so the rendered control is the production-ready “Request Your Growth Audit” action.
 
-Do not enable the gate or send an actual request until the reviewer confirms no notification/global hook, Make/Zapier/live automation, production CRM, or hello@ destination consumes this form. A form name is not proof of isolation. If verification is unavailable, keep the gate closed and report backend acceptance/capture as NOT TESTED. Local mocked responses are UI tests, not real Netlify acceptance or capture.
-
-Once independently verified, a reviewed branch change may enable the gate for a small number of owner-authorized synthetic tests. Runtime requires a Synthetic/Preview Test name and reserved example/.test email. Before enabling, inspect every downstream consumer, not just email settings. Synthetic email delivery is never needed; use records only.
+Automated tests verify that incomplete required fields prevent any POST. Mocked local tests cover accepted and failed backend responses without making a real Netlify submission. Exactly one clearly synthetic real submission remains separately approval-gated; it must verify the Netlify record, hello@ notification receipt, and browser receipt experience. Do not activate unrelated automations.
 
 The receipt page does not emit a conversion event and a direct visit does not claim a request was received. A browser-session marker changes the receipt presentation after an accepted test response; it is not a security credential or authoritative stored-record proof. Verify actual Netlify records separately. Network uncertainty warns reviewers to check records before retrying.
 

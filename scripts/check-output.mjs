@@ -59,11 +59,11 @@ for (const file of htmls) {
 }
 const form = await readFile(path.join(root, "growth-audit/index.html"), "utf8");
 assert(form.includes('name="growth-audit"'));
-assert(form.includes('data-submission-enabled="false"'));
+assert(form.includes('data-submission-enabled="true"'));
 assert(form.includes('name="bot-field"'), "Growth Audit honeypot missing");
 assert(
-  form.includes(">Submission Temporarily Unavailable<"),
-  "Pre-routing submission lock missing",
+  form.includes(">Request Your Growth Audit<"),
+  "Live Growth Audit submit label missing",
 );
 assert(!all.some((f) => f.includes("/privacy/") || f.includes("/terms/")));
 console.log(

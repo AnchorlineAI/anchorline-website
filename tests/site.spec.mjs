@@ -74,16 +74,14 @@ for (const width of [320, 390, 768, 1024]) {
     ).toBeFocused();
   });
 }
-test("pre-routing intake remains locked after validation", async ({ page }) => {
+test("live intake validation prevents incomplete POST", async ({ page }) => {
   const posts = [];
   page.on("request", (r) => {
     if (r.method() === "POST") posts.push(r.url());
   });
   await page.goto("/growth-audit/?pathway=local");
   await expect(page.locator("#audit-type")).toHaveValue("Local Business");
-  await page
-    .getByRole("button", { name: "Submission Temporarily Unavailable" })
-    .click();
+  await page.getByRole("button", { name: "Request Your Growth Audit" }).click();
   await expect(page.locator("#audit-name")).toBeFocused();
   await expect(page.locator("#name-error")).toContainText("complete");
   expect(posts).toEqual([]);
