@@ -1,0 +1,18 @@
+---
+import Arrow from "./Arrow.astro";
+const {
+  href = "/growth-audit/",
+  label = "Request Your Growth Audit",
+  secondary = false,
+  location = "body",
+  pathway = "",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={["button", { "button-secondary": secondary }]}
+  data-cta={href.startsWith("/growth-audit/") ? "audit" : undefined}
+  data-location={location}
+  data-pathway={pathway || undefined}>{label}<Arrow /></a
+>

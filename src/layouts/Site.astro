@@ -1,0 +1,165 @@
+---
+import "@fontsource-variable/manrope";
+import "@fontsource/ibm-plex-mono/400.css";
+import "../styles/global.css";
+import "../styles/refinement.css";
+import CTA from "../components/CTA.astro";
+const {
+  title,
+  description,
+  page = "home",
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+const base = process.env.DEPLOY_PRIME_URL || "http://localhost:4321";
+const canonical = new URL(canonicalPath, base).href;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://anchorlineai.com/#organization",
+      name: "Anchorline Systems LLC",
+      url: "https://anchorlineai.com",
+      logo: "https://anchorlineai.com/Anchorline_Logo.PNG",
+    },
+    {
+      "@type": "WebPage",
+      name: title,
+      description,
+      url: canonical,
+      isPartOf: { "@type": "WebSite", name: "Anchorline Systems", url: base },
+      about: { "@id": "https://anchorlineai.com/#organization" },
+    },
+  ],
+};
+const links = [
+  ["/growth-engine/", "The Growth Engine", "engine"],
+  ["/growth-engine/b2b/", "B2B Growth", "b2b"],
+  ["/growth-engine/local/", "Local Growth", "local"],
+  ["/about/", "About", "about"],
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/brand/mark.webp" type="image/webp" />
+    <meta property="og:title" content={title} /><meta
+      property="og:description"
+      content={description}
+    />
+    <meta property="og:type" content="website" /><meta
+      property="og:url"
+      content={canonical}
+    />
+    <meta
+      property="og:image"
+      content={new URL("/brand/social.png", base).href}
+    />
+    <meta property="og:image:width" content="1200" /><meta
+      property="og:image:height"
+      content="630"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
+    />
+  </head>
+  <body data-page={page}>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="preview-bar">
+      <span class="preview-dot" aria-hidden="true"></span> Owner-review preview <span
+        class="preview-detail">— not production · test intake only</span
+      >
+    </div>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="wordmark" href="/" aria-label="Anchorline Systems home"
+          ><img src="/brand/mark.webp" width="36" height="36" alt="" /><span
+            >ANCHORLINE<small>SYSTEMS</small></span
+          ></a
+        >
+        <nav class="desktop-nav" aria-label="Main navigation">
+          {
+            links.map(([href, text, key]) => (
+              <a href={href} aria-current={page === key ? "page" : undefined}>
+                {text}
+              </a>
+            ))
+          }
+        </nav>
+        <div class="header-actions">
+          <CTA location="header" /><a
+            class="mobile-audit-link"
+            href="/growth-audit/"
+            data-cta="audit"
+            data-location="header"
+            aria-label="Request Your Growth Audit"
+            >Growth Audit <span aria-hidden="true">↗</span></a
+          ><button
+            class="menu-toggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobile-navigation"><span></span><span></span></button
+          >
+        </div>
+      </div>
+      <nav
+        id="mobile-navigation"
+        class="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden
+      >
+        {
+          links.map(([href, text, key]) => (
+            <a href={href} aria-current={page === key ? "page" : undefined}>
+              {text}
+            </a>
+          ))
+        }<a href="/growth-audit/" data-cta="audit" data-location="mobile-menu"
+          >Request Your Growth Audit</a
+        >
+      </nav>
+    </header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div>
+          <a class="wordmark" href="/"
+            >ANCHORLINE<span class="sr-only"> home</span></a
+          ><p>
+            Your AI-powered growth department.<br />Intelligence. Execution.
+            Connected.
+          </p>
+        </div><div class="footer-nav">
+          <a href="/growth-engine/">The Growth Engine</a><a
+            href="/growth-engine/b2b/">B2B Growth</a
+          ><a href="/growth-engine/local/">Local Growth</a><a href="/about/"
+            >About Anchorline</a
+          ><a href="/growth-audit/" data-cta="audit" data-location="footer"
+            >Request Your Growth Audit</a
+          >
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Anchorline Systems LLC · Pennsylvania</span><a
+          href="https://amg.anchorlineai.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Client Login <span aria-hidden="true">↗</span></a
+        ><span class="preview-footer">Owner-review build · no live intake</span>
+      </div>
+    </footer>
+    <script>
+      import "../scripts/site.js";
+    </script>
+  </body>
+</html>
