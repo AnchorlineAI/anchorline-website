@@ -1,0 +1,180 @@
+---
+import Site from "../../layouts/Site.astro";
+import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
+---
+
+<Site
+  page="audit"
+  title="Request Your Growth Audit | Anchorline Systems"
+  description="Request a no-cost, qualification-based Growth Audit: three prioritized opportunities, supporting observations, a recommended Growth Engine configuration, and a next step."
+>
+  <section class="container audit-page">
+    <div class="audit-intro">
+      <p class="eyebrow">REQUEST YOUR GROWTH AUDIT</p><h1>
+        Three priorities.<br /><span class="accent-word"
+          >A clearer next step.</span>
+      </h1><p class="hero-lede">
+        We’ll review your current growth system and identify the three
+        highest-priority opportunities to improve how you attract, convert, and
+        follow up with potential customers.
+      </p><p>
+        If there’s a strong fit, we’ll also show you what we would build next.
+      </p><div class="audit-deliverables">
+        <p class="mono">YOUR CORE OUTPUT</p><ul>
+          <li>Three prioritized growth opportunities</li><li>
+            Supporting observations
+          </li><li>A recommended Growth Engine configuration</li><li>
+            A recommended next step
+          </li>
+        </ul>
+      </div><p class="audit-scope-note">
+        No-cost and qualification-based. This is not a comprehensive keyword
+        study, full marketing strategy, implementation engagement, or guarantee
+        of results.
+      </p>
+    </div>
+    <div class="form-panel">
+      <div class="form-panel-heading">
+        <span class="mono">OWNER-REVIEW TEST FORM</span><span class="test-badge"
+          >PREVIEW ONLY</span>
+      </div><h2>Tell us about your business.</h2><p class="form-context">
+        This preview is not live intake. Use clearly synthetic test details
+        only. Do not enter personal, client, confidential, or production
+        information.
+      </p>
+      <div class="isolation-notice" id="isolation-notice">
+        {
+          previewFormSubmissionEnabled
+            ? "Isolated preview submission is enabled for authorized synthetic tests."
+            : "Submission is locked while test-form registration and downstream isolation are verified. Field validation can be reviewed without sending data."
+        }
+      </div>
+      <form
+        name={previewFormName}
+        method="POST"
+        action="/growth-audit/received/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        data-audit-form
+        data-submission-enabled={String(previewFormSubmissionEnabled)}
+        novalidate
+      >
+        <input type="hidden" name="form-name" value={previewFormName} />
+        <input
+          type="hidden"
+          name="subject"
+          value="SYNTHETIC PREVIEW TEST — NOT PRODUCTION INTAKE"
+        />
+        <input
+          type="hidden"
+          name="test_context"
+          value="anchorline-owner-review-preview"
+        />
+        <p class="honeypot" aria-hidden="true">
+          <label
+            >Leave this empty<input
+              name="bot-field"
+              tabindex="-1"
+              autocomplete="off"
+            /></label>
+        </p>
+        <div class="field-grid">
+          <div class="field">
+            <label for="audit-name">Name <span>(required)</span></label><input
+              id="audit-name"
+              name="name"
+              type="text"
+              autocomplete="off"
+              required
+              maxlength="100"
+              aria-describedby="name-error"
+            /><span class="field-error" id="name-error"></span>
+          </div><div class="field">
+            <label for="audit-email"
+              >Business email <span>(required)</span></label
+            ><input
+              id="audit-email"
+              name="email"
+              type="email"
+              autocomplete="off"
+              required
+              maxlength="254"
+              aria-describedby="email-error"
+            /><span class="field-error" id="email-error"></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="audit-website"
+            >Company website <span>(required)</span></label
+          ><input
+            id="audit-website"
+            name="website"
+            type="url"
+            inputmode="url"
+            placeholder="https://example.com"
+            autocomplete="off"
+            required
+            maxlength="2048"
+            aria-describedby="website-error"
+          /><span class="field-error" id="website-error"></span>
+        </div>
+        <div class="field">
+          <label for="audit-type">Business type <span>(required)</span></label
+          ><select
+            id="audit-type"
+            name="business_type"
+            required
+            aria-describedby="type-error"
+            ><option value="">Select business type</option><option value="B2B"
+              >B2B</option
+            ><option value="Local Business">Local Business</option><option
+              value="Other">Other</option
+            ></select
+          ><span class="field-error" id="type-error"></span>
+        </div>
+        <div class="field">
+          <label for="audit-problem"
+            >What is the biggest growth problem you are trying to solve? <span
+              >(optional)</span
+            ></label
+          ><textarea
+            id="audit-problem"
+            name="growth_problem"
+            rows="4"
+            maxlength="1500"></textarea>
+        </div>
+        <p class="form-data-note">
+          Synthetic test data only. No notification to public intake is
+          authorized. Never submit credentials or confidential material.
+        </p>
+        <p
+          class="form-status"
+          role="status"
+          aria-live="polite"
+          id="form-status"
+          tabindex="-1"
+        >
+        </p>
+        <button class="button submit-button" type="button" data-form-submit
+          >{
+            previewFormSubmissionEnabled
+              ? "Send Synthetic Test Request"
+              : "Validate Test Fields"
+          }<span aria-hidden="true">→</span></button
+        >
+        <noscript
+          ><p class="isolation-notice">
+            JavaScript is required for this guarded test form. Submission is
+            unavailable without it.
+          </p></noscript
+        >
+      </form>
+      <div class="form-after">
+        <span class="mono">WHAT HAPPENS NEXT?</span><p>
+          A successful authorized test confirms receipt only. It does not create
+          an engagement or start a production audit.
+        </p>
+      </div>
+    </div>
+  </section>
+</Site>

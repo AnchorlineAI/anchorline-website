@@ -1,0 +1,149 @@
+---
+import Site from "../../layouts/Site.astro";
+import CTA from "../../components/CTA.astro";
+import AuditClose from "../../components/AuditClose.astro";
+import FAQ from "../../components/FAQ.astro";
+---
+
+<Site
+  page="b2b"
+  title="B2B Growth | The Anchorline AI Growth Engine"
+  description="Connect buyer intelligence, outbound acquisition, personalized prospect assets, qualified conversations, and website conversion for established B2B and service organizations."
+>
+  <section class="container page-hero market-hero">
+    <div>
+      <p class="eyebrow">THE GROWTH ENGINE / B2B CONFIGURATION</p><h1>
+        The right buyers.<br />A relevant approach.<br /><span
+          class="accent-word">A connected pipeline.</span>
+      </h1><p class="hero-lede">
+        For established B2B and service organizations that need the work
+        before—and after—the first conversation to operate as one system.
+      </p><CTA
+        href="/growth-audit/?pathway=b2b"
+        pathway="b2b"
+        location="b2b-hero"
+      />
+    </div><div
+      class="buyer-visual"
+      role="img"
+      aria-label="Illustrative B2B acquisition model: market, account, buyer, relevant approach, qualified conversation."
+    >
+      <span class="mono visual-index">B2B / INTELLIGENCE-LED ACQUISITION</span
+      ><div class="buyer-rings">
+        <div class="buyer-ring r1"><span>MARKET</span></div><div
+          class="buyer-ring r2"
+        >
+          <span>ACCOUNT</span>
+        </div><div class="buyer-ring r3"><span>BUYER</span></div><b
+          class="buyer-center">FIT</b>
+      </div><div class="buyer-destination">
+        <span class="mono">CONTEXT → RELEVANCE → CONVERSATION</span><p>
+          Better informed.<br /><strong>Better connected.</strong>
+        </p>
+      </div><small class="artifact-note"
+        >Conceptual model; no client or contact data.</small>
+    </div>
+  </section>
+  <section class="section container editorial-split">
+    <div>
+      <p class="eyebrow">FOR ESTABLISHED B2B & SERVICE ORGANIZATIONS</p><h2>
+        More activity isn’t<br />the same as<br /><span class="muted-heading"
+          >more opportunity.</span>
+      </h2>
+    </div><div class="editorial-copy">
+      <p class="large-copy">The work starts before the message.</p><p>
+        Who is a credible fit? What matters to them? What should the first
+        conversation be about? What will they find when they visit your website?
+      </p><p>
+        The B2B Growth configuration brings those questions into the same
+        operating process, connecting account research, relevant outreach,
+        prospect assets, qualification, and the conversion path.
+      </p>
+    </div>
+  </section>
+  <section class="section process-section">
+    <div class="container">
+      <p class="eyebrow">THE B2B ACQUISITION PATH</p><h2>
+        Context creates the opening.<br />Execution moves it forward.
+      </h2><ol class="engagement-steps">
+        <li>
+          <span class="mono">01</span><h3>Identify fit</h3><p>
+            Clarify target accounts, buyers, relevant signals, and commercial
+            context.
+          </p>
+        </li><li>
+          <span class="mono">02</span><h3>Create relevance</h3><p>
+            Connect the message to research and useful personalized assets.
+          </p>
+        </li><li>
+          <span class="mono">03</span><h3>Develop conversations</h3><p>
+            Coordinate outreach, follow-up, and qualification around the sales
+            motion.
+          </p>
+        </li><li>
+          <span class="mono">04</span><h3>Support conversion</h3><p>
+            Improve the website, lead capture, next step, and opportunity
+            handoff.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="section container evidence-composition">
+    <div>
+      <p class="eyebrow">EXAMPLE / NOT A CLIENT CASE STUDY</p><h2>
+        What informed<br />acquisition can produce.
+      </h2><p class="section-intro">
+        A useful prospect asset should show that the business was understood. It
+        should offer a relevant observation and a clear reason to talk—not
+        merely insert a name into a template.
+      </p>
+    </div><article class="example-board">
+      <div class="mono example-label">ILLUSTRATIVE PROSPECT BRIEF</div><div
+        class="example-row"
+      >
+        <span>Context</span><p>
+          The account’s offer, audience, and acquisition motion.
+        </p>
+      </div><div class="example-row">
+        <span>Observation</span><p>
+          A specific, supportable growth or conversion opportunity.
+        </p>
+      </div><div class="example-row">
+        <span>Asset</span><p>
+          A focused explanation, annotated opportunity, or relevant concept.
+        </p>
+      </div><div class="example-row">
+        <span>Next step</span><p>
+          A conversation connected to the observation—not a generic pitch.
+        </p>
+      </div>
+    </article>
+  </section>
+  <section class="section container faq-section">
+    <div>
+      <p class="eyebrow">SCOPE & FIT</p><h2>
+        Built around your<br />commercial reality.
+      </h2>
+    </div><FAQ
+      items={[
+        [
+          "Is this only outbound email?",
+          "No. Outbound acquisition is one capability. The configuration also considers buyer intelligence, personalized assets, website conversion, qualification, and follow-up. The scope determines the channels and responsibilities.",
+        ],
+        [
+          "Will Anchorline replace our sales team?",
+          "Not by default. The engagement should define how Anchorline supports or operates specific parts of acquisition and how opportunities pass to the responsible people.",
+        ],
+        [
+          "What should we expect from the Growth Audit?",
+          "Three prioritized opportunities with supporting observations, a recommended Growth Engine configuration, and a next step. It is not a comprehensive marketing strategy or a promise of pipeline results.",
+        ],
+      ]}
+    />
+  </section>
+  <AuditClose
+    pathway="b2b"
+    title="Where is your next B2B growth opportunity?"
+  />
+</Site>

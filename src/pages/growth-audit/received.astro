@@ -1,0 +1,29 @@
+---
+import Site from "../../layouts/Site.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<Site
+  page="receipt"
+  title="Test Request Receipt | Anchorline Preview"
+  description="Unindexed preview receipt experience. A direct visit to this page is not proof of a form submission."
+>
+  <section class="container receipt-page">
+    <div class="receipt-mark" aria-hidden="true">✓</div><p class="eyebrow">
+      PREVIEW / REQUEST RECEIPT
+    </p><h1 data-receipt-title>Request confirmation.</h1><p
+      class="large-copy"
+      data-receipt-message
+    >
+      No submission has been confirmed in this browser. Opening this page
+      directly does not submit a request.
+    </p><p class="receipt-note">
+      This is an owner-review preview, not production intake.
+    </p><CTA
+      href="/growth-audit/"
+      label="Return to the test form"
+      secondary
+    /><a class="text-link" href="/growth-engine/"
+      >Explore the Growth Engine <span aria-hidden="true">↗</span></a>
+  </section>
+</Site>
