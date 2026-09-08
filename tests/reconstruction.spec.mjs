@@ -45,7 +45,7 @@ test("all required destinations are distinct documents with real navigation", as
 test("seven connected stages and explicit illustrative interface disclosure", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/growth-engine/");
   await expect(page.locator(".r-growth-loop h3")).toHaveText([
     "Attract",
     "Identify",
@@ -123,7 +123,7 @@ test("content and distinct navigation remain usable without JavaScript", async (
   await expect(page.locator("h1")).toHaveText(
     "We build the systems that help good organizations grow.",
   );
-  await expect(page.locator(".r-growth-loop")).toBeVisible();
+  await expect(page.locator(".ia-engine-teaser")).toBeVisible();
   await page
     .getByRole("navigation", { name: "Main navigation", exact: true })
     .getByRole("link", { name: "Our Approach" })

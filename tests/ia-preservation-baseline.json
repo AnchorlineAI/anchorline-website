@@ -1,0 +1,32 @@
+{
+  "src/pages/growth-engine/index.astro": {
+    "sha256": "087f37d0809b1ec59d3fcbc066fb9e1810b5bb01e0a2fbab3ae07a465ea54c1e"
+  },
+  "src/pages/growth-engine/b2b.astro": {
+    "sha256": "5797cb67b6cf0d1409ca5146a580cb95d967729e0c5f58c05737eb7da99b8a07"
+  },
+  "src/pages/growth-engine/local.astro": {
+    "sha256": "69b40f181c8ba1e4f4a996edf5364a4cf5eaf14e7758ec47ad732e367d5ff4d2"
+  },
+  "src/pages/approach.astro": {
+    "sha256": "887b196c239714b85c11a19ff135e3219cfc2426cc1367c58599e90a89e907dc"
+  },
+  "src/pages/about.astro": {
+    "sha256": "3f062c850f04d28d921d25c90f66753b4f1bfcc7aad767ff34f51f86b73c9ffe"
+  },
+  "src/pages/growth-audit/index.astro": {
+    "sha256": "9fa6ef929479151a6357aec72870cecaca369b8e5ee0c32b03ef9fa8f88a578c"
+  },
+  "src/pages/growth-audit/received.astro": {
+    "sha256": "9e0e2e7ef718ac1012706932b16733011703fe8f867e183303816b43426a0338"
+  },
+  "src/scripts/site.js": {
+    "sha256": "88a746efc5ade5b6db647a4f0e49452da709a260a06f934ee73d0cd2215524c9"
+  },
+  "src/settings.ts": {
+    "sha256": "2342ae2cccc2a37e73f4f7f989d7782f2e524458a1f9dfc95cffc78b13f97936"
+  },
+  "netlify.toml": {
+    "sha256": "0ad7f397fd52c28694b32b8ac3e413c2d52f0b9b691d7a8a2f4dffe94ebf1a2b"
+  }
+}
