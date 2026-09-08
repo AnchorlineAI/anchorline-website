@@ -1,154 +1,1114 @@
 ---
-// Original, illustrative interface compositions. No real client or performance data.
+// Original illustrative fragments; no live client information or performance claims.
 const { variant = "engine" } = Astro.props;
-const isLocal = variant === "local";
-const isB2b = variant === "b2b";
-const title = isLocal
-  ? "Local Growth"
-  : isB2b
-    ? "Opportunity Intelligence"
-    : "Growth Engine";
-const rows = isLocal
-  ? [
-      ["Local presence", "Discovery", "Review visibility"],
-      ["Website journey", "Conversion", "Clear the next step"],
-      ["Customer inquiry", "Follow-up", "Connect the response"],
-    ]
-  : [
-      ["Right-fit accounts", "Intelligence", "Understand the buyer"],
-      ["Relevant conversations", "Engagement", "Give context to sales"],
-      ["Next-step opportunities", "Pipeline", "Keep momentum"],
-    ];
+const local = variant === "local";
+const b2b = variant === "b2b";
 ---
 
 <figure
-  class:list={["r-system engine-visual", `r-system-${variant}`]}
-  aria-label={`${title}: illustrative operating view, not live software or client results.`}
+  class:list={["v-scene engine-visual", `v-scene-${variant}`]}
+  aria-label={local
+    ? "Illustrative local growth system connecting search, trust, website, inquiry and follow-up."
+    : "Illustrative Growth Engine connecting intelligence, conversations, pipeline and follow-up."}
 >
-  <div class="r-system-halo" aria-hidden="true"></div>
-  <div class="r-console" data-depth="8">
-    <aside class="r-console-rail" aria-hidden="true">
-      <span class="r-rail-brand"
-        ><img src="/brand/mark.webp" width="27" height="27" alt="" /><b
-          >ANCHORLINE</b
-        ></span
-      >
-      <span class="r-rail-selected"><i>◫</i> Overview</span><span
-        ><i>◎</i> Intelligence</span
-      ><span><i>≋</i> Conversations</span><span><i>↗</i> Pipeline</span><span
-        ><i>◷</i> Follow-up</span
-      >
-      <span class="r-rail-foot">STRATEGY<br />CONNECTED TO<br />EXECUTION</span>
-    </aside>
-    <div class="r-console-main">
-      <div class="r-console-top">
-        <span class="r-console-breadcrumb">ANCHORLINE / SYSTEM VIEW</span><span
-          class="r-status"><i></i> Connected</span>
+  <svg
+    class="v-connections"
+    viewBox="0 0 1200 510"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    ><path d="M170 100C400 100 280 220 560 245S880 115 1030 100"></path><path
+      d="M210 405C410 405 360 285 570 270S820 395 1020 375"></path><path
+      d="M590 275C580 405 615 450 600 510"></path></svg
+  >
+  <div class="v-orbit v-orbit-one" aria-hidden="true"></div><div
+    class="v-orbit v-orbit-two"
+    aria-hidden="true"
+  >
+  </div>
+  <article class="v-sheet v-intelligence" data-depth="14" data-float>
+    <span class="v-kicker"
+      >{local ? "LOCAL VISIBILITY" : "BUYER INTELLIGENCE"}</span
+    ><strong class="v-sheet-title"
+      >{local ? "Be there when it matters." : "Find the fit."}</strong
+    >
+    <div class="v-intel-row">
+      <span class="v-intel-symbol" aria-hidden="true">◎</span><div>
+        <b>{local ? "Get found" : "Right-fit accounts"}</b><small
+          >{
+            local
+              ? "Search · answers · local presence"
+              : "Company · buyer · context"
+          }</small
+        >
       </div>
-      <div class="r-console-title">
-        <strong>{title}</strong><span class="r-window-dots" aria-hidden="true"
-          >•••</span>
-      </div>
-      <p class="r-console-description">
+    </div>
+    <div class="v-signal-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="v-foot-label"
+      >{local ? "A CLEARER FIRST IMPRESSION" : "RELEVANCE BEFORE REACH"}</span
+    >
+  </article>
+  <article class="v-sheet v-conversation" data-depth="-11" data-float>
+    <span class="v-kicker"
+      >{local ? "REPUTATION + CONFIDENCE" : "BETTER CONVERSATIONS"}</span
+    ><div class="v-message">
+      <i aria-hidden="true"></i><p>
         {
-          isLocal
-            ? "From being found to being chosen."
-            : isB2b
-              ? "Context before the conversation."
-              : "One view. A more connected way to grow."
+          local
+            ? "Clear services. Credible reasons to choose."
+            : "A relevant reason to talk."
         }
       </p>
-      <div class="r-overview-metrics">
-        <div>
-          <span>{isLocal ? "DISCOVERY" : "OPPORTUNITIES"}</span><strong
-            >{isLocal ? "Get found" : "Find the fit"}</strong
-          ><small>Visibility + intelligence</small>
-        </div>
-        <div>
-          <span>CONVERSATIONS</span><strong>Make it relevant</strong><small
-            >Context + connection</small>
-        </div>
-        <div>
-          <span>NEXT STEPS</span><strong>Move forward</strong><small
-            >Conversion + follow-up</small>
-        </div>
-      </div>
-      <div class="r-journey-view">
-        <div class="r-panel-label">
-          <strong
-            >{
-              isLocal
-                ? "Your local customer journey"
-                : "The opportunity journey"
-            }</strong
-          ><span>CONNECTED PROCESS</span>
-        </div>
-        <div class="r-journey-track" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i><span></span>
-        </div>
-        <div class="r-journey-labels">
-          <span>{isLocal ? "Search" : "Discover"}</span><span
-            >{isLocal ? "Trust" : "Understand"}</span
-          ><span>Engage</span><span>Convert</span><span>Follow up</span>
-        </div>
-      </div>
-      <div class="r-system-bottom">
-        <div class="r-opportunity-table">
-          <div class="r-panel-label">
-            <strong
-              >{
-                isLocal ? "Growth priorities" : "Opportunity intelligence"
-              }</strong>
-          </div>
-          {
-            rows.map(([name, stage, next]) => (
-              <div class="r-opportunity-row">
-                <>
-                  <span class="r-row-icon" aria-hidden="true">
-                    ↗
-                  </span>
-                  <div>
-                    <>
-                      <strong>{name}</strong>
-                      <small>{next}</small>
-                    </>
-                  </div>
-                  <span class="r-stage-tag">{stage}</span>
-                </>
-              </div>
-            ))
-          }
-        </div>
-        <div class="r-activity">
-          <div class="r-panel-label"><strong>Next best action</strong></div><ol>
-            <li>
-              <b>Understand the signal</b><span
-                >What changed? Why does it matter?</span>
-            </li><li>
-              <b>Connect the response</b><span
-                >The right message and next step.</span>
-            </li><li>
-              <b>Learn from the outcome</b><span
-                >Refine the next decision.</span>
-            </li>
-          </ol>
-        </div>
-      </div>
+    </div><div class="v-message v-message-reply">
+      <p>
+        {
+          local
+            ? "A useful answer. A practical next step."
+            : "Context that moves the conversation forward."
+        }
+      </p><span aria-hidden="true">↗</span>
     </div>
-  </div>
-  <div class="r-interface-note" data-depth="-5">
-    <span class="r-note-icon" aria-hidden="true">↗</span><div>
-      <small
-        >{isLocal ? "BEYOND THE FIRST SEARCH" : "FROM INSIGHT TO ACTION"}</small
-      ><strong
-        >{
-          isLocal
-            ? "A clearer path to your business."
-            : "A more connected way to grow."
-        }</strong>
+  </article>
+  <article class="v-sheet v-center" data-depth="-5" data-float>
+    <div class="v-center-heading">
+      <img src="/brand/mark.webp" alt="" width="30" height="30" /><div>
+        <span class="v-kicker">ANCHORLINE / CONNECTED SYSTEM</span><strong
+          class="r-console-title"
+          >{
+            local
+              ? "Local Growth"
+              : b2b
+                ? "Opportunity Intelligence"
+                : "Growth Engine"
+          }</strong
+        >
+      </div><span class="v-center-signal" aria-hidden="true"></span>
     </div>
-  </div>
+    {
+      local ? (
+        <div
+          class="v-local-map"
+          aria-label="Conceptual customer journey, not a real map or ranking report"
+        >
+          <>
+            <svg viewBox="0 0 400 150" aria-hidden="true">
+              <>
+                <path d="M0 30H135V150M70 0V87H400M265 0V150M0 124H400M340 0V65H175V150" />
+                <path class="v-map-route" d="M70 32V87H265V124H340" />
+              </>
+            </svg>
+            <span class="v-map-label v-map-search">Search</span>
+            <strong class="v-business">Your business</strong>
+            <span class="v-map-label v-map-inquiry">Inquiry</span>
+          </>
+        </div>
+      ) : b2b ? (
+        <div class="v-account-view">
+          <>
+            <div class="v-account-heading">
+              <>
+                <span>ACCOUNT CONTEXT</span>
+                <span>ILLUSTRATIVE VIEW</span>
+              </>
+            </div>
+            <div>
+              <>
+                <b>Understand the organization</b>
+                <span>Offer · market · commercial fit</span>
+              </>
+            </div>
+            <div>
+              <>
+                <b>See the opportunity</b>
+                <span>Signals · priorities · buyer context</span>
+              </>
+            </div>
+            <div>
+              <>
+                <b>Make the approach relevant</b>
+                <span>Observation → conversation → next step</span>
+              </>
+            </div>
+          </>
+        </div>
+      ) : (
+        <div class="v-center-flow">
+          <>
+            <div>
+              <>
+                <span class="v-node">01</span>
+                <b>Intelligence</b>
+                <small>See what matters</small>
+              </>
+            </div>
+            <span class="v-flow-line" aria-hidden="true" />
+            <div>
+              <>
+                <span class="v-node v-node-active">02</span>
+                <b>Execution</b>
+                <small>Connect the work</small>
+              </>
+            </div>
+            <span class="v-flow-line" aria-hidden="true" />
+            <div>
+              <>
+                <span class="v-node">03</span>
+                <b>Progress</b>
+                <small>Learn & improve</small>
+              </>
+            </div>
+          </>
+        </div>
+      )
+    }
+    <div class="v-center-footer">
+      <span>Strategy connected to execution.</span><span aria-hidden="true"
+        >↗</span
+      >
+    </div>
+  </article>
+  <article class="v-sheet v-pipeline" data-depth="20" data-float>
+    <span class="v-kicker"
+      >{local ? "WEBSITE + CONVERSION" : "A STRONGER PIPELINE"}</span
+    ><strong class="v-sheet-title"
+      >{
+        local ? "Make the next step clear." : "Keep opportunity moving."
+      }</strong
+    ><div class="v-pipeline-track">
+      <span>{local ? "Discover" : "Identify"}</span><i aria-hidden="true"
+      ></i><span>{local ? "Choose" : "Engage"}</span><i aria-hidden="true"
+      ></i><span>Convert</span>
+    </div>
+  </article>
+  <article class="v-sheet v-follow" data-depth="-17" data-float>
+    <span class="v-kicker">FOLLOW-UP</span><strong class="v-sheet-title"
+      >The next move, connected.</strong
+    ><p><span aria-hidden="true">✓</span> Clear ownership</p><p>
+      <span aria-hidden="true">↗</span> A useful next step
+    </p>
+  </article>
   <figcaption>
     Illustrative system view · not live software or client results
   </figcaption>
 </figure>
+<style>
+  .v-scene.engine-visual {
+    position: relative;
+    width: 100%;
+    height: 510px;
+    min-height: 0;
+    margin: 0;
+    isolation: isolate;
+    overflow: visible;
+    background: none;
+    transform: none;
+    border: 0;
+    aspect-ratio: auto;
+    font-family: var(--font);
+    text-align: left;
+  }
+  .v-connections {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #a5c9ed;
+    stroke-width: 1;
+    overflow: visible;
+    opacity: 0.72;
+  }
+  .v-connections path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: calc(1000 * (1 - var(--story-progress, 1)));
+    transition: stroke-dashoffset 0.2s linear;
+  }
+  .v-connections path:last-child {
+    stroke-dasharray: 3 7;
+    stroke-dashoffset: 0;
+  }
+  .v-orbit {
+    position: absolute;
+    border: 1px solid #d5e9f899;
+    pointer-events: none;
+    transform: rotate(-12deg);
+    z-index: -1;
+  }
+  .v-orbit-one {
+    width: 70%;
+    height: 53%;
+    top: 26%;
+    left: 15%;
+    border-radius: 50%;
+  }
+  .v-orbit-two {
+    width: 53%;
+    height: 83%;
+    top: 2%;
+    left: 26%;
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+  .v-sheet {
+    position: absolute;
+    background: #fffffff5;
+    border: 1px solid #dce8f3;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow:
+      0 30px 45px -30px #476f9d66,
+      0 4px 8px -5px #7d9dbc33;
+    will-change: auto;
+  }
+  .v-kicker {
+    display: block;
+    color: #527397;
+    font-family: var(--mono);
+    font-size: 8px;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+  }
+  .v-sheet-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.3;
+    margin-top: 11px;
+  }
+  .v-intelligence {
+    width: 245px;
+    left: 3%;
+    top: 0;
+    transform: rotate(-5deg);
+    --float-delay: -2s;
+    --float-duration: 13s;
+  }
+  .v-intel-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 21px;
+  }
+  .v-intel-row b {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .v-intel-row small {
+    display: block;
+    font-size: 9px;
+    color: #5b728a;
+    margin-top: 3px;
+  }
+  .v-intel-symbol {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background: #eef7ff;
+    color: #3f80c5;
+    border-radius: 6px;
+  }
+  .v-signal-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  .v-signal-lines i {
+    height: 4px;
+    background: #e7f1fb;
+    border-radius: 3px;
+    width: 80%;
+  }
+  .v-signal-lines i:nth-child(2) {
+    width: 55%;
+  }
+  .v-signal-lines i:nth-child(3) {
+    width: 67%;
+  }
+  .v-foot-label {
+    display: block;
+    font-size: 7px;
+    color: #527397;
+    letter-spacing: 0.06em;
+    margin-top: 18px;
+  }
+  .v-conversation {
+    width: 265px;
+    right: 2%;
+    top: 4px;
+    transform: rotate(4deg);
+    --float-delay: -4s;
+    --float-duration: 16s;
+  }
+  .v-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .v-message p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #334f6d;
+  }
+  .v-message i {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    border-radius: 50%;
+    background: #d3e9ff;
+    margin-top: 4px;
+  }
+  .v-message-reply {
+    padding: 12px 14px;
+    background: #f2f8ff;
+    border-radius: 4px;
+    margin: 15px 0 0 15px;
+  }
+  .v-message-reply span {
+    color: #3c7bc3;
+  }
+  .v-center {
+    width: 420px;
+    left: calc(50% - 210px);
+    top: 123px;
+    z-index: 3;
+    padding: 23px 25px;
+    box-shadow:
+      0 40px 60px -32px #4476a960,
+      0 10px 0 -5px #eef6fe;
+    --float-delay: -1s;
+    --float-duration: 18s;
+    transform: rotate(-1deg);
+  }
+  .v-center-heading {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .v-center-heading img {
+    border-radius: 4px;
+    flex: none;
+  }
+  .v-center-heading .r-console-title {
+    display: block;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+  .v-center-heading .v-kicker {
+    font-size: 6px;
+  }
+  .v-center-signal {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #568978;
+    margin-left: auto;
+  }
+  .v-center-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+  .v-center-flow > div {
+    min-width: 74px;
+    text-align: center;
+  }
+  .v-node {
+    width: 33px;
+    height: 33px;
+    border: 1px solid #cfdef0;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 9px;
+    border-radius: 9px;
+    color: #4779b5;
+    font-size: 9px;
+    font-family: var(--mono);
+    background: #f8fbff;
+  }
+  .v-node-active {
+    color: #fff;
+    background: #3974c5;
+    border-color: #3974c5;
+    box-shadow: 0 0 0 5px #eff6ff;
+  }
+  .v-center-flow b {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .v-center-flow small {
+    font-size: 8px;
+    color: #607891;
+    display: block;
+    margin-top: 3px;
+  }
+  .v-flow-line {
+    width: 35px;
+    height: 1px;
+    background: #b5d1ee;
+    align-self: flex-start;
+    margin-top: 16px;
+  }
+  .v-center-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e9f0f7;
+    padding-top: 15px;
+    margin-top: 25px;
+    color: #566f89;
+    font-size: 9px;
+  }
+  .v-center-footer > span:last-child {
+    color: #4485cf;
+    font-size: 16px;
+  }
+  .v-pipeline {
+    width: 280px;
+    left: 7%;
+    top: 313px;
+    transform: rotate(3deg);
+    --float-delay: -7s;
+    --float-duration: 15s;
+  }
+  .v-pipeline-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    color: #4e7195;
+    margin-top: 23px;
+  }
+  .v-pipeline-track i {
+    height: 1px;
+    background: #b5d3f1;
+    flex: 1;
+  }
+  .v-follow {
+    width: 260px;
+    right: 4%;
+    top: 294px;
+    transform: rotate(-4deg);
+    --float-delay: -5s;
+    --float-duration: 17s;
+  }
+  .v-follow .v-sheet-title {
+    font-size: 16px;
+  }
+  .v-follow p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 17px;
+    color: #4a627d;
+  }
+  .v-follow p + p {
+    margin-top: 8px;
+  }
+  .v-follow p span {
+    color: #327dc4;
+    display: inline-block;
+    width: 23px;
+  }
+  .v-scene figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 9px;
+    color: #57738f;
+    line-height: 1.6;
+  }
+  .v-account-view {
+    margin-top: 24px;
+  }
+  .v-account-heading {
+    display: flex;
+    justify-content: space-between;
+    font-size: 6px;
+    letter-spacing: 0.07em;
+    color: #5d7894;
+  }
+  .v-account-view > div:not(.v-account-heading) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 13px 0;
+    border-bottom: 1px solid #edf2f8;
+  }
+  .v-account-view b {
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .v-account-view > div > span {
+    font-size: 8px;
+    color: #60768e;
+  }
+  .v-local-map {
+    position: relative;
+    height: 155px;
+    background: linear-gradient(150deg, #f4faff, #fff);
+    margin-top: 22px;
+    overflow: hidden;
+    border-radius: 7px;
+  }
+  .v-local-map svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #dceaf7;
+    stroke-width: 13px;
+  }
+  .v-local-map .v-map-route {
+    stroke: #98c1eb;
+    stroke-width: 2;
+    stroke-dasharray: 4 4;
+  }
+  .v-business {
+    position: absolute;
+    left: 33%;
+    top: 42%;
+    background: #3974bb;
+    border-radius: 5px;
+    padding: 10px 13px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 10px 22px -14px #3268a8;
+  }
+  .v-map-label {
+    position: absolute;
+    font-size: 8px;
+    background: #fff;
+    padding: 5px 9px;
+    border: 1px solid #e0ebf7;
+    border-radius: 4px;
+    color: #4b6d90;
+  }
+  .v-map-search {
+    left: 7%;
+    top: 14%;
+  }
+  .v-map-inquiry {
+    right: 5%;
+    bottom: 8%;
+  }
+  .v-scene-b2b .v-center {
+    top: 105px;
+    left: 8%;
+    width: 76%;
+    transform: rotate(-2deg);
+  }
+  .v-scene-b2b .v-intelligence {
+    left: -3%;
+    top: -19px;
+    width: 205px;
+    padding: 18px;
+    z-index: 2;
+  }
+  .v-scene-b2b .v-intelligence .v-signal-lines,
+  .v-scene-b2b .v-foot-label {
+    display: none;
+  }
+  .v-scene-b2b .v-conversation {
+    right: -2%;
+    top: 33px;
+    width: 205px;
+    padding: 18px;
+    z-index: 4;
+  }
+  .v-scene-b2b .v-conversation .v-message-reply {
+    display: none;
+  }
+  .v-scene-b2b .v-pipeline {
+    left: -3%;
+    top: 374px;
+    width: 225px;
+    padding: 18px;
+    z-index: 4;
+  }
+  .v-scene-b2b .v-follow {
+    right: -2%;
+    top: 363px;
+    width: 225px;
+    padding: 18px;
+    z-index: 4;
+  }
+  .v-scene-b2b .v-sheet-title {
+    font-size: 15px;
+  }
+  .v-scene-b2b .v-follow p {
+    margin-top: 10px;
+  }
+  .v-scene-b2b .v-follow p + p {
+    margin-top: 5px;
+  }
+  .v-scene-b2b .v-center-footer {
+    margin-top: 16px;
+  }
+  .v-scene-local.engine-visual {
+    height: 650px;
+  }
+  .v-scene-local .v-center {
+    left: 8%;
+    width: 82%;
+    top: 165px;
+    transform: rotate(1deg);
+  }
+  .v-scene-local .v-intelligence {
+    left: -2%;
+    top: 0;
+    width: 205px;
+    padding: 17px;
+    z-index: 4;
+  }
+  .v-scene-local .v-signal-lines,
+  .v-scene-local .v-foot-label {
+    display: none;
+  }
+  .v-scene-local .v-conversation {
+    right: -1%;
+    top: 25px;
+    width: 205px;
+    padding: 17px;
+    z-index: 2;
+  }
+  .v-scene-local .v-conversation .v-message-reply {
+    display: none;
+  }
+  .v-scene-local .v-pipeline {
+    top: 490px;
+    left: 0;
+    width: 225px;
+    padding: 17px;
+    z-index: 4;
+  }
+  .v-scene-local .v-follow {
+    top: 490px;
+    right: -1%;
+    width: 220px;
+    padding: 17px;
+    z-index: 4;
+  }
+  .v-scene-local .v-sheet-title {
+    font-size: 15px;
+  }
+  .v-scene-local .v-follow p {
+    margin-top: 10px;
+  }
+  .v-scene-local .v-follow p + p {
+    margin-top: 5px;
+  }
+  .v-scene-local .v-center-footer {
+    margin-top: 18px;
+  }
+  @keyframes v-float {
+    0%,
+    100% {
+      translate: 0 var(--depth-y, 0px);
+    }
+    50% {
+      translate: 2px calc(var(--depth-y, 0px) - 7px);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    :global(body:not([data-motion-paused]))
+      .v-scene[data-active="true"]
+      [data-float] {
+      animation: v-float var(--float-duration, 15s) ease-in-out
+        var(--float-delay, 0s) infinite;
+    }
+  }
+  :global(body[data-motion-paused]) [data-float] {
+    animation: none !important;
+    translate: none !important;
+  }
+  @media (max-width: 1080px) {
+    .v-scene-engine .v-center {
+      width: 370px;
+      left: calc(50% - 185px);
+    }
+    .v-scene-engine .v-intelligence {
+      width: 210px;
+      left: 0;
+      padding: 18px;
+    }
+    .v-scene-engine .v-conversation {
+      width: 220px;
+      right: 0;
+      padding: 18px;
+    }
+    .v-scene-engine .v-pipeline {
+      left: 0;
+      width: 240px;
+      padding: 18px;
+    }
+    .v-scene-engine .v-follow {
+      right: 0;
+      width: 230px;
+      padding: 18px;
+    }
+    .v-scene-b2b .v-center,
+    .v-scene-local .v-center {
+      left: 4%;
+      width: 92%;
+      padding: 19px;
+    }
+    .v-scene-b2b .v-intelligence,
+    .v-scene-local .v-intelligence {
+      width: 46%;
+      left: 0;
+    }
+    .v-scene-b2b .v-conversation,
+    .v-scene-local .v-conversation {
+      width: 46%;
+      right: 0;
+    }
+    .v-scene-b2b .v-pipeline,
+    .v-scene-local .v-pipeline {
+      width: 49%;
+      left: 0;
+    }
+    .v-scene-b2b .v-follow,
+    .v-scene-local .v-follow {
+      width: 48%;
+      right: 0;
+    }
+    .v-account-view > div:not(.v-account-heading) {
+      display: block;
+    }
+    .v-account-view > div:not(.v-account-heading) > span {
+      display: block;
+      margin-top: 3px;
+    }
+    .v-scene-b2b .v-center {
+      top: 108px;
+    }
+    .v-scene-b2b .v-pipeline,
+    .v-scene-b2b .v-follow {
+      top: 400px;
+    }
+    .v-scene-b2b.engine-visual {
+      height: 550px;
+    }
+  }
+  @media (min-width: 761px) and (max-width: 900px) {
+    .v-scene-engine.engine-visual {
+      height: 600px;
+    }
+    .v-scene-engine .v-pipeline {
+      top: 410px;
+    }
+    .v-scene-engine .v-follow {
+      top: 400px;
+    }
+  }
+  @media (min-width: 761px) and (max-width: 1080px) {
+    .v-scene-local.engine-visual {
+      height: 650px;
+    }
+    .v-scene-local .v-center {
+      top: 175px;
+    }
+    .v-scene-local .v-pipeline,
+    .v-scene-local .v-follow {
+      top: 510px;
+    }
+  }
+  @media (max-width: 760px) {
+    .v-orbit {
+      transform: none;
+    }
+    .v-scene.engine-visual {
+      height: 500px;
+      margin-top: 0;
+      width: 100%;
+    }
+    .v-sheet {
+      border-radius: 7px;
+    }
+    .v-scene .v-center {
+      width: 92%;
+      left: 4%;
+      top: 151px;
+      padding: 18px 17px;
+      transform: rotate(-1deg);
+    }
+    .v-center-heading .r-console-title {
+      font-size: 21px;
+    }
+    .v-center-heading {
+      gap: 9px;
+    }
+    .v-center-heading img {
+      width: 26px;
+      height: 26px;
+    }
+    .v-center-heading .v-kicker {
+      font-size: 5px;
+    }
+    .v-center-flow {
+      margin-top: 24px;
+    }
+    .v-center-flow > div {
+      min-width: 65px;
+    }
+    .v-center-flow b {
+      font-size: 9px;
+    }
+    .v-center-flow small {
+      font-size: 7px;
+    }
+    .v-flow-line {
+      width: 19px;
+    }
+    .v-node {
+      width: 28px;
+      height: 28px;
+      font-size: 8px;
+      border-radius: 7px;
+    }
+    .v-center-footer {
+      font-size: 8px;
+      margin-top: 20px;
+      padding-top: 12px;
+    }
+    .v-scene .v-intelligence {
+      width: 48%;
+      left: 0;
+      top: 5px;
+      padding: 15px 12px;
+    }
+    .v-scene .v-conversation {
+      width: 46%;
+      right: 0;
+      top: 28px;
+      padding: 15px 12px;
+    }
+    .v-kicker {
+      font-size: 6px;
+      letter-spacing: 0.06em;
+    }
+    .v-sheet-title,
+    .v-scene-b2b .v-sheet-title,
+    .v-scene-local .v-sheet-title {
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .v-intel-row {
+      margin-top: 12px;
+      gap: 7px;
+    }
+    .v-intel-row b {
+      font-size: 9px;
+    }
+    .v-intel-row small {
+      font-size: 7px;
+      line-height: 1.5;
+    }
+    .v-intel-symbol {
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+    }
+    .v-signal-lines,
+    .v-foot-label {
+      display: none;
+    }
+    .v-message {
+      margin-top: 12px;
+      gap: 7px;
+    }
+    .v-message p {
+      font-size: 10px;
+    }
+    .v-message i {
+      width: 10px;
+      height: 10px;
+    }
+    .v-message-reply,
+    .v-scene .v-message-reply {
+      display: none;
+    }
+    .v-scene .v-pipeline {
+      left: 0;
+      top: 361px;
+      width: 51%;
+      padding: 16px 12px;
+      z-index: 4;
+    }
+    .v-scene .v-follow {
+      right: 0;
+      top: 347px;
+      width: 46%;
+      padding: 16px 12px;
+      z-index: 4;
+    }
+    .v-follow .v-sheet-title {
+      font-size: 12px;
+    }
+    .v-follow p,
+    .v-scene .v-follow p {
+      font-size: 9px;
+      margin-top: 12px;
+    }
+    .v-follow p + p,
+    .v-scene .v-follow p + p {
+      margin-top: 5px;
+    }
+    .v-pipeline-track {
+      font-size: 7px;
+      gap: 5px;
+      margin-top: 15px;
+    }
+    .v-scene figcaption {
+      font-size: 7px;
+      bottom: 0;
+    }
+    .v-orbit-one {
+      width: 92%;
+      left: 4%;
+      height: 59%;
+      top: 16%;
+    }
+    .v-orbit-two {
+      width: 83%;
+      left: 8%;
+      height: 80%;
+      top: 10%;
+    }
+    .v-connections {
+      opacity: 0.5;
+    }
+    .v-scene-b2b .v-center,
+    .v-scene-local .v-center {
+      top: 153px;
+    }
+    .v-scene-b2b.engine-visual {
+      height: 605px;
+    }
+    .v-scene-local.engine-visual {
+      height: 585px;
+    }
+    .v-scene-b2b .v-pipeline,
+    .v-scene-b2b .v-follow {
+      top: 461px;
+    }
+    .v-scene-local .v-pipeline,
+    .v-scene-local .v-follow {
+      top: 435px;
+    }
+    .v-account-view {
+      margin-top: 18px;
+    }
+    .v-local-map {
+      height: 145px;
+    }
+    .v-business {
+      font-size: 10px;
+      left: 29%;
+    }
+    .v-intelligence,
+    .v-conversation,
+    .v-pipeline,
+    .v-follow {
+      transform: rotate(-2deg);
+    }
+    .v-conversation,
+    .v-pipeline {
+      transform: rotate(2deg);
+    }
+  }
+  @media (max-width: 370px) {
+    .v-scene.engine-visual {
+      height: 485px;
+    }
+    .v-scene .v-center {
+      padding: 16px 12px;
+      top: 151px;
+    }
+    .v-center-heading .r-console-title {
+      font-size: 19px;
+    }
+    .v-center-flow > div {
+      min-width: 57px;
+    }
+    .v-center-flow b {
+      font-size: 8px;
+    }
+    .v-flow-line {
+      width: 12px;
+    }
+    .v-sheet-title,
+    .v-scene .v-sheet-title {
+      font-size: 11px;
+    }
+    .v-kicker {
+      font-size: 5px;
+    }
+    .v-message p {
+      font-size: 9px;
+    }
+    .v-center-heading img {
+      width: 22px;
+      height: 22px;
+    }
+    .v-center-heading .v-kicker {
+      font-size: 4px;
+    }
+    .v-follow p {
+      font-size: 8px;
+    }
+    .v-intel-row {
+      gap: 5px;
+    }
+    .v-intel-row b {
+      font-size: 8px;
+    }
+    .v-intel-row small {
+      font-size: 6px;
+    }
+    .v-scene .v-pipeline {
+      top: 349px;
+    }
+    .v-scene .v-follow {
+      top: 342px;
+    }
+    .v-scene-b2b.engine-visual {
+      height: 590px;
+    }
+    .v-scene-local.engine-visual {
+      height: 560px;
+    }
+    .v-scene-b2b .v-pipeline,
+    .v-scene-b2b .v-follow {
+      top: 450px;
+    }
+    .v-scene-local .v-pipeline,
+    .v-scene-local .v-follow {
+      top: 426px;
+    }
+    .v-scene figcaption {
+      font-size: 6px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-float] {
+      animation: none !important;
+      translate: none !important;
+    }
+    .v-connections path {
+      stroke-dashoffset: 0 !important;
+      transition: none !important;
+    }
+  }
+</style>

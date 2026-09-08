@@ -4,6 +4,7 @@ if (toggle) {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
   const desktop = matchMedia("(min-width: 1081px) and (pointer: fine)");
   const layers = [...document.querySelectorAll("[data-depth]")];
+  const stories = [...document.querySelectorAll(".v-scene, .r-growth-loop")];
   let paused = false;
   try {
     paused = sessionStorage.getItem("anchorline-motion-paused") === "true";
@@ -14,6 +15,7 @@ if (toggle) {
     layers.forEach((layer) => {
       if (paused || reduce.matches || !desktop.matches) {
         layer.style.removeProperty("translate");
+        layer.style.setProperty("--depth-y", "0px");
         return;
       }
       const rect = layer.getBoundingClientRect();
@@ -22,7 +24,25 @@ if (toggle) {
         -1,
         Math.min(1, (rect.top - innerHeight / 2) / innerHeight),
       );
-      layer.style.translate = `0 ${progress * Number(layer.dataset.depth)}px`;
+      const offset = progress * Number(layer.dataset.depth);
+      layer.style.setProperty("--depth-y", `${offset}px`);
+      if (!layer.hasAttribute("data-float"))
+        layer.style.translate = `0 ${offset}px`;
+    });
+    stories.forEach((story) => {
+      const rect = story.getBoundingClientRect();
+      const progress =
+        paused || reduce.matches
+          ? 1
+          : Math.max(
+              0,
+              Math.min(
+                1,
+                (innerHeight - rect.top) /
+                  (innerHeight * 0.7 + rect.height * 0.2),
+              ),
+            );
+      story.style.setProperty("--story-progress", String(progress));
     });
   };
   const queueDepth = () => {
