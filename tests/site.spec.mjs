@@ -5,6 +5,7 @@ const routes = [
   "/growth-engine/",
   "/growth-engine/b2b/",
   "/growth-engine/local/",
+  "/approach/",
   "/about/",
   "/growth-audit/",
   "/growth-audit/received/",
@@ -146,7 +147,7 @@ test("keyboard skip link and reduced motion", async ({ page }) => {
   await expect(page.locator("main")).toBeFocused();
   expect(
     await page
-      .locator(".signal-note")
+      .locator(".r-interface-note")
       .evaluate((e) => getComputedStyle(e).animationName),
   ).toBe("none");
 });

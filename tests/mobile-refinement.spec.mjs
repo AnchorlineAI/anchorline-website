@@ -1,8 +1,34 @@
-import { test, expect } from '@playwright/test';
-for (const width of [320,390]) {
- test(`mobile-specific hero composition ${width}`,async({page})=>{
-  await page.setViewportSize({width,height:844});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await page.evaluate(()=>document.fonts.ready);
-  const metrics=await page.evaluate(()=>{const heading=document.querySelector('h1'),visual=document.querySelector('.home-hero>.engine-visual'),cta=document.querySelector('.hero-actions>.button'),core=document.querySelector('.engine-core strong');const r=core.getBoundingClientRect();return{headline:parseFloat(getComputedStyle(heading).fontSize),visualTop:visual.getBoundingClientRect().top,visualBottom:visual.getBoundingClientRect().bottom,ctaWidth:cta.getBoundingClientRect().width,centerTextUncovered:!!document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('.engine-core')}});
-  expect(metrics.headline).toBeLessThanOrEqual(45);expect(metrics.visualTop).toBeLessThan(280);expect(metrics.visualBottom).toBeLessThan(550);expect(metrics.ctaWidth).toBeLessThan(width*.8);expect(metrics.centerTextUncovered).toBe(true);
- });
+import { test, expect } from "@playwright/test";
+for (const width of [320, 390]) {
+  test(`mobile-specific interface composition ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+    const metrics = await page.evaluate(() => {
+      const heading = document.querySelector("h1"),
+        visual = document.querySelector(".r-home-hero>.r-system"),
+        cta = document.querySelector(".r-actions>.button"),
+        title = document.querySelector(".r-console-title");
+      const r = title.getBoundingClientRect();
+      return {
+        headline: parseFloat(getComputedStyle(heading).fontSize),
+        visualTop: visual.getBoundingClientRect().top,
+        ctaWidth: cta.getBoundingClientRect().width,
+        titleVisible: r.bottom < innerHeight,
+        titleUncovered: !!document
+          .elementFromPoint(r.left + r.width / 2, r.top + r.height / 2)
+          ?.closest(".r-console-title"),
+        overflow: document.documentElement.scrollWidth > innerWidth,
+      };
+    });
+    expect(metrics.headline).toBeLessThanOrEqual(45);
+    expect(metrics.visualTop).toBeLessThan(633);
+    expect(metrics.ctaWidth).toBeLessThan(width * 0.8);
+    expect(metrics.titleVisible).toBe(true);
+    expect(metrics.titleUncovered).toBe(true);
+    expect(metrics.overflow).toBe(false);
+    await expect(page.locator(".r-console-rail")).toBeHidden();
+    await expect(page.locator(".r-journey-view")).toBeVisible();
+  });
 }

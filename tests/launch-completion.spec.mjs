@@ -25,34 +25,35 @@ test("approved founder portrait renders with responsive crop and alt text", asyn
   ).toBe(true);
 });
 
-test("signature motion activates and reduced-motion preserves an intentional static state", async ({
+test("discovery motion activates, can be paused, and respects reduced motion", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
-  await expect(page.locator(".engine-visual")).toHaveAttribute(
+  await expect(page.locator(".r-system")).toHaveAttribute(
     "data-active",
     "true",
   );
   expect(
     await page
-      .locator(".pulse-one")
+      .locator(".r-interface-note")
       .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("pulse-one");
+  ).toBe("r-drift");
+  await page.locator("[data-motion-toggle]").click();
+  await expect(page.locator("body")).toHaveAttribute("data-motion-paused", "");
   expect(
     await page
-      .locator(".orbital-one")
+      .locator(".r-interface-note")
       .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("orbit-breathe");
+  ).toBe("none");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.reload();
+  await expect(page.locator("[data-motion-toggle]")).toBeDisabled();
   expect(
     await page
-      .locator(".pulse-one")
-      .evaluate((el) => ({
-        animation: getComputedStyle(el).animationName,
-        opacity: getComputedStyle(el).opacity,
-      })),
-  ).toEqual({ animation: "none", opacity: "0.65" });
+      .locator(".r-interface-note")
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("none");
+  await expect(page.locator(".r-console-title")).toBeVisible();
 });

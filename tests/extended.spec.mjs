@@ -6,6 +6,7 @@ const routes = [
   "/growth-engine/",
   "/growth-engine/b2b/",
   "/growth-engine/local/",
+  "/approach/",
   "/about/",
   "/growth-audit/",
   "/growth-audit/received/",

@@ -1,0 +1,86 @@
+{
+  "Anchorline_Logo.PNG": {
+    "bytes": 178446,
+    "sha256": "a63a2d16901dbc42ccc3ab02450dc848858824084ad75eb35ae963ec350cba7d"
+  },
+  "astro.config.mjs": {
+    "bytes": 237,
+    "sha256": "cfa2ac682c3adbe30d96c387e0cc0586f0b1fde3a67533e6ab1ab37602caa1b0"
+  },
+  "kris-mcfadden.jpg": {
+    "bytes": 68615,
+    "sha256": "b4137fb6ae8105acd1f521afe51fbcbfa9a4a675ab625211a551d8d087847d25"
+  },
+  "logo.PNG": {
+    "bytes": 1884000,
+    "sha256": "5e4154edaf7bc947473e664c4cbb21dc4a15f586730b66b8b34a8fbca293a327"
+  },
+  "logo.png": {
+    "bytes": 75034,
+    "sha256": "b7e902b68fc4b875dca2300dee053533f438c532b8c4f1d3442956cab0637ebd"
+  },
+  "netlify.toml": {
+    "bytes": 517,
+    "sha256": "0ad7f397fd52c28694b32b8ac3e413c2d52f0b9b691d7a8a2f4dffe94ebf1a2b"
+  },
+  "package-lock.json": {
+    "bytes": 147014,
+    "sha256": "2b3592bfac2e97a06d739a9514ab605f342a2cc7dd6f94dfa6a7a0950ce3fc7e"
+  },
+  "package.json": {
+    "bytes": 754,
+    "sha256": "84f13da1a05eaf714bd61df8f9f844ba012453e9fc08dba3f801d7e4ba97809c"
+  },
+  "public/_headers": {
+    "bytes": 260,
+    "sha256": "7e21c4b3c65393e59743c59999506f641caa4b2a9d9e046abe9d92a58c4ee526"
+  },
+  "public/_redirects": {
+    "bytes": 423,
+    "sha256": "dd44537cb4834aa7e49969808a9181f31478bdd7aaaa76469d0873b6a58d8bb6"
+  },
+  "public/brand/social.svg": {
+    "bytes": 1432,
+    "sha256": "8d92bc8d28e5bb808bf02f3c6d20e8cffd13fa548365e8a63de01d976811f4fa"
+  },
+  "public/robots.txt": {
+    "bytes": 26,
+    "sha256": "331ea9090db0c9f6f597bd9840fd5b171830f6e0b3ba1cb24dfa91f0c95aedc1"
+  },
+  "scripts/block-production.mjs": {
+    "bytes": 146,
+    "sha256": "b7b10e0bcb5c9ca5d372a2ee89902fe19b0f5d5dc57a2975c46c3be19fad7efc"
+  },
+  "scripts/check-output.mjs": {
+    "bytes": 2524,
+    "sha256": "ec389cd027f0abd4e641dd5821293665e94873a69ca340c9396312729b19fa40"
+  },
+  "scripts/guard.mjs": {
+    "bytes": 400,
+    "sha256": "bfdbbdebc22958607bffd7f400e9201725164a2462a2ebbb81fc361d76504743"
+  },
+  "scripts/prepare-assets.mjs": {
+    "bytes": 783,
+    "sha256": "cdb50c79e1dacdaba664a86db57296542572c73f0fe00eb8c8aae8eec2b3f86f"
+  },
+  "src/pages/growth-audit/index.astro": {
+    "bytes": 6466,
+    "sha256": "9fa6ef929479151a6357aec72870cecaca369b8e5ee0c32b03ef9fa8f88a578c"
+  },
+  "src/pages/growth-audit/received.astro": {
+    "bytes": 1056,
+    "sha256": "9e0e2e7ef718ac1012706932b16733011703fe8f867e183303816b43426a0338"
+  },
+  "src/scripts/diagnostics.js": {
+    "bytes": 1415,
+    "sha256": "a75f8117216c751f2a53e0e33d71d5a47610ea5c32e9636492410c4cb8c44c12"
+  },
+  "src/scripts/site.js": {
+    "bytes": 7846,
+    "sha256": "88a746efc5ade5b6db647a4f0e49452da709a260a06f934ee73d0cd2215524c9"
+  },
+  "src/settings.ts": {
+    "bytes": 298,
+    "sha256": "2342ae2cccc2a37e73f4f7f989d7782f2e524458a1f9dfc95cffc78b13f97936"
+  }
+}
