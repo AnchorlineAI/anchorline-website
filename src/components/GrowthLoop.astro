@@ -1,0 +1,32 @@
+---
+const steps = [
+  ["Attract", "Be visible where the right people look."],
+  ["Identify", "Understand the buyers and opportunities that fit."],
+  ["Engage", "Give people a relevant reason to talk."],
+  ["Convert", "Make the next step clear and practical."],
+  ["Follow up", "Keep interest from slipping through the gaps."],
+  ["Learn", "See what the evidence is telling you."],
+  ["Improve", "Use it to make the whole system better."],
+];
+---
+
+<div class="r-growth-loop" data-reveal>
+  <ol>
+    {
+      steps.map(([name, copy], i) => (
+        <li>
+          <>
+            <span class="r-loop-node">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{name}</h3>
+            <p>{copy}</p>
+          </>
+        </li>
+      ))
+    }
+  </ol>
+  <div class="r-loop-return">
+    <span aria-hidden="true">↶</span><p>
+      Every outcome informs the next move.
+    </p><span class="mono">LEARN → REFINE → RECONNECT</span>
+  </div>
+</div>

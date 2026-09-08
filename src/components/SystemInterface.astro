@@ -1,0 +1,154 @@
+---
+// Original, illustrative interface compositions. No real client or performance data.
+const { variant = "engine" } = Astro.props;
+const isLocal = variant === "local";
+const isB2b = variant === "b2b";
+const title = isLocal
+  ? "Local Growth"
+  : isB2b
+    ? "Opportunity Intelligence"
+    : "Growth Engine";
+const rows = isLocal
+  ? [
+      ["Local presence", "Discovery", "Review visibility"],
+      ["Website journey", "Conversion", "Clear the next step"],
+      ["Customer inquiry", "Follow-up", "Connect the response"],
+    ]
+  : [
+      ["Right-fit accounts", "Intelligence", "Understand the buyer"],
+      ["Relevant conversations", "Engagement", "Give context to sales"],
+      ["Next-step opportunities", "Pipeline", "Keep momentum"],
+    ];
+---
+
+<figure
+  class:list={["r-system engine-visual", `r-system-${variant}`]}
+  aria-label={`${title}: illustrative operating view, not live software or client results.`}
+>
+  <div class="r-system-halo" aria-hidden="true"></div>
+  <div class="r-console" data-depth="8">
+    <aside class="r-console-rail" aria-hidden="true">
+      <span class="r-rail-brand"
+        ><img src="/brand/mark.webp" width="27" height="27" alt="" /><b
+          >ANCHORLINE</b
+        ></span
+      >
+      <span class="r-rail-selected"><i>◫</i> Overview</span><span
+        ><i>◎</i> Intelligence</span
+      ><span><i>≋</i> Conversations</span><span><i>↗</i> Pipeline</span><span
+        ><i>◷</i> Follow-up</span
+      >
+      <span class="r-rail-foot">STRATEGY<br />CONNECTED TO<br />EXECUTION</span>
+    </aside>
+    <div class="r-console-main">
+      <div class="r-console-top">
+        <span class="r-console-breadcrumb">ANCHORLINE / SYSTEM VIEW</span><span
+          class="r-status"><i></i> Connected</span>
+      </div>
+      <div class="r-console-title">
+        <strong>{title}</strong><span class="r-window-dots" aria-hidden="true"
+          >•••</span>
+      </div>
+      <p class="r-console-description">
+        {
+          isLocal
+            ? "From being found to being chosen."
+            : isB2b
+              ? "Context before the conversation."
+              : "One view. A more connected way to grow."
+        }
+      </p>
+      <div class="r-overview-metrics">
+        <div>
+          <span>{isLocal ? "DISCOVERY" : "OPPORTUNITIES"}</span><strong
+            >{isLocal ? "Get found" : "Find the fit"}</strong
+          ><small>Visibility + intelligence</small>
+        </div>
+        <div>
+          <span>CONVERSATIONS</span><strong>Make it relevant</strong><small
+            >Context + connection</small>
+        </div>
+        <div>
+          <span>NEXT STEPS</span><strong>Move forward</strong><small
+            >Conversion + follow-up</small>
+        </div>
+      </div>
+      <div class="r-journey-view">
+        <div class="r-panel-label">
+          <strong
+            >{
+              isLocal
+                ? "Your local customer journey"
+                : "The opportunity journey"
+            }</strong
+          ><span>CONNECTED PROCESS</span>
+        </div>
+        <div class="r-journey-track" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><span></span>
+        </div>
+        <div class="r-journey-labels">
+          <span>{isLocal ? "Search" : "Discover"}</span><span
+            >{isLocal ? "Trust" : "Understand"}</span
+          ><span>Engage</span><span>Convert</span><span>Follow up</span>
+        </div>
+      </div>
+      <div class="r-system-bottom">
+        <div class="r-opportunity-table">
+          <div class="r-panel-label">
+            <strong
+              >{
+                isLocal ? "Growth priorities" : "Opportunity intelligence"
+              }</strong>
+          </div>
+          {
+            rows.map(([name, stage, next]) => (
+              <div class="r-opportunity-row">
+                <>
+                  <span class="r-row-icon" aria-hidden="true">
+                    ↗
+                  </span>
+                  <div>
+                    <>
+                      <strong>{name}</strong>
+                      <small>{next}</small>
+                    </>
+                  </div>
+                  <span class="r-stage-tag">{stage}</span>
+                </>
+              </div>
+            ))
+          }
+        </div>
+        <div class="r-activity">
+          <div class="r-panel-label"><strong>Next best action</strong></div><ol>
+            <li>
+              <b>Understand the signal</b><span
+                >What changed? Why does it matter?</span>
+            </li><li>
+              <b>Connect the response</b><span
+                >The right message and next step.</span>
+            </li><li>
+              <b>Learn from the outcome</b><span
+                >Refine the next decision.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="r-interface-note" data-depth="-5">
+    <span class="r-note-icon" aria-hidden="true">↗</span><div>
+      <small
+        >{isLocal ? "BEYOND THE FIRST SEARCH" : "FROM INSIGHT TO ACTION"}</small
+      ><strong
+        >{
+          isLocal
+            ? "A clearer path to your business."
+            : "A more connected way to grow."
+        }</strong>
+    </div>
+  </div>
+  <figcaption>
+    Illustrative system view · not live software or client results
+  </figcaption>
+</figure>
