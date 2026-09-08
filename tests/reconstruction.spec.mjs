@@ -55,11 +55,11 @@ test("seven connected stages and explicit illustrative interface disclosure", as
     "Learn",
     "Improve",
   ]);
-  await expect(page.locator(".r-system figcaption")).toContainText(
+  await expect(page.locator(".v-scene figcaption")).toContainText(
     "not live software or client results",
   );
   await expect(
-    page.locator(".r-system a, .r-system button, .r-system input"),
+    page.locator(".v-scene a, .v-scene button, .v-scene input"),
   ).toHaveCount(0);
 });
 test("audit is calm and preserves honeypot and live contract without POST", async ({

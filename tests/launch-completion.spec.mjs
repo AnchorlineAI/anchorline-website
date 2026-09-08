@@ -31,20 +31,17 @@ test("discovery motion activates, can be paused, and respects reduced motion", a
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
-  await expect(page.locator(".r-system")).toHaveAttribute(
-    "data-active",
-    "true",
-  );
+  await expect(page.locator(".v-scene")).toHaveAttribute("data-active", "true");
   expect(
     await page
-      .locator(".r-interface-note")
+      .locator(".v-intelligence")
       .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("r-drift");
+  ).toMatch(/^v-float/);
   await page.locator("[data-motion-toggle]").click();
   await expect(page.locator("body")).toHaveAttribute("data-motion-paused", "");
   expect(
     await page
-      .locator(".r-interface-note")
+      .locator(".v-intelligence")
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe("none");
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -52,7 +49,7 @@ test("discovery motion activates, can be paused, and respects reduced motion", a
   await expect(page.locator("[data-motion-toggle]")).toBeDisabled();
   expect(
     await page
-      .locator(".r-interface-note")
+      .locator(".v-intelligence")
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe("none");
   await expect(page.locator(".r-console-title")).toBeVisible();

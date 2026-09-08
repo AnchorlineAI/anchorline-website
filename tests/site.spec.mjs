@@ -147,7 +147,7 @@ test("keyboard skip link and reduced motion", async ({ page }) => {
   await expect(page.locator("main")).toBeFocused();
   expect(
     await page
-      .locator(".r-interface-note")
+      .locator(".v-intelligence")
       .evaluate((e) => getComputedStyle(e).animationName),
   ).toBe("none");
 });
