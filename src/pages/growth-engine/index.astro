@@ -1,48 +1,35 @@
 ---
 import Site from "../../layouts/Site.astro";
 import CTA from "../../components/CTA.astro";
-import EngineVisual from "../../components/EngineVisual.astro";
+import SystemInterface from "../../components/SystemInterface.astro";
+import GrowthLoop from "../../components/GrowthLoop.astro";
 import AuditClose from "../../components/AuditClose.astro";
 ---
 
 <Site
   page="engine"
-  title="The Anchorline AI Growth Engine | Anchorline Systems"
+  title="The Anchorline Growth Engine | Anchorline Systems"
   description="See how Anchorline connects market intelligence, demand, conversations, qualification, conversion, and measurement into one operated growth system."
 >
-  <section class="container page-hero hero-with-visual">
-    <div>
-      <p class="eyebrow">THE ANCHORLINE AI GROWTH ENGINE</p><h1>
-        Intelligence<br />into action.<br /><span class="accent-word"
-          >As one system.</span>
-      </h1><p class="hero-lede">
-        A connected operating model for customer acquisition. Built around your
-        buyers, your sales motion, and the work required to turn interest into
-        opportunity.
-      </p><CTA location="engine-hero" />
-    </div><EngineVisual compact />
+  <section class="container r-inner-hero r-split">
+    <div class="r-editorial">
+      <p class="eyebrow">THE ANCHORLINE GROWTH ENGINE</p><h1>
+        Turn opportunity<br />into momentum.
+      </h1><p class="r-lede">
+        Growth works better when the pieces work together. Our flagship system
+        connects visibility, intelligence, conversations, conversion, and
+        follow-up around the way your organization grows.
+      </p><div class="r-actions"><CTA location="engine-hero" /></div>
+    </div><SystemInterface />
   </section>
-  <section class="section engine-section">
+  <section class="r-section r-engine-section">
     <div class="container">
-      <p class="eyebrow">FROM SIGNAL TO NEXT STEP</p><h2>
-        Growth is a sequence.<br />Not a service menu.
-      </h2><div
-        class="system-ribbon"
-        role="img"
-        aria-label="Signals inform intelligence, intelligence coordinates action, and action creates feedback through conversations and conversion."
-      >
-        <span>Market signals</span><b aria-hidden="true">→</b><span
-          >Intelligence</span
-        ><b aria-hidden="true">→</b><span>Coordinated action</span><b
-          aria-hidden="true">→</b
-        ><span>Conversations & conversion</span><div class="feedback-line mono">
-          MEASURE · REVIEW · IMPROVE · REPEAT
-        </div>
-      </div><p class="wide-copy">
-        Research, outbound, search, content, websites, paid demand, and
-        automation are capabilities inside that sequence. We select them because
-        they support the acquisition motion—not because a package needs more
-        line items.
+      <p class="eyebrow">ONE CONNECTED PROCESS</p><h2>
+        Every stage has a purpose.<br />Every handoff matters.
+      </h2><GrowthLoop /><p class="r-wide-copy">
+        Research, outbound, SEO/AEO/GEO, websites, paid media, AI, and
+        automation are capabilities inside the system. We choose them for the
+        work they need to do—not because a package needs more line items.
       </p>
     </div>
   </section>
@@ -111,7 +98,8 @@ import AuditClose from "../../components/AuditClose.astro";
             ><small>Demand & conversations</small>
           </div><div>
             <span class="role-symbol">03</span><strong>Conversion</strong><small
-              >Digital execution & capture</small>
+              >Digital execution & capture</small
+            >
           </div>
         </div><div class="oversight mono">
           SHARED CONTEXT → MEASUREMENT → NEXT ACTION
@@ -121,25 +109,14 @@ import AuditClose from "../../components/AuditClose.astro";
       </div>
     </div>
   </section>
-  <section class="section container editorial-split">
-    <div>
-      <p class="eyebrow">SUPPORTING OPERATING INFRASTRUCTURE</p><h2>
-        Built on more than<br />disconnected tools.
-      </h2>
-    </div><div class="editorial-copy">
-      <p class="large-copy">
-        2ndBrainOS is Anchorline’s proprietary operating framework for
-        intelligence, automation, knowledge, and execution.
-      </p><p>
-        It supports the coordination behind the Growth Engine. For clients, the
-        value is a more connected approach to the work—not another separate
-        product to assemble or manage.
-      </p><p>
-        It is a supporting Anchorline capability, not a competing Growth Engine
-        offer. Private implementation details and environments remain private.
-      </p>
-    </div>
-  </section>
+  <div class="container r-framework-note">
+    <p>
+      <strong>Built on connected thinking.</strong> Anchorline uses its proprietary
+      2ndBrainOS operating framework to connect research, knowledge, automation and
+      execution behind the work.
+    </p><a href="/approach/" class="text-link"
+      >Our approach <span aria-hidden="true">↗</span></a>
+  </div>
   <section class="section container configuration-links">
     <div>
       <p class="eyebrow">CHOOSE YOUR ACQUISITION MOTION</p><h2>
@@ -153,7 +130,8 @@ import AuditClose from "../../components/AuditClose.astro";
       ><a href="/growth-engine/local/"
         ><span class="mono">LOCAL GROWTH</span><strong
           >From being found<br />to being chosen.</strong
-        ><span aria-hidden="true">↗</span></a>
+        ><span aria-hidden="true">↗</span></a
+      >
     </div>
   </section>
   <AuditClose />

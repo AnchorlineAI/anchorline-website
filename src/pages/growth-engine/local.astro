@@ -3,57 +3,38 @@ import Site from "../../layouts/Site.astro";
 import CTA from "../../components/CTA.astro";
 import AuditClose from "../../components/AuditClose.astro";
 import FAQ from "../../components/FAQ.astro";
+import SystemInterface from "../../components/SystemInterface.astro";
 ---
 
 <Site
   page="local"
-  title="Local Growth | The Anchorline AI Growth Engine"
+  title="Local Growth | The Anchorline Growth Engine"
   description="Connect your website, local visibility, SEO/AEO/GEO, reputation, paid demand, lead capture, and follow-up with Anchorline's Local Growth configuration."
 >
-  <section class="container page-hero market-hero">
-    <div>
-      <p class="eyebrow">THE GROWTH ENGINE / LOCAL CONFIGURATION</p><h1>
-        Be found.<br />Be chosen.<br /><span class="accent-word"
-          >Follow through.</span>
-      </h1><p class="hero-lede">
-        A growth system built around how local customers find, evaluate, and
-        choose a business. Connect the moments between their first search and
-        their next step.
-      </p><CTA
-        href="/growth-audit/?pathway=local"
-        pathway="local"
-        location="local-hero"
-      />
-    </div><div
-      class="local-visual"
-      role="img"
-      aria-label="Illustrative local customer path connecting search visibility, reputation, website, inquiry, and follow-up. Not a real map or ranking report."
-    >
-      <span class="mono visual-index">LOCAL / VISIBILITY TO OPPORTUNITY</span
-      ><div class="map-grid">
-        <i class="map-street street-one"></i><i class="map-street street-two"
-        ></i><i class="map-street street-three"></i><div
-          class="map-node node-search"
-        >
-          Search
-        </div><div class="map-node node-trust">Reputation</div><div
-          class="map-business"
-        >
-          YOUR<br />BUSINESS
-        </div><div class="map-node node-web">Website</div><div
-          class="map-node node-follow"
-        >
-          Follow-up
-        </div><span class="map-radius"></span>
-      </div><small class="artifact-note"
-        >Illustrative customer journey, not geographic or ranking data.</small>
-    </div>
+  <section class="container r-inner-hero r-split">
+    <div class="r-editorial">
+      <p class="eyebrow">THE GROWTH ENGINE / LOCAL GROWTH</p><h1>
+        Get found.<br />Build trust.<br /><span class="accent-word"
+          >Grow your business.</span>
+      </h1><p class="r-lede">
+        For local businesses with good work to offer and more customers to
+        reach. Connect your website, local visibility, reputation, demand
+        capture, conversion, and follow-up into one practical growth system.
+      </p><div class="r-actions">
+        <CTA
+          href="/growth-audit/?pathway=local"
+          pathway="local"
+          location="local-hero"
+        />
+      </div>
+    </div><SystemInterface variant="local" />
   </section>
   <section class="section container editorial-split">
     <div>
       <p class="eyebrow">FOR LOCAL & SERVICE BUSINESSES</p><h2>
         Visibility opens<br />the door.<br /><span class="muted-heading"
-          >The experience matters next.</span>
+          >The experience matters next.</span
+        >
       </h2>
     </div><div class="editorial-copy">
       <p class="large-copy">Being found is only part of being chosen.</p><p>
@@ -147,7 +128,7 @@ import FAQ from "../../components/FAQ.astro";
         ],
         [
           "Is Local Growth a separate company or product?",
-          "No. It is a primary configuration of the Anchorline AI Growth Engine, built around local customer acquisition rather than a B2B account-led sales motion.",
+          "No. It is a primary configuration of the Anchorline Growth Engine, built around local customer acquisition rather than a B2B account-led sales motion.",
         ],
       ]}
     />

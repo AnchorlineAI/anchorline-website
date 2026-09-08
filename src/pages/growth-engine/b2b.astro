@@ -3,52 +3,39 @@ import Site from "../../layouts/Site.astro";
 import CTA from "../../components/CTA.astro";
 import AuditClose from "../../components/AuditClose.astro";
 import FAQ from "../../components/FAQ.astro";
+import SystemInterface from "../../components/SystemInterface.astro";
 ---
 
 <Site
   page="b2b"
-  title="B2B Growth | The Anchorline AI Growth Engine"
+  title="B2B Growth | The Anchorline Growth Engine"
   description="Connect buyer intelligence, outbound acquisition, personalized prospect assets, qualified conversations, and website conversion for established B2B and service organizations."
 >
-  <section class="container page-hero market-hero">
-    <div>
-      <p class="eyebrow">THE GROWTH ENGINE / B2B CONFIGURATION</p><h1>
-        The right buyers.<br />A relevant approach.<br /><span
-          class="accent-word">A connected pipeline.</span>
-      </h1><p class="hero-lede">
-        For established B2B and service organizations that need the work
-        before—and after—the first conversation to operate as one system.
-      </p><CTA
-        href="/growth-audit/?pathway=b2b"
-        pathway="b2b"
-        location="b2b-hero"
-      />
-    </div><div
-      class="buyer-visual"
-      role="img"
-      aria-label="Illustrative B2B acquisition model: market, account, buyer, relevant approach, qualified conversation."
-    >
-      <span class="mono visual-index">B2B / INTELLIGENCE-LED ACQUISITION</span
-      ><div class="buyer-rings">
-        <div class="buyer-ring r1"><span>MARKET</span></div><div
-          class="buyer-ring r2"
-        >
-          <span>ACCOUNT</span>
-        </div><div class="buyer-ring r3"><span>BUYER</span></div><b
-          class="buyer-center">FIT</b>
-      </div><div class="buyer-destination">
-        <span class="mono">CONTEXT → RELEVANCE → CONVERSATION</span><p>
-          Better informed.<br /><strong>Better connected.</strong>
-        </p>
-      </div><small class="artifact-note"
-        >Conceptual model; no client or contact data.</small>
-    </div>
+  <section class="container r-inner-hero r-split">
+    <div class="r-editorial">
+      <p class="eyebrow">THE GROWTH ENGINE / B2B GROWTH</p><h1>
+        Find the right companies.<br />Start the right conversations.<br /><span
+          class="accent-word">Build a stronger pipeline.</span>
+      </h1><p class="r-lede">
+        For established B2B and service organizations. Connect buyer
+        intelligence, relevant outreach, useful prospect assets, and a clear
+        sales path—so the work before and after the first conversation supports
+        the same goal.
+      </p><div class="r-actions">
+        <CTA
+          href="/growth-audit/?pathway=b2b"
+          pathway="b2b"
+          location="b2b-hero"
+        />
+      </div>
+    </div><SystemInterface variant="b2b" />
   </section>
   <section class="section container editorial-split">
     <div>
       <p class="eyebrow">FOR ESTABLISHED B2B & SERVICE ORGANIZATIONS</p><h2>
         More activity isn’t<br />the same as<br /><span class="muted-heading"
-          >more opportunity.</span>
+          >more opportunity.</span
+        >
       </h2>
     </div><div class="editorial-copy">
       <p class="large-copy">The work starts before the message.</p><p>
@@ -129,7 +116,7 @@ import FAQ from "../../components/FAQ.astro";
       items={[
         [
           "Is this only outbound email?",
-          "No. Outbound acquisition is one capability. The configuration also considers buyer intelligence, personalized assets, website conversion, qualification, and follow-up. The scope determines the channels and responsibilities.",
+          "No. Acquisity and cold email are delivery capabilities, not the offer itself. Outbound acquisition is one capability. The configuration also considers buyer intelligence, personalized assets, website conversion, qualification, and follow-up. The scope determines the channels and responsibilities.",
         ],
         [
           "Will Anchorline replace our sales team?",

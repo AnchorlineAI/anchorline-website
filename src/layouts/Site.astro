@@ -4,6 +4,7 @@ import "@fontsource/ibm-plex-mono/400.css";
 import "../styles/global.css";
 import "../styles/refinement.css";
 import "../styles/launch-completion.css";
+import "../styles/reconstruction.css";
 import CTA from "../components/CTA.astro";
 const {
   title,
@@ -37,6 +38,7 @@ const links = [
   ["/growth-engine/", "The Growth Engine", "engine"],
   ["/growth-engine/b2b/", "B2B Growth", "b2b"],
   ["/growth-engine/local/", "Local Growth", "local"],
+  ["/approach/", "Our Approach", "approach"],
   ["/about/", "About", "about"],
 ];
 ---
@@ -78,7 +80,7 @@ const links = [
     <a href="#main" class="skip-link">Skip to content</a>
     <div class="preview-bar">
       <span class="preview-dot" aria-hidden="true"></span> Owner-review preview <span
-        class="preview-detail">— not production · test intake only</span
+        class="preview-detail">— not production · visual approval pending</span
       >
     </div>
     <header class="site-header">
@@ -130,6 +132,17 @@ const links = [
         >
       </nav>
     </header>
+    {
+      !["audit", "receipt", "404"].includes(page) && (
+        <div class="r-atmosphere" aria-hidden="true">
+          {Array.from({ length: 14 }, (_, i) => (
+            <i
+              style={`--i:${i};--x:${[12, 83, 6, 92, 38, 71, 17, 88, 4, 77, 29, 94, 8, 65][i]}%;--y:${3 + i * 6.8}%`}
+            />
+          ))}
+        </div>
+      )
+    }
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="site-footer">
       <div class="container footer-top">
@@ -137,16 +150,17 @@ const links = [
           <a class="wordmark" href="/"
             >ANCHORLINE<span class="sr-only"> home</span></a
           ><p>
-            Your AI-powered growth department.<br />Intelligence. Execution.
-            Connected.
+            We build the systems that help<br />good organizations grow.
           </p>
         </div><div class="footer-nav">
           <a href="/growth-engine/">The Growth Engine</a><a
             href="/growth-engine/b2b/">B2B Growth</a
-          ><a href="/growth-engine/local/">Local Growth</a><a href="/about/"
-            >About Anchorline</a
-          ><a href="/growth-audit/" data-cta="audit" data-location="footer"
-            >Request Your Growth Audit</a
+          ><a href="/growth-engine/local/">Local Growth</a><a href="/approach/"
+            >Our Approach</a
+          ><a href="/about/">About Anchorline</a><a
+            href="/growth-audit/"
+            data-cta="audit"
+            data-location="footer">Request Your Growth Audit</a
           >
         </div>
       </div>
@@ -156,10 +170,22 @@ const links = [
           target="_blank"
           rel="noopener noreferrer"
           >Client Login <span aria-hidden="true">↗</span></a
-        ><span class="preview-footer">Owner-review build · no live intake</span>
+        ><span class="preview-footer"
+          >Owner-review build · visual approval pending</span
+        >
       </div>
     </footer>
+    {
+      !["audit", "receipt", "404"].includes(page) && (
+        <div class="r-motion-control">
+          <button type="button" data-motion-toggle aria-pressed="false">
+            Pause page motion
+          </button>
+        </div>
+      )
+    }
     <script>
+      import "../scripts/discovery-motion.js";
       import "../scripts/site.js";
     </script>
   </body>
