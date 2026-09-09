@@ -23,7 +23,11 @@ for (const route of routes) {
     await expect(page.locator("main")).toHaveCount(1);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       "content",
-      "noindex, nofollow, noarchive",
+      route === "/growth-audit/received/"
+        ? "noindex, nofollow, noarchive"
+        : process.env.CONTEXT === "production"
+          ? "index, follow"
+          : "noindex, nofollow, noarchive",
     );
     await expect(
       page.locator('a[href="https://amg.anchorlineai.com"]'),

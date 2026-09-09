@@ -14,20 +14,23 @@ const publicRoutes = [
   "/terms/",
 ];
 
-test("preview output remains private and identifies itself as a preview", async ({
+test("environment-aware production and preview metadata remains correct", async ({
   page,
   request,
 }) => {
+  const production = process.env.CONTEXT === "production";
   for (const route of publicRoutes) {
     await page.goto(route);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       "content",
-      "noindex, nofollow, noarchive",
+      production ? "index, follow" : "noindex, nofollow, noarchive",
     );
-    await expect(page.locator(".preview-bar")).toContainText("Deploy Preview");
+    await expect(page.locator(".preview-bar")).toHaveCount(production ? 0 : 1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
-      /^(http:\/\/localhost:4321|https:\/\/deploy-preview-5--spontaneous-daifuku-666a8c\.netlify\.app)\//,
+      production
+        ? `https://anchorlineai.com${route}`
+        : /^(http:\/\/localhost:4321|https:\/\/deploy-preview-5--spontaneous-daifuku-666a8c\.netlify\.app)\//,
     );
   }
   await page.goto("/growth-audit/received/");
@@ -36,7 +39,11 @@ test("preview output remains private and identifies itself as a preview", async 
     "noindex, nofollow, noarchive",
   );
   const robots = await request.get("/robots.txt");
-  expect(await robots.text()).toBe("User-agent: *\nDisallow: /\n");
+  expect(await robots.text()).toBe(
+    production
+      ? "User-agent: *\nAllow: /\nDisallow: /growth-audit/received/\n\nSitemap: https://anchorlineai.com/sitemap.xml\n"
+      : "User-agent: *\nDisallow: /\n",
+  );
 });
 
 test("Privacy, Terms, footer links, and Client Login are present", async ({
@@ -46,16 +53,14 @@ test("Privacy, Terms, footer links, and Client Login are present", async ({
   await expect(
     page.getByRole("heading", { name: "Privacy, in plain language." }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Owner review required before production release."),
-  ).toBeVisible();
+  await expect(page.getByText("not legal advice")).toBeVisible();
+  await expect(page.locator("body")).not.toContainText(/owner review/i);
   await page.goto("/terms/");
   await expect(
     page.getByRole("heading", { name: "Terms for using this site." }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Owner review required before production release."),
-  ).toBeVisible();
+  await expect(page.getByText("not legal advice")).toBeVisible();
+  await expect(page.locator("body")).not.toContainText(/owner review/i);
   await expect(page.locator('a[href="/privacy/"]')).toHaveCount(1);
   await expect(page.locator('a[href="/terms/"]')).toHaveCount(1);
   await expect(
@@ -91,4 +96,42 @@ test("no private reference package, analytics, or stale product name is exposed"
   expect(source).not.toContain("Anchorline AI Growth Engine");
   expect(source).not.toContain("googletagmanager.com");
   expect(source).not.toContain("google-analytics.com");
+  expect(source).not.toMatch(
+    /owner review|visual approval|production release candidate|pending approval|preview-only|internal qa/i,
+  );
+});
+
+test("justified Organization, WebSite, WebPage, Person, and Service schema is present", async ({
+  page,
+}) => {
+  await page.goto("/about/");
+  const aboutTypes = await page
+    .locator('script[type="application/ld+json"]')
+    .evaluateAll((nodes) =>
+      nodes.flatMap((node) => {
+        const value = JSON.parse(node.textContent || "{}");
+        return value["@graph"]
+          ? value["@graph"].map((entry) => entry["@type"])
+          : [value["@type"]];
+      }),
+    );
+  expect(aboutTypes).toEqual(
+    expect.arrayContaining(["Organization", "WebSite", "AboutPage", "Person"]),
+  );
+  for (const route of [
+    "/growth-engine/",
+    "/growth-engine/b2b/",
+    "/growth-engine/local/",
+  ]) {
+    await page.goto(route);
+    const types = await page
+      .locator('script[type="application/ld+json"]')
+      .first()
+      .evaluate((node) =>
+        JSON.parse(node.textContent || "{}")["@graph"].map(
+          (entry) => entry["@type"],
+        ),
+      );
+    expect(types).toContain("Service");
+  }
 });

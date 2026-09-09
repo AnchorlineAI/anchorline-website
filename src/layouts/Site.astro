@@ -13,6 +13,10 @@ const {
   page = "home",
   canonicalPath = Astro.url.pathname,
   forceNoindex = false,
+  schemaType = "WebPage",
+  serviceName,
+  serviceType,
+  serviceAudience,
 } = Astro.props;
 const isProduction = process.env.CONTEXT === "production";
 const publicOrigin = "https://anchorlineai.com";
@@ -24,29 +28,46 @@ const robots =
     ? "noindex, nofollow, noarchive"
     : "index, follow";
 const showPreviewChrome = !isProduction;
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://anchorlineai.com/#organization",
-      name: "Anchorline Systems LLC",
-      url: "https://anchorlineai.com",
-      logo: "https://anchorlineai.com/Anchorline_Logo.PNG",
-    },
-    {
-      "@type": "WebPage",
-      name: title,
+const organization = {
+  "@type": "Organization",
+  "@id": "https://anchorlineai.com/#organization",
+  name: "Anchorline Systems LLC",
+  url: "https://anchorlineai.com",
+  logo: "https://anchorlineai.com/Anchorline_Logo.PNG",
+};
+const webSite = {
+  "@type": "WebSite",
+  "@id": "https://anchorlineai.com/#website",
+  name: "Anchorline Systems",
+  url: "https://anchorlineai.com",
+  publisher: { "@id": organization["@id"] },
+};
+const webPage = {
+  "@type": schemaType,
+  "@id": `${canonical}#webpage`,
+  name: title,
+  description,
+  url: canonical,
+  isPartOf: { "@id": webSite["@id"] },
+  about: { "@id": organization["@id"] },
+};
+const service = serviceName
+  ? {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: serviceName,
       description,
       url: canonical,
-      isPartOf: {
-        "@type": "WebSite",
-        name: "Anchorline Systems",
-        url: siteOrigin,
-      },
-      about: { "@id": "https://anchorlineai.com/#organization" },
-    },
-  ],
+      serviceType,
+      provider: { "@id": organization["@id"] },
+      ...(serviceAudience
+        ? { audience: { "@type": "Audience", audienceType: serviceAudience } }
+        : {}),
+    }
+  : null;
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [organization, webSite, webPage, ...(service ? [service] : [])],
 };
 const links = [
   ["/growth-engine/", "The Growth Engine", "engine"],

@@ -124,7 +124,11 @@ test("dedicated-page and Growth Audit source contracts are unchanged", async () 
   for (const [path, expected] of Object.entries(baseline)) {
     if (
       path === "netlify.toml" ||
-      path === "src/pages/growth-audit/received.astro"
+      path === "src/pages/growth-audit/received.astro" ||
+      path === "src/pages/growth-engine/index.astro" ||
+      path === "src/pages/growth-engine/b2b.astro" ||
+      path === "src/pages/growth-engine/local.astro" ||
+      path === "src/pages/about.astro"
     )
       continue;
     const bytes = await readFile(new URL("../" + path, import.meta.url));
