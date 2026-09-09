@@ -1,10 +1,16 @@
-// This source is authorized only for Netlify's owner-review Deploy Preview PR #5.
+// Fail closed on Netlify unless this is the approved PR preview or production from main.
 const isNetlify = process.env.NETLIFY === "true";
-const isApprovedPreview =
-  process.env.CONTEXT === "deploy-preview" &&
-  process.env.REVIEW_ID === "5";
-if (isNetlify && !isApprovedPreview) {
+const context = process.env.CONTEXT;
+const branch = process.env.BRANCH;
+const reviewId = process.env.REVIEW_ID;
+
+if (!isNetlify) process.exit(0);
+
+const approvedPreview = context === "deploy-preview" && reviewId === "5";
+const approvedProduction = context === "production" && branch === "main";
+
+if (!approvedPreview && !approvedProduction) {
   throw new Error(
-    "PRODUCTION NOT AUTHORIZED. This build is restricted to owner-review Deploy Preview PR #5.",
+    `UNEXPECTED NETLIFY BUILD CONTEXT. Refusing context=${context || "unset"}, branch=${branch || "unset"}, review=${reviewId || "unset"}.`,
   );
 }

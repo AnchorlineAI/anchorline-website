@@ -1,5 +1,4 @@
-# Preview-only configuration. Production intentionally fails closed.
-# Existing production dashboard settings are not changed by this file on a PR branch.
+# Source-controlled build settings for approved previews and production from main.
 [build]
   command = "npm run build"
   publish = "dist"
@@ -13,6 +12,8 @@
   publish = "dist"
 
 [context.production]
-  command = "node scripts/block-production.mjs"
+  command = "npm run build"
+  publish = "dist"
 
-# No notifications, CRM, GA4 destinations, or production form routing configured here.
+# Guard logic in scripts/guard.mjs rejects unexpected Netlify contexts.
+# Notification routing remains managed in the existing Netlify form configuration.
