@@ -10,6 +10,10 @@ const routes = [
   "/about/",
   "/growth-audit/",
   "/growth-audit/received/",
+  "/insights/",
+  "/insights/why-most-growth-problems-arent-really-marketing-problems/",
+  "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
+  "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
 ];
 test("mobile accessibility and all internal link/asset responses", async ({
   page,

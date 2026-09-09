@@ -102,6 +102,7 @@ test("backend, routing, analytics, dependency and authentic asset baseline is un
     "scripts/check-output.mjs",
     "scripts/guard.mjs",
     "src/pages/growth-audit/received.astro",
+    "src/pages/growth-audit/index.astro",
   ]);
   for (const [path, expected] of Object.entries(baseline)) {
     if (releaseOwned.has(path)) continue;
