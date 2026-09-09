@@ -9,6 +9,10 @@ const routes = [
   "/about/",
   "/growth-audit/",
   "/growth-audit/received/",
+  "/insights/",
+  "/insights/why-most-growth-problems-arent-really-marketing-problems/",
+  "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
+  "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
 ];
 for (const route of routes) {
   test(`desktop structure, links and accessibility ${route}`, async ({

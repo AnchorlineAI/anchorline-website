@@ -25,6 +25,10 @@ const expected = [
   "growth-audit/index.html",
   "privacy/index.html",
   "terms/index.html",
+  "insights/index.html",
+  "insights/why-most-growth-problems-arent-really-marketing-problems/index.html",
+  "insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/index.html",
+  "insights/the-growth-audit-three-priorities-a-clearer-next-step/index.html",
   "growth-audit/received/index.html",
   "404.html",
   "robots.txt",
@@ -104,7 +108,17 @@ if (production) {
   );
   assert(
     sitemap.includes("https://anchorlineai.com/privacy/") &&
-      sitemap.includes("https://anchorlineai.com/terms/"),
+      sitemap.includes("https://anchorlineai.com/terms/") &&
+      sitemap.includes("https://anchorlineai.com/insights/") &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/why-most-growth-problems-arent-really-marketing-problems/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
+      ),
   );
 }
 const robots = await readFile(path.join(root, "robots.txt"), "utf8");

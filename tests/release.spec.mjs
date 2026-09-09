@@ -12,6 +12,10 @@ const publicRoutes = [
   "/growth-audit/",
   "/privacy/",
   "/terms/",
+  "/insights/",
+  "/insights/why-most-growth-problems-arent-really-marketing-problems/",
+  "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
+  "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
 ];
 
 test("environment-aware production and preview metadata remains correct", async ({
@@ -30,7 +34,10 @@ test("environment-aware production and preview metadata remains correct", async 
       "href",
       production
         ? `https://anchorlineai.com${route}`
-        : /^(http:\/\/localhost:4321|https:\/\/deploy-preview-5--spontaneous-daifuku-666a8c\.netlify\.app)\//,
+        : new URL(
+            route,
+            process.env.DEPLOY_PRIME_URL || "http://localhost:4321",
+          ).href,
     );
   }
   await page.goto("/growth-audit/received/");
@@ -68,10 +75,8 @@ test("Privacy, Terms, footer links, and Client Login are present", async ({
   ).toHaveAttribute("target", "_blank");
 });
 
-test("Growth Audit source contract remains byte-identical", async () => {
+test("Growth Audit implementation contract remains byte-identical", async () => {
   const expected = {
-    "src/pages/growth-audit/index.astro":
-      "9fa6ef929479151a6357aec72870cecaca369b8e5ee0c32b03ef9fa8f88a578c",
     "src/scripts/site.js":
       "88a746efc5ade5b6db647a4f0e49452da709a260a06f934ee73d0cd2215524c9",
     "src/settings.ts":
@@ -134,4 +139,54 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
       );
     expect(types).toContain("Service");
   }
+});
+
+test("Insights collection renders three crawlable articles with article metadata", async ({
+  page,
+}) => {
+  await page.goto("/insights/");
+  await expect(page.locator(".insight-card")).toHaveCount(3);
+  await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
+    6,
+  );
+  for (const route of publicRoutes.filter(
+    (route) => route.startsWith("/insights/") && route !== "/insights/",
+  )) {
+    await page.goto(route);
+    await expect(page.locator("article.insight-article h1")).toHaveCount(1);
+    await expect(page.locator(".article-prose h2")).not.toHaveCount(0);
+    await expect(page.locator(".article-byline time")).toHaveAttribute(
+      "datetime",
+    );
+    const types = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((nodes) =>
+        nodes.flatMap((node) => {
+          const value = JSON.parse(node.textContent || "{}");
+          return value["@graph"]
+            ? value["@graph"].map((entry) => entry["@type"])
+            : [value["@type"]];
+        }),
+      );
+    expect(types).toEqual(
+      expect.arrayContaining(["Article", "BreadcrumbList"]),
+    );
+  }
+});
+
+test("Growth Audit removes the redundant Netlify notice without changing the form", async ({
+  page,
+}) => {
+  await page.goto("/growth-audit/?pathway=local");
+  await expect(page.locator("body")).not.toContainText(
+    "securely recorded through Netlify Forms",
+  );
+  await expect(page.locator("body")).not.toContainText(
+    "Immediate confirmation means the request was received",
+  );
+  const form = page.locator("[data-audit-form]");
+  await expect(form).toHaveAttribute("name", "growth-audit");
+  await expect(form).toHaveAttribute("action", "/growth-audit/received/");
+  await expect(page.locator('[name="bot-field"]')).toHaveCount(1);
+  await expect(page.locator("#audit-type")).toHaveValue("Local Business");
 });

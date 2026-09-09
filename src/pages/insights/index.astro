@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import Site from "../../layouts/Site.astro";
+import AuditClose from "../../components/AuditClose.astro";
+
+const articles = (await getCollection("insights")).sort(
+  (a, b) =>
+    Number(b.data.featured) - Number(a.data.featured) ||
+    b.data.publishDate.valueOf() - a.data.publishDate.valueOf() ||
+    a.data.title.localeCompare(b.data.title),
+);
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
+---
+
+<Site
+  page="insights"
+  title="Insights | Anchorline Systems"
+  description="Practical perspectives on growth systems, search visibility, diagnosis, execution, and the decisions that connect them."
+>
+  <section class="container insights-hero">
+    <p class="eyebrow">ANCHORLINE INSIGHTS</p>
+    <h1>Clear thinking for connected growth.</h1>
+    <p class="r-lede">
+      Practical perspectives on diagnosis, systems, execution, and the decisions
+      that help organizations move forward. Anchorline creates insight,
+      educational content, and useful media as part of how we help good
+      organizations grow.
+    </p>
+  </section>
+  <section class="container insights-list" aria-labelledby="latest-insights">
+    <div class="insights-list-heading">
+      <p class="eyebrow">PERSPECTIVES & PRACTICAL GUIDES</p>
+      <h2 id="latest-insights">Latest Insights</h2>
+    </div>
+    <div class="insights-grid">
+      {
+        articles.map((article, index) => (
+          <article
+            class:list={[
+              "insight-card",
+              { "insight-card-featured": index === 0 },
+            ]}
+          >
+            <div class="insight-card-meta mono">
+              <span>{article.data.category}</span>
+              <time datetime={article.data.publishDate.toISOString()}>
+                {formatDate(article.data.publishDate)}
+              </time>
+            </div>
+            <h3>
+              <a href={`/insights/${article.id}/`}>{article.data.title}</a>
+            </h3>
+            <p>{article.data.description}</p>
+            <a class="text-link" href={`/insights/${article.id}/`}>
+              Read the Insight <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+  <AuditClose title="Where is your next growth opportunity?" />
+</Site>

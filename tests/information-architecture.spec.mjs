@@ -8,6 +8,7 @@ const detailRoutes = [
   "/growth-engine/local/",
   "/approach/",
   "/about/",
+  "/insights/",
 ];
 
 test("Home is a concise six-part introduction and routing surface", async ({
@@ -96,7 +97,7 @@ test("desktop navigation exposes all pages and tablet/mobile use the menu", asyn
   await expect(
     page.getByRole("navigation", { name: "Main navigation", exact: true }),
   ).toBeVisible();
-  await expect(page.locator(".desktop-nav>a")).toHaveCount(5);
+  await expect(page.locator(".desktop-nav>a")).toHaveCount(6);
   await expect(page.locator(".menu-toggle")).toBeHidden();
   for (const width of [1024, 390]) {
     await page.setViewportSize({ width, height: 844 });
@@ -106,7 +107,7 @@ test("desktop navigation exposes all pages and tablet/mobile use the menu", asyn
     ).toBeHidden();
     await expect(page.locator(".menu-toggle")).toBeVisible();
     await page.locator(".menu-toggle").click();
-    await expect(page.locator(".mobile-nav>a")).toHaveCount(6);
+    await expect(page.locator(".mobile-nav>a")).toHaveCount(7);
     for (const route of detailRoutes)
       await expect(page.locator(`.mobile-nav a[href="${route}"]`)).toHaveCount(
         1,
@@ -125,6 +126,7 @@ test("dedicated-page and Growth Audit source contracts are unchanged", async () 
     if (
       path === "netlify.toml" ||
       path === "src/pages/growth-audit/received.astro" ||
+      path === "src/pages/growth-audit/index.astro" ||
       path === "src/pages/growth-engine/index.astro" ||
       path === "src/pages/growth-engine/b2b.astro" ||
       path === "src/pages/growth-engine/local.astro" ||
