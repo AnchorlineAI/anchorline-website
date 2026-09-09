@@ -43,13 +43,13 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
         Share the essentials below. Please do not include credentials,
         confidential client information, or other sensitive data.
       </p>
-      <div class="isolation-notice" id="isolation-notice">
-        {
-          previewFormSubmissionEnabled
-            ? "Your request will be securely recorded through Netlify Forms. Immediate confirmation means the request was received."
-            : "Submission is temporarily unavailable."
-        }
-      </div>
+      {
+        !previewFormSubmissionEnabled && (
+          <div class="isolation-notice" id="isolation-notice">
+            Submission is temporarily unavailable.
+          </div>
+        )
+      }
       <form
         name={previewFormName}
         method="POST"
@@ -161,7 +161,7 @@ import { previewFormName, previewFormSubmissionEnabled } from "../../settings";
         >
         <noscript
           ><p class="isolation-notice">
-            JavaScript is required for this guarded test form. Submission is
+            JavaScript is required to submit this form. Submission is
             unavailable without it.
           </p></noscript
         >
