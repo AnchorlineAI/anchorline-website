@@ -8,6 +8,7 @@ import AuditClose from "../components/AuditClose.astro";
   page="about"
   title="About Anchorline | Conviction, Intelligence & Execution"
   description="Anchorline Systems LLC is led by founder and CEO Kris McFadden. Learn about the convictions and operating principles behind the Anchorline Growth Engine."
+  schemaType="AboutPage"
 >
   <section class="container r-about-hero r-split">
     <figure class="founder-portrait">
@@ -20,7 +21,8 @@ import AuditClose from "../components/AuditClose.astro";
         decoding="async"
       /><figcaption>
         <strong>Kris McFadden</strong><span
-          >FOUNDER & CEO · ANCHORLINE SYSTEMS</span>
+          >FOUNDER & CEO · ANCHORLINE SYSTEMS</span
+        >
       </figcaption>
     </figure><div class="r-editorial">
       <p class="eyebrow">ABOUT ANCHORLINE</p><h1>
@@ -36,6 +38,21 @@ import AuditClose from "../components/AuditClose.astro";
       </p><div class="r-actions"><CTA location="about-hero" /></div>
     </div>
   </section>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://anchorlineai.com/about/#kris-mcfadden",
+      name: "Kris McFadden",
+      jobTitle: "Founder and CEO",
+      worksFor: {
+        "@id": "https://anchorlineai.com/#organization",
+      },
+      url: "https://anchorlineai.com/about/",
+      image: "https://anchorlineai.com/kris-mcfadden.webp",
+    }).replace(/</g, "\\u003c")}
+  />
   <section class="r-section container r-split">
     <div class="r-editorial">
       <p class="eyebrow">LEADERSHIP THAT STAYS CLOSE TO THE WORK</p><h2>
@@ -105,7 +122,8 @@ import AuditClose from "../components/AuditClose.astro";
       Anchorline uses its proprietary 2ndBrainOS operating framework to connect
       research, knowledge, automation and execution behind the work.
     </p><a href="/approach/" class="text-link"
-      >How we work <span aria-hidden="true">↗</span></a>
+      >How we work <span aria-hidden="true">↗</span></a
+    >
   </div>
   <AuditClose />
 </Site>
