@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /growth-audit/received/
+
+Sitemap: https://anchorlineai.com/sitemap.xml

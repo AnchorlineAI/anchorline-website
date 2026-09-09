@@ -1,0 +1,64 @@
+/* Release-only page styles; accepted marketing-page compositions remain unchanged. */
+.policy-page {
+  padding-block: 90px 120px;
+  max-width: 980px;
+}
+.policy-page h1 {
+  max-width: 760px;
+}
+.policy-review-note {
+  margin-top: 30px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--gold);
+  background: #f7f9fc;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.policy-updated {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.policy-copy {
+  margin-top: 65px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 70px;
+}
+.policy-copy section {
+  padding-block: 30px;
+  border-top: 1px solid var(--line);
+}
+.policy-copy h2 {
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+.policy-copy p {
+  font-size: 14px;
+  line-height: 1.85;
+  margin-top: 14px;
+}
+.policy-copy a {
+  color: var(--blue);
+}
+@media (max-width: 760px) {
+  .policy-page {
+    padding-block: 55px 80px;
+  }
+  .policy-page h1 {
+    font-size: 39px;
+  }
+  .policy-copy {
+    grid-template-columns: 1fr;
+    margin-top: 45px;
+  }
+  .policy-copy h2 {
+    font-size: 20px;
+  }
+  .policy-review-note {
+    font-size: 12px;
+  }
+}

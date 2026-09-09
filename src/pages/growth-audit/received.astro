@@ -1,0 +1,32 @@
+---
+import Site from "../../layouts/Site.astro";
+import CTA from "../../components/CTA.astro";
+---
+
+<Site
+  page="receipt"
+  title="Growth Audit Request Confirmation | Anchorline Systems"
+  description="Confirmation page for Anchorline Growth Audit requests."
+  forceNoindex
+>
+  <section class="container receipt-page">
+    <div class="receipt-mark" aria-hidden="true">✓</div><p class="eyebrow">
+      GROWTH AUDIT / REQUEST RECEIPT
+    </p><h1 data-receipt-title>Request confirmation.</h1><p
+      class="large-copy"
+      data-receipt-message
+    >
+      No submission has been confirmed in this browser. Opening this page
+      directly does not submit a request.
+    </p><p class="receipt-note">
+      Confirmed Growth Audit requests are reviewed before Anchorline determines
+      fit or recommends a next step.
+    </p><CTA
+      href="/growth-audit/"
+      label="Return to the Growth Audit form"
+      secondary
+    /><a class="text-link" href="/growth-engine/"
+      >Explore the Growth Engine <span aria-hidden="true">↗</span></a
+    >
+  </section>
+</Site>

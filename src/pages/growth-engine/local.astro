@@ -1,0 +1,137 @@
+---
+import Site from "../../layouts/Site.astro";
+import CTA from "../../components/CTA.astro";
+import AuditClose from "../../components/AuditClose.astro";
+import FAQ from "../../components/FAQ.astro";
+import SystemInterface from "../../components/SystemInterface.astro";
+---
+
+<Site
+  page="local"
+  title="Local Growth | The Anchorline Growth Engine"
+  description="Connect your website, local visibility, SEO/AEO/GEO, reputation, paid demand, lead capture, and follow-up with Anchorline's Local Growth configuration."
+>
+  <section class="container r-inner-hero r-split">
+    <div class="r-editorial">
+      <p class="eyebrow">THE GROWTH ENGINE / LOCAL GROWTH</p><h1>
+        Get found.<br />Build trust.<br /><span class="accent-word"
+          >Grow your business.</span>
+      </h1><p class="r-lede">
+        For local businesses with good work to offer and more customers to
+        reach. Connect your website, local visibility, reputation, demand
+        capture, conversion, and follow-up into one practical growth system.
+      </p><div class="r-actions">
+        <CTA
+          href="/growth-audit/?pathway=local"
+          pathway="local"
+          location="local-hero"
+        />
+      </div>
+    </div><SystemInterface variant="local" />
+  </section>
+  <section class="section container editorial-split">
+    <div>
+      <p class="eyebrow">FOR LOCAL & SERVICE BUSINESSES</p><h2>
+        Visibility opens<br />the door.<br /><span class="muted-heading"
+          >The experience matters next.</span
+        >
+      </h2>
+    </div><div class="editorial-copy">
+      <p class="large-copy">Being found is only part of being chosen.</p><p>
+        Customers compare your website, reputation, clarity, and responsiveness.
+        A strong acquisition system connects those moments instead of optimizing
+        each in isolation.
+      </p><p>
+        Local Growth brings website improvement, Google and local presence,
+        search readability, reputation, appropriate paid demand, capture, and
+        follow-up into one configured engagement.
+      </p>
+    </div>
+  </section>
+  <section class="section engine-section">
+    <div class="container">
+      <p class="eyebrow">THE LOCAL GROWTH PATH</p><h2>
+        A connected journey<br />from discovery to inquiry.
+      </h2><div class="local-journey">
+        <article>
+          <span class="mono">01 / DISCOVER</span><h3>Show up clearly.</h3><p>
+            Website foundations, local search visibility, and useful content for
+            search and answer engines.
+          </p>
+        </article><article>
+          <span class="mono">02 / EVALUATE</span><h3>Earn the next click.</h3><p
+          >
+            Clear services, credible reputation, helpful answers, and a mobile
+            experience that makes sense.
+          </p>
+        </article><article>
+          <span class="mono">03 / CONTACT</span><h3>Make action easy.</h3><p>
+            Focused landing pages, calls to action, and lead capture connected
+            to the right destination.
+          </p>
+        </article><article>
+          <span class="mono">04 / FOLLOW THROUGH</span><h3>
+            Keep the opportunity moving.
+          </h3><p>
+            Defined follow-up responsibilities, appropriate automation, and
+            meaningful conversion measurement.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section container evidence-composition">
+    <div>
+      <p class="eyebrow">EXAMPLE / NOT A CLIENT CASE STUDY</p><h2>
+        Look beyond<br />a better-looking website.
+      </h2><p class="section-intro">
+        A local growth review examines the path a potential customer actually
+        takes. Visual improvement matters when it supports understanding,
+        confidence, and action.
+      </p>
+    </div><article class="example-board local-example">
+      <div class="mono example-label">ILLUSTRATIVE LOCAL REVIEW</div><div
+        class="example-row"
+      >
+        <span>Findability</span><p>
+          Can a relevant customer discover and understand the business?
+        </p>
+      </div><div class="example-row">
+        <span>Confidence</span><p>
+          Does the experience provide clear, truthful reasons to choose it?
+        </p>
+      </div><div class="example-row">
+        <span>Conversion</span><p>
+          Is the next step obvious and practical on a phone?
+        </p>
+      </div><div class="example-row">
+        <span>Response</span><p>
+          Is there an accountable path from inquiry to follow-up?
+        </p>
+      </div>
+    </article>
+  </section>
+  <section class="section container faq-section">
+    <div>
+      <p class="eyebrow">SEARCH, DEMAND & CONVERSION</p><h2>
+        Useful capabilities.<br />No magic promises.
+      </h2>
+    </div><FAQ
+      items={[
+        [
+          "What do SEO, AEO, and GEO mean here?",
+          "SEO supports discovery in search engines. AEO makes useful answers easier to understand and retrieve. GEO considers how generative search systems can understand and reference a business. Clear content, technical foundations, and credible evidence matter across them; placement is not guaranteed.",
+        ],
+        [
+          "Does every local business need paid ads?",
+          "No. Paid demand should support a clear offer and a working conversion path. The audit may identify website, visibility, reputation, or follow-up improvements as higher priorities.",
+        ],
+        [
+          "Is Local Growth a separate company or product?",
+          "No. It is a primary configuration of the Anchorline Growth Engine, built around local customer acquisition rather than a B2B account-led sales motion.",
+        ],
+      ]}
+    />
+  </section>
+  <AuditClose pathway="local" title="Where are local customers dropping off?" />
+</Site>

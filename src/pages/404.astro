@@ -1,0 +1,19 @@
+---
+import Site from "../layouts/Site.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<Site
+  page="404"
+  title="Page Not Found | Anchorline Systems"
+  description="The requested page is not available."
+  forceNoindex
+  ><section class="container receipt-page">
+    <p class="eyebrow">404 / PAGE NOT FOUND</p><h1>
+      Let’s get you<br />back on course.
+    </h1><p class="large-copy">The requested page could not be found.</p><CTA
+      href="/"
+      label="Back to Anchorline"
+    />
+  </section></Site
+>
