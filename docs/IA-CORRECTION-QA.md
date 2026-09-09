@@ -2,7 +2,7 @@
 
 ## Current authority
 
-Candidate 5177b0ce2dd3019e37e67108a8e1721d37899b30 established the visual language and remains visually unapproved. This IA pass preserves that visual language while shortening Home. Production readiness is paused and production is not authorized.
+Candidate 5177b0ce2dd3019e37e67108a8e1721d37899b30 established the visual language. This IA pass preserved that visual language while shortening Home. Kris accepted the resulting design and information architecture as the release design on September 8, 2026.
 
 ## Home after correction
 

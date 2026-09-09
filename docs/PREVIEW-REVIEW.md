@@ -1,41 +1,44 @@
-# Anchorline Growth Engine — preview-only review
+# AnchorlineAI.com — production release candidate
 
-## Boundaries
+## Scope
 
-This PR branch is not authorized for production. No merge, production deploy, DNS, domain, production settings, notification, legacy form, CRM/Signal, Command, or private 2ndBrainOS changes are included. The production Netlify build context intentionally fails closed.
+This branch prepares the accepted AnchorlineAI.com design and information architecture for public release through PR #5. It does not merge main or deploy production. The release delta is limited to environment-aware indexing and canonicals, preview-only labeling, production-safe build guards, Privacy and Terms pages, crawler controls, and release verification.
 
-Existing root HTML, redirects, report PDF, and brand source files are preserved in Git. The new Astro build publishes only dist. Legacy material is not blindly deleted or shipped as active preview pages.
+## Public pages
 
-## Review scope
+Home, The Growth Engine, B2B Growth, Local Growth, Our Approach, About, Request Your Growth Audit, Privacy, and Terms. The Growth Audit receipt remains noindex and excluded from the sitemap. A genuine 404 also remains noindex.
 
-Home, Growth Engine, B2B Growth, Local Growth, About, Growth Audit, receipt, and a genuine 404. Every generated page includes noindex/nofollow/noarchive; response headers reinforce this. robots.txt disallows crawling. Canonicals use the current preview origin, not an unlaunched production path. No sitemap is advertised for this unindexed preview. Production canonical/crawler settings require release review.
+Production output uses index/follow on approved public pages and canonical URLs under https://anchorlineai.com. Deploy Previews remain noindex/nofollow/noarchive, use preview-origin canonicals, identify themselves as non-production, and block crawling through robots.txt.
 
-The visual identity is white-led editorial enterprise design with ink, blue and selective gold accents; custom illustrative signal/orchestration/deliverable visuals; an asymmetric homepage and varied section composition. The existing public Anchorline mark is optimized during build. Fonts are packaged locally. No generated imagery, private screenshots, live dashboards, invented results, or confidential data.
+## Growth Audit
 
-All diagrams/examples are conceptual and labeled. The Founder & Leadership section uses the exact owner-provided approved founder photograph with a responsive crop; the source JPEG is already compact and is preserved without face alteration. Foundation wording preserves the existing public statement, with surrounding draft copy for owner review. The public 2ndBrainOS explanation is supporting, not a competing offer. Only the footer Client Login links to the existing protected portal.
+The live form name, fields, validation, honeypot, POST behavior, receipt safeguards, and B2B/Local preselection are unchanged. Netlify currently registers the growth-audit form with the expected fields and honeypot. The existing notification configuration to hello@anchorlineai.com is preserved; no notification, CRM, Signal, Make, Zapier, MailerLite, Acquisity, or other automation dependency is added.
 
-## Growth Audit intake verification state
+No new synthetic submission is required because form behavior did not change. Mock/intercepted tests verify browser behavior without creating a Netlify submission.
 
-Form: growth-audit. It is included in static build output for Netlify registration, uses the approved field schema, and preserves the Netlify honeypot. Netlify registration is verified. The dedicated form notification growth-audit → hello@anchorlineai.com is verified, with no global rule and legacy rules unchanged. src/settings.ts sets previewFormSubmissionEnabled=true, so the rendered control is the production-ready “Request Your Growth Audit” action.
+## Privacy and Terms
 
-Automated tests verify that incomplete required fields prevent any POST. Mocked local tests cover accepted and failed backend responses without making a real Netlify submission. Exactly one clearly synthetic real submission remains separately approval-gated; it must verify the Netlify record, hello@ notification receipt, and browser receipt experience. Do not activate unrelated automations.
-
-The receipt page does not emit a conversion event and a direct visit does not claim a request was received. A browser-session marker changes the receipt presentation after an accepted test response; it is not a security credential or authoritative stored-record proof. Verify actual Netlify records separately. Network uncertainty warns reviewers to check records before retrying.
+The release candidate includes concise Privacy and Terms pages based on the site behavior verified for launch. Both pages are explicitly marked for Kris owner review before merge and state that the wording is not legal advice. They do not invent retention periods, data sales, advertising practices, legal bases, or unverified processors.
 
 ## Analytics
 
-No GA4/GTM/pixel/replay/heatmap script or destination is installed. Existing resource inspection found no usable connected analytics integration and the Analytics browser required login; an isolated property was not verified. Per authorization, use local diagnostics only: window.\_\_anchorlineDiagnostics and anchorline:analytics CustomEvent. Events are enumerated and properties strictly allowlisted; no form values, raw URLs, personal data, storage, or network transmission.
-
-LOCAL EVENT GENERATION and GA4 RECEIPT are different verification states. Never report the latter without a separately verified existing nonproduction destination and receipt evidence. This branch creates no properties or streams.
-
-## Deferred content
-
-No unapproved Privacy/Terms text or placeholder policy routes are exposed. Policy drafting/review remains private. No Results/blog section or unverified client case study is published. The final owner review should confirm draft claims, Foundation wording, public 2ndBrainOS wording, and exact preview limitations.
-
-## Commands
-
-Node >=22.12.0. npm ci; npm run build; npm run test:unit; npm test. Local browser tests need an installed Playwright Chromium browser. npm run preview serves the built static output.
+GA4 is deferred. No GA4 property, Google Tag Manager, advertising pixel, session replay, or heatmap tooling is installed. This is not a launch blocker.
 
 ## Release protection
 
-Do not bypass scripts/block-production.mjs. Releasing requires a separate owner authorization and an explicit reviewed production-ready change, including canonical/robots policy, form routing, analytics, policy content, and safeguards. No release is implied by preview approval.
+Netlify production builds run the normal tested Astro build only when CONTEXT=production and BRANCH=main. PR #5 Deploy Previews are allowed when CONTEXT=deploy-preview and REVIEW_ID=5. Other Netlify contexts fail closed through scripts/guard.mjs.
+
+The connected GitHub tool does not expose branch-protection or ruleset administration, the unauthenticated repository confirms main is currently unprotected, and repository settings are not accessible in the current browser session. The Netlify integration does not expose production-deploy locking. No protection control is changed through an invented workaround. The source guard is therefore the implemented protection available in this release delta; main branch protection remains a recorded limitation for owner review.
+
+## Verification
+
+Run the complete release suite after the release delta is finalized:
+
+```sh
+NETLIFY=true CONTEXT=deploy-preview REVIEW_ID=5 BRANCH=forge/growth-engine-preview DEPLOY_PRIME_URL=https://deploy-preview-5--spontaneous-daifuku-666a8c.netlify.app npm run build
+npm run test:unit
+npm test
+NETLIFY=true CONTEXT=production BRANCH=main npm run build
+```
+
+Also verify the final Netlify Deploy Preview and PR record before requesting merge approval. Production merge and deployment require their own exact-action approval.
