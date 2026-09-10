@@ -55,10 +55,31 @@ for (const file of htmls) {
     1,
     `Only one footer client link: ${file}`,
   );
+  const googleLoader =
+    "https://www.googletagmanager.com/gtag/js?id=G-KPQ0G7C2YY";
+  if (production) {
+    assert.equal(
+      (
+        text.match(
+          new RegExp(googleLoader.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"),
+        ) || []
+      ).length,
+      1,
+      `Exactly one production GA4 loader: ${file}`,
+    );
+    assert(
+      text.includes("gtag('config', 'G-KPQ0G7C2YY')"),
+      `GA4 config: ${file}`,
+    );
+  } else {
+    assert(!text.includes(googleLoader), `No GA4 on preview: ${file}`);
+  }
+  assert(!text.includes("GTM-"), `No Google Tag Manager container: ${file}`);
   assert(
-    !text.includes("googletagmanager.com") &&
-      !text.includes("google-analytics.com"),
-    `No launch analytics: ${file}`,
+    !text.includes("connect.facebook.net") &&
+      !text.includes("clarity.ms") &&
+      !text.includes("hotjar.com"),
+    `No extra trackers: ${file}`,
   );
   assert(
     !text.includes("request-access") && !text.includes("anchorline-insider"),
@@ -95,11 +116,57 @@ assert(
   form.includes(">Request Your Growth Audit<"),
   "Growth Audit submit label missing",
 );
+const siteScript = await readFile(
+  new URL("../src/scripts/site.js", import.meta.url),
+  "utf8",
+);
+assert(
+  siteScript.includes('window.gtag("event", "growth_audit_submit"'),
+  "Confirmed Growth Audit GA4 event missing",
+);
+assert(
+  siteScript.includes('if (typeof window.gtag === "function")'),
+  "Growth Audit GA4 event must be guarded by the standard gtag function",
+);
+assert(
+  siteScript.indexOf('window.gtag("event", "growth_audit_submit"') >
+    siteScript.indexOf("if (!response.ok)"),
+  "Growth Audit GA4 event must follow backend acceptance",
+);
+for (const internalText of [
+  "test-form isolation",
+  "The test could not be submitted",
+  "Check the test records before retrying",
+])
+  assert(
+    !siteScript.includes(internalText),
+    `Internal form language remains: ${internalText}`,
+  );
+for (const file of htmls) {
+  const text = await readFile(file, "utf8");
+  assert(
+    text.includes("https://anchorlineai.com/brand/mark.webp"),
+    `Organization logo must use the live canonical mark: ${file}`,
+  );
+  assert(
+    !text.includes("https://anchorlineai.com/Anchorline_Logo.PNG"),
+    `Broken legacy Organization logo URL: ${file}`,
+  );
+}
+const redirects = await readFile(path.join(root, "_redirects"), "utf8");
+assert(
+  redirects.includes("/command https://amg.anchorlineai.com/ 301!"),
+  "Legacy /command redirect missing",
+);
 const receipt = await readFile(
   path.join(root, "growth-audit/received/index.html"),
   "utf8",
 );
 assert(receipt.includes("noindex, nofollow, noarchive"));
+assert(
+  !receipt.includes("growth_audit_submit"),
+  "Receipt page must not emit the Growth Audit GA4 event",
+);
 if (production) {
   const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
   assert(

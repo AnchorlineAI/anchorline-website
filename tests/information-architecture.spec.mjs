@@ -127,6 +127,7 @@ test("dedicated-page and Growth Audit source contracts are unchanged", async () 
       path === "netlify.toml" ||
       path === "src/pages/growth-audit/received.astro" ||
       path === "src/pages/growth-audit/index.astro" ||
+      path === "src/scripts/site.js" ||
       path === "src/pages/growth-engine/index.astro" ||
       path === "src/pages/growth-engine/b2b.astro" ||
       path === "src/pages/growth-engine/local.astro" ||

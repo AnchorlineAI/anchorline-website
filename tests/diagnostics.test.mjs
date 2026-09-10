@@ -25,6 +25,21 @@ test("only enumerated error reasons survive", () =>
     event: "form_error",
     mode: "local-preview-diagnostic",
   }));
+test("confirmed audit success keeps only approved non-PII context", () =>
+  assert.deepEqual(
+    safeEvent("audit_request_success", {
+      page: "audit",
+      pathway: "local",
+      email: "private@example.com",
+      website: "https://private.example.com",
+    }),
+    {
+      event: "audit_request_success",
+      mode: "local-preview-diagnostic",
+      page: "audit",
+      pathway: "local",
+    },
+  ));
 test("approved CTA context survives", () =>
   assert.deepEqual(
     safeEvent("audit_cta_click", {
