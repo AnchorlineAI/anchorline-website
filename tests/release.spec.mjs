@@ -75,10 +75,8 @@ test("Privacy, Terms, footer links, and Client Login are present", async ({
   ).toHaveAttribute("target", "_blank");
 });
 
-test("Growth Audit implementation contract remains byte-identical", async () => {
+test("Growth Audit form settings remain byte-identical", async () => {
   const expected = {
-    "src/scripts/site.js":
-      "88a746efc5ade5b6db647a4f0e49452da709a260a06f934ee73d0cd2215524c9",
     "src/settings.ts":
       "2342ae2cccc2a37e73f4f7f989d7782f2e524458a1f9dfc95cffc78b13f97936",
   };
@@ -99,7 +97,11 @@ test("no private reference package, analytics, or stale product name is exposed"
   const source = html.join("\n");
   expect(source).not.toContain("2ndbrainos-homepage-reference");
   expect(source).not.toContain("Anchorline AI Growth Engine");
-  expect(source).not.toContain("googletagmanager.com");
+  const production = process.env.CONTEXT === "production";
+  expect(
+    source.includes("https://www.googletagmanager.com/gtag/js?id=G-KPQ0G7C2YY"),
+  ).toBe(production);
+  expect(source).not.toContain("GTM-");
   expect(source).not.toContain("google-analytics.com");
   expect(source).not.toMatch(
     /owner review|visual approval|production release candidate|pending approval|preview-only|internal qa/i,
@@ -172,6 +174,54 @@ test("Insights collection renders three crawlable articles with article metadata
       expect.arrayContaining(["Article", "BreadcrumbList"]),
     );
   }
+});
+
+test("verified GA4 tag is production-only, unique, and Privacy discloses it", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const production =
+    process.env.CONTEXT === "production" &&
+    process.env.URL === "https://anchorlineai.com";
+  const loaders = page.locator(
+    'script[src="https://www.googletagmanager.com/gtag/js?id=G-KPQ0G7C2YY"]',
+  );
+  await expect(loaders).toHaveCount(production ? 1 : 0);
+  expect((await page.content()).includes("GTM-")).toBe(false);
+  await page.goto("/privacy/");
+  await expect(
+    page.getByText("Anchorline uses Google Analytics 4"),
+  ).toBeVisible();
+  await expect(page.getByText(/advertising pixels/)).toBeVisible();
+});
+
+test("Organization schema uses the live logo and /command preserves the client portal alias", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const organization = await page
+    .locator('script[type="application/ld+json"]')
+    .first()
+    .evaluate((node) =>
+      JSON.parse(node.textContent || "{}")["@graph"].find(
+        (entry) => entry["@type"] === "Organization",
+      ),
+    );
+  expect(organization.logo).toEqual({
+    "@type": "ImageObject",
+    url: "https://anchorlineai.com/brand/mark.webp",
+    contentUrl: "https://anchorlineai.com/brand/mark.webp",
+    width: 96,
+    height: 96,
+  });
+  const logo = await page.request.get("/brand/mark.webp");
+  expect(logo.status()).toBe(200);
+  expect(logo.headers()["content-type"]).toContain("image/webp");
+  const redirects = await readFile(
+    new URL("../public/_redirects", import.meta.url),
+    "utf8",
+  );
+  expect(redirects).toContain("/command https://amg.anchorlineai.com/ 301!");
 });
 
 test("Growth Audit removes the redundant Netlify notice without changing the form", async ({

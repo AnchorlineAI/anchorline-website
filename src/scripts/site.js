@@ -149,13 +149,14 @@ if (form) {
         reason: "isolation_pending",
       });
       status.textContent =
-        "Fields validated. Nothing was sent: test-form isolation has not yet been verified.";
+        "Submission is temporarily unavailable. Please try again later or email hello@anchorlineai.com.";
       status.focus();
       return;
     }
     if (form.elements["bot-field"].value) {
       recordEvent("form_error", { page, reason: "honeypot" });
-      status.textContent = "The test could not be submitted.";
+      status.textContent =
+        "Your request could not be submitted. Please try again.";
       return;
     }
     sending = true;
@@ -182,7 +183,15 @@ if (form) {
         });
         throw new Error("backend");
       }
-      recordEvent("audit_request_success", { page, pathway: getPathway() });
+      const confirmedPathway = getPathway();
+      recordEvent("audit_request_success", {
+        page,
+        pathway: confirmedPathway,
+      });
+      if (typeof window.gtag === "function")
+        window.gtag("event", "growth_audit_submit", {
+          pathway: confirmedPathway,
+        });
       const receipt = { form: "growth-audit", receivedAt: Date.now() };
       try {
         sessionStorage.setItem(
@@ -201,7 +210,7 @@ if (form) {
           reason: error.name === "AbortError" ? "timeout" : "network",
         });
       status.textContent =
-        "Receipt could not be confirmed. Your fields remain here. Check the test records before retrying to avoid a duplicate.";
+        "We could not confirm your request. Your fields remain here. Please wait a moment before retrying to avoid a duplicate.";
       status.focus();
     } finally {
       clearTimeout(timeout);

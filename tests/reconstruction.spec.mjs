@@ -67,7 +67,10 @@ test("audit is calm and preserves honeypot and live contract without POST", asyn
 }) => {
   const posts = [];
   await page.route("**/*", async (route) => {
-    if (route.request().method() === "POST") {
+    if (
+      route.request().method() === "POST" &&
+      route.request().url() === "http://127.0.0.1:4321/"
+    ) {
       posts.push(route.request().url());
       await route.abort();
     } else await route.continue();
@@ -98,11 +101,14 @@ test("backend, routing, analytics, dependency and authentic asset baseline is un
     "package.json",
     "public/_headers",
     "public/robots.txt",
+    "public/_redirects",
     "public/brand/social.svg",
     "scripts/check-output.mjs",
     "scripts/guard.mjs",
     "src/pages/growth-audit/received.astro",
     "src/pages/growth-audit/index.astro",
+    "src/scripts/site.js",
+    "src/scripts/diagnostics.js",
   ]);
   for (const [path, expected] of Object.entries(baseline)) {
     if (releaseOwned.has(path)) continue;

@@ -24,6 +24,7 @@ const {
 } = Astro.props;
 const isProduction = process.env.CONTEXT === "production";
 const publicOrigin = "https://anchorlineai.com";
+const isPublicProduction = isProduction && process.env.URL === publicOrigin;
 const previewOrigin = process.env.DEPLOY_PRIME_URL || "http://localhost:4321";
 const siteOrigin = isProduction ? publicOrigin : previewOrigin;
 const canonical = new URL(canonicalPath, siteOrigin).href;
@@ -37,7 +38,13 @@ const organization = {
   "@id": "https://anchorlineai.com/#organization",
   name: "Anchorline Systems LLC",
   url: "https://anchorlineai.com",
-  logo: "https://anchorlineai.com/Anchorline_Logo.PNG",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://anchorlineai.com/brand/mark.webp",
+    contentUrl: "https://anchorlineai.com/brand/mark.webp",
+    width: 96,
+    height: 96,
+  },
 };
 const webSite = {
   "@type": "WebSite",
@@ -134,6 +141,24 @@ const links = [
       name="twitter:image"
       content={new URL("/brand/social.png", siteOrigin).href}
     />
+    {
+      isPublicProduction && (
+        <>
+          <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-KPQ0G7C2YY"
+          />
+          <script
+            is:inline
+            set:html={`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-KPQ0G7C2YY');`}
+          />
+        </>
+      )
+    }
     <script
       type="application/ld+json"
       set:html={JSON.stringify(schema).replace(/</g, "\\u003c")}
