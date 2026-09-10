@@ -7,4 +7,5 @@
 /intelligence-engine.html /growth-engine/ 301
 /web-digital /growth-engine/local/ 301
 /web-digital.html /growth-engine/local/ 301
-# No redirects to unapproved policy content or protected environments.
+/command https://amg.anchorlineai.com/ 301!
+# Client Login remains the only public portal link; this legacy alias redirects permanently.

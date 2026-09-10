@@ -52,5 +52,5 @@ export function recordEvent(name, props = {}) {
   if (window.__anchorlineDiagnostics.length > 100)
     window.__anchorlineDiagnostics.shift();
   window.dispatchEvent(new CustomEvent("anchorline:analytics", { detail }));
-  // No GA4, dataLayer, network request, persistence, PII, or production analytics.
+  // Local diagnostic mirror only; no persistence, network request, or PII.
 }
