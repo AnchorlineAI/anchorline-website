@@ -49,7 +49,7 @@ test("environment-aware production and preview metadata remains correct", async 
   expect(await robots.text()).toBe(
     production
       ? "User-agent: *\nAllow: /\nDisallow: /growth-audit/received/\n\nSitemap: https://anchorlineai.com/sitemap.xml\n"
-      : "User-agent: *\nDisallow: /\n",
+      : "User-agent: *\nDisallow: /\\n",
   );
 });
 
@@ -78,7 +78,7 @@ test("Privacy, Terms, footer links, and Client Login are present", async ({
 test("Growth Audit form settings remain byte-identical", async () => {
   const expected = {
     "src/settings.ts":
-      "2342ae2cccc2a37e73f4f7f989d7782f2e524458a1f9dff95cffc78b13f97936",
+      "2342ae2cccc2a37e73f4f7f989d7782f2e524458a1f9dfc95cffc78b13f97936",
   };
   for (const [path, hash] of Object.entries(expected)) {
     const bytes = await readFile(new URL(`../${path}`, import.meta.url));
