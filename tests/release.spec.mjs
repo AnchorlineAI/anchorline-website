@@ -49,7 +49,7 @@ test("environment-aware production and preview metadata remains correct", async 
   expect(await robots.text()).toBe(
     production
       ? "User-agent: *\nAllow: /\nDisallow: /growth-audit/received/\n\nSitemap: https://anchorlineai.com/sitemap.xml\n"
-      : "User-agent: *\nDisallow: /\\n",
+      : "User-agent: *\nDisallow: /\n",
   );
 });
 
