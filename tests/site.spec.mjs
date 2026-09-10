@@ -86,7 +86,8 @@ for (const width of [320, 390, 768, 1024]) {
 test("live intake validation prevents incomplete POST", async ({ page }) => {
   const posts = [];
   page.on("request", (r) => {
-    if (r.method() === "POST") posts.push(r.url());
+    if (r.method() === "POST" && r.url() === "http://127.0.0.1:4321/")
+      posts.push(r.url());
   });
   await page.goto("/growth-audit/?pathway=local");
   await expect(page.locator("#audit-type")).toHaveValue("Local Business");
@@ -98,6 +99,10 @@ test("live intake validation prevents incomplete POST", async ({ page }) => {
 test("direct receipt does not claim success or count conversion", async ({
   page,
 }) => {
+  await page.addInitScript(() => {
+    window.__ga4TestEvents = [];
+    window.gtag = (...args) => window.__ga4TestEvents.push(args);
+  });
   await page.goto("/growth-audit/received/?request=received");
   await expect(page).toHaveTitle(
     "Growth Audit Request Confirmation | Anchorline Systems",
@@ -126,11 +131,24 @@ test("direct receipt does not claim success or count conversion", async ({
         ).length,
     ),
   ).toBe(0);
+  expect(
+    await page.evaluate(() =>
+      window.__ga4TestEvents.filter(
+        (args) => args[0] === "event" && args[1] === "growth_audit_submit",
+      ),
+    ),
+  ).toEqual([]);
 });
 test("pathway and audit click diagnostics are local only", async ({ page }) => {
   const external = [];
   page.on("request", (r) => {
-    if (!r.url().startsWith("http://127.0.0.1:4321")) external.push(r.url());
+    if (
+      !r.url().startsWith("http://127.0.0.1:4321") &&
+      !r.url().includes("googletagmanager.com") &&
+      !r.url().includes("google-analytics.com") &&
+      !r.url().includes("google.com/g/collect")
+    )
+      external.push(r.url());
   });
   await page.goto("/growth-engine/b2b/");
   expect(

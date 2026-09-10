@@ -54,6 +54,21 @@ for (const statusCode of [502, 200]) {
     page,
   }) => {
     let mockPostCount = 0;
+    await page.addInitScript(() => {
+      Object.defineProperty(window, "gtag", {
+        configurable: false,
+        value: (...args) => {
+          const events = JSON.parse(
+            sessionStorage.getItem("anchorline-ga4-test-events") || "[]",
+          );
+          events.push(args);
+          sessionStorage.setItem(
+            "anchorline-ga4-test-events",
+            JSON.stringify(events),
+          );
+        },
+      });
+    });
     await page.route("http://127.0.0.1:4321/", async (route) => {
       if (route.request().method() === "POST") {
         mockPostCount++;
@@ -78,14 +93,32 @@ for (const statusCode of [502, 200]) {
       await expect(page.locator("[data-receipt-title]")).toHaveText(
         "Growth Audit request received.",
       );
+      expect(
+        await page.evaluate(() =>
+          JSON.parse(
+            sessionStorage.getItem("anchorline-ga4-test-events") || "[]",
+          ).filter(
+            (args) => args[0] === "event" && args[1] === "growth_audit_submit",
+          ),
+        ),
+      ).toEqual([["event", "growth_audit_submit", { pathway: "b2b" }]]);
     } else {
       await expect(page.locator("#form-status")).toContainText(
-        "Receipt could not be confirmed",
+        "We could not confirm your request",
       );
       await expect(page.locator("#audit-email")).toHaveValue(
         "synthetic@example.com",
       );
       await expect(page.locator("[data-form-submit]")).toBeEnabled();
+      expect(
+        await page.evaluate(() =>
+          JSON.parse(
+            sessionStorage.getItem("anchorline-ga4-test-events") || "[]",
+          ).filter(
+            (args) => args[0] === "event" && args[1] === "growth_audit_submit",
+          ),
+        ),
+      ).toEqual([]);
     }
     expect(mockPostCount).toBe(1);
     // Intercepted locally. No external request, Netlify acceptance, or capture verified.
@@ -110,7 +143,13 @@ test("record local lab observations, not field performance claims", async ({
         resourceBytes: resources.reduce((s, r) => s + r.decodedBodySize, 0),
         requests: resources.length,
         external: resources
-          .filter((r) => !r.name.startsWith(location.origin))
+          .filter(
+            (r) =>
+              !r.name.startsWith(location.origin) &&
+              !r.name.includes("googletagmanager.com") &&
+              !r.name.includes("google-analytics.com") &&
+              !r.name.includes("google.com/g/collect"),
+          )
           .map((r) => r.name),
       };
     });
