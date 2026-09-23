@@ -16,6 +16,7 @@ const publicRoutes = [
   "/insights/why-most-growth-problems-arent-really-marketing-problems/",
   "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
+  "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
 ];
 
 test("environment-aware production and preview metadata remains correct", async ({
@@ -143,13 +144,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders three crawlable articles with article metadata", async ({
+test("Insights collection renders four crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(3);
+  await expect(page.locator(".insight-card")).toHaveCount(4);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    6,
+    8,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
