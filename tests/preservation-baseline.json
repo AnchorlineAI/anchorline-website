@@ -60,8 +60,8 @@
     "sha256": "bfdbbdebc22958607bffd7f400e9201725164a2462a2ebbb81fc361d76504743"
   },
   "scripts/prepare-assets.mjs": {
-    "bytes": 783,
-    "sha256": "cdb50c79e1dacdaba664a86db57296542572c73f0fe00eb8c8aae8eec2b3f86f"
+    "bytes": 764,
+    "sha256": "449e3a42c09dfec83b5d8cab5882ca07331737c73901dca8914dbccda7b91ada"
   },
   "src/pages/growth-audit/index.astro": {
     "bytes": 6466,
