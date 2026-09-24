@@ -1,7 +1,8 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import assert from "node:assert/strict";
 import path from "node:path";
-const root = new URL("../dist/", import.meta.url).pathname;
+import { fileURLToPath } from "node:url";
+const root = fileURLToPath(new URL("../dist/", import.meta.url));
 const production = process.env.CONTEXT === "production";
 async function files(dir) {
   const names = await readdir(dir);
@@ -34,6 +35,8 @@ const expected = [
   "insights/when-an-ai-assistant-becomes-an-operating-layer/index.html",
   "insights/what-technical-ai-needs-before-experts-can-trust-the-output/index.html",
   "insights/the-creator-operating-system-is-bigger-than-content-production/index.html",
+  "insights/google-ai-max-reporting-ad-accountability/index.html",
+  "insights/uipath-cartographer-map-of-work/index.html",
   "growth-audit/received/index.html",
   "404.html",
   "robots.txt",
@@ -43,7 +46,7 @@ for (const f of expected)
   assert(all.includes(path.join(root, f)), `Missing ${f}`);
 for (const file of htmls) {
   const text = await readFile(file, "utf8");
-  const relative = path.relative(root, file);
+  const relative = path.relative(root, file).split(path.sep).join("/");
   const sensitive =
     relative === "growth-audit/received/index.html" || relative === "404.html";
   assert.equal(
@@ -193,6 +196,12 @@ if (production) {
       ) &&
       sitemap.includes(
         "https://anchorlineai.com/insights/the-agent-needs-an-identity-not-just-a-prompt/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/google-ai-max-reporting-ad-accountability/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/uipath-cartographer-map-of-work/",
       ),
   );
 }

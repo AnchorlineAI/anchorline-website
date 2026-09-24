@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">A governed map of work</title>
+  <desc id="desc">An institutional workflow shows a main path, a decision and exception, evidence, an owner, and a feedback loop.</desc>
+  <rect width="1600" height="900" fill="#fafcfd"/>
+  <path d="M105 140H1495M105 760H1495" stroke="#cddae2" stroke-width="2"/>
+  <text x="108" y="113" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#172c42">A MAP OF REAL WORK</text>
+  <text x="108" y="803" font-family="Arial, sans-serif" font-size="21" fill="#627183">The route, the exception, and the accountable return</text>
+  <g stroke="#172c42" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M294 397h120M604 397h102M874 397h108M1171 397h95"/>
+    <path d="m399 385 17 12-17 12M690 385l17 12-17 12M967 385l17 12-17 12M1251 385l17 12-17 12"/>
+    <path d="M790 482v115h200" stroke="#168a78"/>
+    <path d="m975 586 17 11-17 11" stroke="#168a78"/>
+    <path d="M1320 480v198H438v-81" stroke="#2455a6" stroke-dasharray="13 14"/>
+    <path d="m426 612 12-17 12 17" stroke="#2455a6"/>
+  </g>
+  <g fill="#fff" stroke="#172c42" stroke-width="4">
+    <rect x="110" y="315" width="185" height="164" rx="5"/>
+    <rect x="416" y="315" width="188" height="164" rx="5"/>
+    <path d="m790 308 84 89-84 89-84-89z"/>
+    <rect x="985" y="315" width="186" height="164" rx="5"/>
+    <rect x="1267" y="315" width="225" height="164" rx="5"/>
+    <rect x="995" y="547" width="235" height="110" rx="5" stroke="#168a78"/>
+  </g>
+  <g fill="#172c42" font-family="Arial, sans-serif" font-size="26" font-weight="600" text-anchor="middle">
+    <text x="202" y="398">Request</text>
+    <text x="510" y="398">Context</text>
+    <text x="790" y="405">Decision</text>
+    <text x="1078" y="398">Owner</text>
+    <text x="1379" y="398">Execution</text>
+    <text x="1112" y="612">Exception path</text>
+  </g>
+  <g fill="#627183" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <text x="202" y="435">intended outcome</text>
+    <text x="510" y="435">rules and sources</text>
+    <text x="1078" y="435">approval</text>
+    <text x="1379" y="435">evidence recorded</text>
+  </g>
+  <g fill="#2455a6" font-family="Arial, sans-serif" font-size="18" font-weight="700">
+    <text x="600" y="724">FEEDBACK UPDATES THE MAP AFTER REVIEW</text>
+  </g>
+  <circle cx="438" cy="596" r="12" fill="#2455a6"/>
+  <circle cx="1320" cy="678" r="12" fill="#2455a6"/>
+</svg>

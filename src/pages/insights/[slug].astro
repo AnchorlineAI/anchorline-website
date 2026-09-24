@@ -85,7 +85,8 @@ const articleSchema = {
 
 <Site
   page="insights"
-  title={`${article.data.title} | Anchorline Insights`}
+  title={article.data.seoTitle ?? `${article.data.title} | Anchorline Insights`}
+  ogTitle={article.data.ogTitle}
   description={article.data.description}
   canonicalPath={canonicalPath}
   ogType="article"
@@ -93,6 +94,8 @@ const articleSchema = {
   articleModifiedTime={article.data.updatedDate?.toISOString()}
   articleAuthor={article.data.author}
   socialImage={article.data.image}
+  socialImageWidth={article.data.image ? 1600 : 1200}
+  socialImageHeight={article.data.image ? 900 : 630}
 >
   <article class="container insight-article">
     <header class="insight-article-header">
@@ -113,6 +116,7 @@ const articleSchema = {
       {article.data.image && (
         <figure class="insight-article-image">
           <img src={article.data.image} alt={article.data.imageAlt ?? ""} width="1600" height="900" loading="eager" />
+          {article.data.imageCredit && <figcaption>{article.data.imageCredit}</figcaption>}
         </figure>
       )}
     </header>

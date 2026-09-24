@@ -119,6 +119,12 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
+.insight-article-image figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
 .insight-card h3 {
   max-width: 720px;
   margin-top: 55px;
