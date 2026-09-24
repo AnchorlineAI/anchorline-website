@@ -19,7 +19,7 @@ const publicRoutes = [
   "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
   "/insights/google-ai-max-reporting-ad-accountability/",
   "/insights/uipath-cartographer-map-of-work/",
-  "/insights/what-anchorline-systems-builds/",
+  "/insights/growth-audit-website-search-lead-generation/",
 ];
 
 test("environment-aware production and preview metadata remains correct", async ({

@@ -1,50 +1,42 @@
-# Anchorline LinkedIn package - What Anchorline Systems Builds
+# Anchorline LinkedIn package - A Growth Audit Starts With the Website
 
-Use these manually after the article is live. Replace `[article link]` with `https://anchorlineai.com/insights/what-anchorline-systems-builds/`. Do not add performance claims, tag unrelated people or vendors, or present the article as a client case study.
+Use these manually after the article is live. Replace `[article link]` with `https://anchorlineai.com/insights/growth-audit-website-search-lead-generation/`. Do not add performance claims, tag unrelated people or vendors, or present the article as a client case study.
 
 ## Anchorline Systems Page post
 
-Most growth problems are not isolated marketing problems. They happen between the pieces.
+Before we recommend a website redesign, SEO work, answer-ready content, or lead generation, we start with the path a prospective customer has to take.
 
-A website attracts attention but does not make the next step clear. Outreach starts a conversation the website does not continue. Leads enter a system without enough context. Follow-up depends on memory. Reporting counts activity but cannot show where opportunity lost momentum.
+Can the right person find the business? Does the website make the offer clear? Does a search result or outreach message lead to a relevant next step? Is there a real process for turning interest into a conversation?
 
-Anchorline Systems exists to connect that work.
+That is what the Anchorline Growth Audit examines.
 
-We build growth systems across strategy and positioning, buyer and market intelligence, websites and conversion, search visibility, media, demand generation, follow-up, AI, automation, and measurement.
-
-Not every organization needs every capability. We begin with the outcome, diagnose the constraint, and configure the right work around how the organization and its customers actually operate.
-
-Our primary entry point is the Growth Audit: three prioritized opportunities, supporting observations, a recommended Growth Engine configuration, and a practical next step.
-
-We build the systems that help good organizations grow.
+Our focus is deliberately specific: web development, SEO, AEO, GEO, and lead generation. The audit identifies three priorities, the observations behind them, and a practical place to begin. It is no-cost, qualification-based, and not a guarantee of results.
 
 [article link]
 
-#GrowthSystems #BusinessGrowth #AIForBusiness #SEO #RevenueOperations
+#WebDevelopment #SEO #AEO #GEO #LeadGeneration
 
 ## First comment for the Page post
 
-The article explains the seven-stage Growth Engine: Attract, Identify, Engage, Convert, Follow up, Learn, and Improve. The Growth Audit is no-cost and qualification-based. It is not a comprehensive strategy engagement or a guarantee of results.
+The article explains how the website, search visibility, and lead path fit together. The Growth Audit is no-cost and qualification-based. It is not a comprehensive strategy engagement or a guarantee of results.
 
 ## Kris personal-profile post
 
-I have spent a lot of time thinking about how to explain Anchorline without reducing it to one tool or channel.
+The fastest way to waste money on marketing is to choose the work before you understand the constraint.
 
-We build websites. We work across search visibility, buyer intelligence, acquisition systems, AI and automation, media, conversion paths, follow-up, analytics, and operating workflows.
+Some organizations need a better website. Some need stronger search foundations. Some need pages that answer buyer questions more clearly. Some create interest but have no reliable path from first contact to a qualified conversation.
 
-But those are capabilities inside a broader systems company.
+Those are different problems. They should not receive the same answer.
 
-The real work is finding where opportunity is losing momentum and connecting the pieces required to move it forward.
+Anchorline is focused on web development, SEO, AEO, GEO, and lead generation. The Growth Audit is where we look at the current website, visibility, and lead path before recommending a next step.
 
-The new article explains what Anchorline builds, how the seven-stage Growth Engine works, what capabilities may be involved, what we do not promise, and why we start with diagnosis rather than a predetermined package.
-
-If your website, marketing, sales, follow-up, and technology are all active but not truly working together, this is the problem we are built to address.
+The article explains what that review looks for and what it does not promise.
 
 [article link]
 
 ## Suggested featured-post order
 
-1. This cornerstone article
+1. This Growth Audit article
 2. Growth Audit explainer
 3. One high-value authority Insight
 4. A future proof asset, once verified and approved
