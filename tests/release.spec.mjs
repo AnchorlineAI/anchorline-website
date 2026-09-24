@@ -19,6 +19,7 @@ const publicRoutes = [
   "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
   "/insights/google-ai-max-reporting-ad-accountability/",
   "/insights/uipath-cartographer-map-of-work/",
+  "/insights/what-anchorline-systems-builds/",
 ];
 
 test("environment-aware production and preview metadata remains correct", async ({
@@ -146,13 +147,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders ten crawlable articles with article metadata", async ({
+test("Insights collection renders eleven crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(10);
+  await expect(page.locator(".insight-card")).toHaveCount(11);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    20,
+    22,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
