@@ -21,6 +21,7 @@ const {
   articlePublishedTime,
   articleModifiedTime,
   articleAuthor,
+  socialImage = "/brand/social.png",
 } = Astro.props;
 const isProduction = process.env.CONTEXT === "production";
 const publicOrigin = "https://anchorlineai.com";
@@ -111,7 +112,7 @@ const links = [
     />
     <meta
       property="og:image"
-      content={new URL("/brand/social.png", siteOrigin).href}
+      content={new URL(socialImage, siteOrigin).href}
     />
     <meta property="og:image:width" content="1200" /><meta
       property="og:image:height"
@@ -139,7 +140,7 @@ const links = [
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content={new URL("/brand/social.png", siteOrigin).href}
+      content={new URL(socialImage, siteOrigin).href}
     />
     {
       isPublicProduction && (

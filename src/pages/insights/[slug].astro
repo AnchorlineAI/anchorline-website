@@ -41,7 +41,9 @@ const articleSchema = {
       ...(article.data.updatedDate
         ? { dateModified: article.data.updatedDate.toISOString() }
         : {}),
-      image: "https://anchorlineai.com/brand/social.png",
+      image: article.data.image
+        ? `https://anchorlineai.com${article.data.image}`
+        : "https://anchorlineai.com/brand/social.png",
       author: {
         "@type": "Person",
         "@id": "https://anchorlineai.com/about/#kris-mcfadden",
@@ -90,6 +92,7 @@ const articleSchema = {
   articlePublishedTime={article.data.publishDate.toISOString()}
   articleModifiedTime={article.data.updatedDate?.toISOString()}
   articleAuthor={article.data.author}
+  socialImage={article.data.image}
 >
   <article class="container insight-article">
     <header class="insight-article-header">
@@ -107,6 +110,11 @@ const articleSchema = {
           {formatDate(article.data.publishDate)}
         </time>
       </div>
+      {article.data.image && (
+        <figure class="insight-article-image">
+          <img src={article.data.image} alt={article.data.imageAlt ?? ""} width="1600" height="900" loading="eager" />
+        </figure>
+      )}
     </header>
     <div class="article-layout">
       <aside class="article-rail" aria-label="Article context">
