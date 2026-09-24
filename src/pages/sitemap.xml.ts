@@ -21,6 +21,8 @@ const paths = [
   "/insights/when-an-ai-assistant-becomes-an-operating-layer/",
   "/insights/what-technical-ai-needs-before-experts-can-trust-the-output/",
   "/insights/the-creator-operating-system-is-bigger-than-content-production/",
+  "/insights/google-ai-max-reporting-ad-accountability/",
+  "/insights/uipath-cartographer-map-of-work/",
 ];
 
 export const GET: APIRoute = () => {

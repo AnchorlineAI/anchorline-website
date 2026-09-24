@@ -5,6 +5,8 @@ const insights = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/insights" }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().optional(),
+    ogTitle: z.string().optional(),
     description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
@@ -12,6 +14,7 @@ const insights = defineCollection({
     category: z.string(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    imageCredit: z.string().optional(),
     featured: z.boolean().default(false),
   }),
 });

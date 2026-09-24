@@ -17,6 +17,8 @@ const publicRoutes = [
   "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
   "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
+  "/insights/google-ai-max-reporting-ad-accountability/",
+  "/insights/uipath-cartographer-map-of-work/",
 ];
 
 test("environment-aware production and preview metadata remains correct", async ({
@@ -144,13 +146,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders four crawlable articles with article metadata", async ({
+test("Insights collection renders ten crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(4);
+  await expect(page.locator(".insight-card")).toHaveCount(10);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    8,
+    20,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
@@ -173,6 +175,57 @@ test("Insights collection renders four crawlable articles with article metadata"
       );
     expect(types).toEqual(
       expect.arrayContaining(["Article", "BreadcrumbList"]),
+    );
+  }
+});
+
+test("new Insights preserve sources, artwork credits, and social metadata", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const articles = [
+    {
+      path: "/insights/google-ai-max-reporting-ad-accountability/",
+      sourceHref: "https://blog.google/products/ads-commerce/ai-max-language-reporting-features/",
+      sourceLabel: /AI Max reporting announcement/,
+      ogTitle: "Google Is Making AI Advertising Easier to Inspect",
+    },
+    {
+      path: "/insights/uipath-cartographer-map-of-work/",
+      sourceHref: "https://www.uipath.com/newsroom/uipath-launches-uipath-cartographer-map-of-work",
+      sourceLabel: /Cartographer announcement/,
+      ogTitle: "Before AI Can Run the Work, Map How It Really Works",
+    },
+  ];
+  for (const article of articles) {
+    await page.goto(article.path);
+    await expect(page.locator(".insight-article-image img")).toHaveAttribute(
+      "alt",
+      /.+/,
+    );
+    await expect(page.locator(".insight-article-image figcaption")).toHaveText(
+      "Original Anchorline editorial illustration.",
+    );
+    expect(
+      await page.locator(".insight-article-image img").evaluate((image) => image.naturalWidth),
+    ).toBe(1600);
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(390);
+    await expect(page.locator(`a[href="${article.sourceHref}"]`)).toHaveText(
+      article.sourceLabel,
+    );
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+      "content",
+      article.ogTitle,
+    );
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
+      "content",
+      "1600",
+    );
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute(
+      "content",
+      "900",
     );
   }
 });
