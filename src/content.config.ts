@@ -10,6 +10,8 @@ const insights = defineCollection({
     updatedDate: z.coerce.date().optional(),
     author: z.string(),
     category: z.string(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
     featured: z.boolean().default(false),
   }),
 });

@@ -109,6 +109,16 @@
   gap: 24px;
   color: var(--muted);
 }
+.insight-article-image {
+  margin: 48px 0 0;
+}
+.insight-article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 .insight-card h3 {
   max-width: 720px;
   margin-top: 55px;
