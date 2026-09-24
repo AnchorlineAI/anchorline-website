@@ -12,7 +12,7 @@ imageAlt: "A workflow map shows a main path, decision, exception route, owner, e
 imageCredit: "Original Anchorline editorial illustration."
 ---
 
-Most organizations have documented less of their work than they think.
+Many organizations have documented less of their work than they think.
 
 There may be policies, process diagrams, training materials, spreadsheets, and standard operating procedures. But the process people actually follow often lives somewhere else: in judgment, exceptions, workarounds, message threads, and the experience of employees who know what to do when the manual no longer applies.
 
@@ -20,9 +20,7 @@ UiPath's new Cartographer product is an attempt to capture that missing layer.
 
 The company calls the result a "Map of Work"—a living, customer-owned representation of how a process runs. UiPath says Cartographer can synthesize documents, steps, rules, exceptions, and expert input; produce design documents and build-ready specifications; and maintain a Decision Ledger recording what was decided and why. Proposed changes return to a named owner for approval rather than silently rewriting the process.
 
-The product announcement is significant because it identifies one of the real constraints on agentic automation.
-
-The model is not the only missing component. The organization itself may not have made its work legible enough for a model—or a new employee—to execute reliably.
+The announcement points to a constraint on agentic automation: an organization may not have made its work legible enough for a model—or a new employee—to execute reliably.
 
 ## Trace the work that actually happens
 
@@ -50,19 +48,13 @@ UiPath says Cartographer inherits its platform's identity, security, and governa
 
 ## Make the map useful before automating
 
-The broader lesson does not depend on buying this product.
-
-Before automating an important workflow, build a truthful representation of the work.
+The broader lesson does not depend on buying this product. Before automating an important workflow, build a truthful representation of the work.
 
 Start with one process. Identify the intended outcome. Follow the real path, not merely the documented one. Record the systems, decisions, exceptions, owners, evidence, and escalation points. Find the places where people compensate for a broken design through memory or heroics.
 
 Then decide what software should execute, what it should recommend, and where human judgment must return.
 
-This is not bureaucracy. It is preparation for speed.
-
 When context is explicit and ownership is clear, agents can act with less ambiguity. New employees learn faster. Failures are easier to diagnose. Improvements can accumulate instead of disappearing inside one person's experience.
-
-Before AI can run the work, the organization has to make the work legible.
 
 The quality of the automation will depend on the honesty of that map.
 

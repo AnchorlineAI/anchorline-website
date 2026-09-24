@@ -19,7 +19,7 @@ Each stage can work reasonably well on its own while the whole system underperfo
 
 A website may attract traffic but make the next step difficult. A campaign may generate interest that reaches the wrong person. Sales may receive leads without the context needed to continue the conversation. Reporting may count activity without showing where momentum was lost.
 
-Those are not simply marketing problems. They are connection problems.
+In those cases, the problem crosses the handoffs between marketing, sales, and follow-up.
 
 ## Diagnose the constraint before choosing the tool
 
@@ -49,4 +49,4 @@ The practical question is not, “What marketing should we add?” It is, “Whe
 
 That is why Anchorline starts with diagnosis. A [Growth Audit](/growth-audit/) identifies three prioritized opportunities, supporting observations, a recommended Growth Engine configuration, and a clearer next step.
 
-The goal is not to produce a longer list. It is to find the few changes that can make the system work better as a whole.
+That diagnosis should point to the few changes most likely to improve the customer's path and the team's ability to respond.

@@ -17,7 +17,7 @@ The Anchorline Growth Audit is designed to create that clarity.
 
 A long list of observations can feel thorough while making action less likely. Every organization has more possible improvements than it can pursue at once.
 
-Three priorities force judgment. They create enough range to show how the system is behaving without turning the audit into an unranked backlog.
+Choosing three priorities forces judgment without turning the audit into an unranked backlog.
 
 Each priority should answer four questions:
 
@@ -26,7 +26,7 @@ Each priority should answer four questions:
 3. What evidence supports the observation?
 4. What should happen next?
 
-The purpose is not to diagnose every possible issue. It is to identify a credible starting point.
+The purpose is to identify a credible starting point, not diagnose every possible issue.
 
 ## The audit looks across the system
 
@@ -52,10 +52,10 @@ For an established B2B organization, the recommendation may connect buyer intell
 
 The exact configuration follows the diagnosis.
 
-## A clearer next step is the real output
+## Decide what happens next
 
-The most valuable result is not the document itself. It is a better decision.
+The document is useful when it supports a better decision.
 
 That decision may be to address one constraint first, define a focused implementation, gather missing evidence, or decide that Anchorline is not the right fit. Clarity is useful either way.
 
-[Request Your Growth Audit](/growth-audit/) when you want to replace a broad growth concern with three priorities and a practical next move.
+[Request Your Growth Audit](/growth-audit/) if a focused diagnosis would help you decide what to address first.
