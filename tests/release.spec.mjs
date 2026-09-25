@@ -18,6 +18,7 @@ const publicRoutes = [
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
   "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
   "/insights/google-ai-max-reporting-ad-accountability/",
+  "/insights/google-search-console-multimodal-visual-search/",
   "/insights/uipath-cartographer-map-of-work/",
   "/insights/growth-audit-website-search-lead-generation/",
 ];
@@ -185,6 +186,13 @@ test("new Insights preserve sources, artwork credits, and social metadata", asyn
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const articles = [
+    {
+      path: "/insights/google-search-console-multimodal-visual-search/",
+      sourceHref:
+        "https://developers.google.com/search/blog/2026/09/web-multimodal-in-sc",
+      sourceLabel: /Announcing web multimodal Search performance reporting/,
+      ogTitle: "Visual Search Is Now Visible in Search Console",
+    },
     {
       path: "/insights/google-ai-max-reporting-ad-accountability/",
       sourceHref: "https://blog.google/products/ads-commerce/ai-max-language-reporting-features/",
