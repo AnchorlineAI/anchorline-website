@@ -27,6 +27,7 @@ const expected = [
   "privacy/index.html",
   "terms/index.html",
   "insights/index.html",
+  "insights/ai-website-work-needs-verification/index.html",
   "insights/why-most-growth-problems-arent-really-marketing-problems/index.html",
   "insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/index.html",
   "insights/the-growth-audit-three-priorities-a-clearer-next-step/index.html",
