@@ -1,8 +1,9 @@
+import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
 
 export const prerender = true;
 
-const paths = [
+const staticPaths = [
   "/",
   "/growth-engine/",
   "/growth-engine/b2b/",
@@ -13,17 +14,13 @@ const paths = [
   "/privacy/",
   "/terms/",
   "/insights/",
-  "/insights/why-most-growth-problems-arent-really-marketing-problems/",
-  "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
-  "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
-  "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
-  "/insights/how-to-build-an-ai-native-unit-without-creating-an-innovation-island/",
-  "/insights/when-an-ai-assistant-becomes-an-operating-layer/",
-  "/insights/what-technical-ai-needs-before-experts-can-trust-the-output/",
-  "/insights/the-creator-operating-system-is-bigger-than-content-production/",
-  "/insights/google-ai-max-reporting-ad-accountability/",
-  "/insights/uipath-cartographer-map-of-work/",
 ];
+
+const insightPaths = (await getCollection("insights"))
+  .map((article) => `/insights/${article.id}/`)
+  .sort();
+
+const paths = [...staticPaths, ...insightPaths];
 
 export const GET: APIRoute = () => {
   if (process.env.CONTEXT !== "production") {
