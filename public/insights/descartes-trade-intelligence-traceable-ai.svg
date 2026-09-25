@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ask a trade question, then check the records</title>
+  <desc id="desc">A plain-language question points to a stack of shipment records a person can inspect.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <path d="M112 150H1488M112 750H1488" stroke="#c8d6e4" stroke-width="2"/>
+  <text x="112" y="105" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#172c42">Ask a question. Then check the records.</text>
+  <rect x="126" y="285" width="520" height="290" rx="10" fill="#ffffff" stroke="#c8d6e4" stroke-width="4"/>
+  <text x="176" y="355" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#2455a6">A TRADE QUESTION</text>
+  <text x="176" y="420" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#172c42">Which suppliers</text>
+  <text x="176" y="473" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#172c42">are active in</text>
+  <text x="176" y="526" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#172c42">this market?</text>
+  <path d="M690 430H875" fill="none" stroke="#2455a6" stroke-width="16" stroke-linecap="round"/>
+  <path d="m855 402 36 28-36 28" fill="none" stroke="#2455a6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="985" y="300" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#2455a6">RECORDS YOU CAN INSPECT</text>
+  <g fill="#ffffff" stroke="#172c42" stroke-width="4">
+    <path d="M1010 350H1370L1430 410V600H1010Z"/>
+    <path d="M955 395H1315L1375 455V645H955Z"/>
+    <path d="M900 440H1260L1320 500V690H900Z"/>
+  </g>
+  <g fill="none" stroke="#4a6785" stroke-width="10" stroke-linecap="round">
+    <path d="M965 548H1190M965 590H1170M965 632H1135"/>
+  </g>
+  <text x="965" y="515" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#172c42">Shipment records</text>
+  <text x="965" y="726" font-family="Arial, sans-serif" font-size="28" fill="#627183">Company, date, product, and more.</text>
+  <text x="112" y="812" font-family="Arial, sans-serif" font-size="30" fill="#627183">The answer is easier to use when you can see what it is based on.</text>
+</svg>
