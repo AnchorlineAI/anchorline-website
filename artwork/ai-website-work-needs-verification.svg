@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Verification loop for AI-assisted website work</title>
+  <desc id="desc">An AI suggestion moves through a website check and observable result before human acceptance, with unresolved items returning to review.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <path d="M108 139H1492M108 762H1492" stroke="#c8d6e4" stroke-width="2"/>
+  <text x="110" y="113" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#172c42">AI-ASSISTED WEBSITE WORK</text>
+  <text x="111" y="802" font-family="Arial, sans-serif" font-size="21" fill="#627183">A suggestion becomes useful when the result can be checked.</text>
+  <path d="M375 456H1218" stroke="#2455a6" stroke-width="12" stroke-linecap="round"/>
+  <path d="m1204 436 28 20-28 20" fill="none" stroke="#2455a6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" stroke="#c8d6e4" stroke-width="3">
+    <rect x="105" y="255" width="310" height="410" rx="6"/>
+    <rect x="475" y="255" width="310" height="410" rx="6"/>
+    <rect x="845" y="255" width="310" height="410" rx="6"/>
+    <rect x="1215" y="255" width="280" height="410" rx="6"/>
+  </g>
+  <g fill="#2455a6" font-family="Arial, sans-serif" font-size="17" font-weight="700">
+    <text x="132" y="300">01 / HYPOTHESIS</text>
+    <text x="502" y="300">02 / WEBSITE CHECK</text>
+    <text x="872" y="300">03 / OBSERVED RESULT</text>
+    <text x="1242" y="300">04 / ACCEPTANCE</text>
+  </g>
+  <g stroke="#172c42" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M194 387h120v89H194zM218 422h70M218 449h42"/>
+    <path d="M573 379h116v122H573zM573 412h116M600 443h62M600 470h42"/>
+    <circle cx="1000" cy="438" r="62"/>
+    <path d="m971 440 20 21 40-47"/>
+    <path d="M1303 389h104v112H1303zM1328 443l20 21 37-46"/>
+  </g>
+  <g fill="#172c42" font-family="Arial, sans-serif" font-size="22" font-weight="600">
+    <text x="133" y="560">AI suggests a gap</text>
+    <text x="503" y="560">Build, route, link, or</text>
+    <text x="503" y="588">metadata is checked</text>
+    <text x="873" y="560">Evidence confirms,</text>
+    <text x="873" y="588">rejects, or qualifies it</text>
+    <text x="1243" y="560">A person decides</text>
+    <text x="1243" y="588">what can proceed</text>
+  </g>
+  <path d="M1000 640v45H260V626" fill="none" stroke="#168a78" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m279 607-19 19 19 19" fill="none" stroke="#168a78" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="510" y="720" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#168a78">UNRESOLVED ITEMS RETURN TO REVIEW</text>
+</svg>

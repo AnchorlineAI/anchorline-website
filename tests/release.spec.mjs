@@ -13,6 +13,7 @@ const publicRoutes = [
   "/privacy/",
   "/terms/",
   "/insights/",
+  "/insights/ai-website-work-needs-verification/",
   "/insights/why-most-growth-problems-arent-really-marketing-problems/",
   "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
@@ -148,13 +149,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders twelve crawlable articles with article metadata", async ({
+test("Insights collection renders thirteen crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(12);
+  await expect(page.locator(".insight-card")).toHaveCount(13);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    24,
+    26,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
@@ -186,6 +187,13 @@ test("new Insights preserve sources, artwork credits, and social metadata", asyn
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const articles = [
+    {
+      path: "/insights/ai-website-work-needs-verification/",
+      sourceHref:
+        "https://blog.google/security/agentic-hacks-real-proofs-inside-googles-pagebreak-project/",
+      sourceLabel: /Agentic Hacks, Real Proofs: Inside Google.s PageBreak Project/,
+      ogTitle: "AI Can Suggest a Website Fix. It Still Has to Prove It Worked",
+    },
     {
       path: "/insights/google-search-console-multimodal-visual-search/",
       sourceHref:
