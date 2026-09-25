@@ -148,13 +148,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders eleven crawlable articles with article metadata", async ({
+test("Insights collection renders twelve crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(11);
+  await expect(page.locator(".insight-card")).toHaveCount(12);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    22,
+    24,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
