@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Visual search measurement path</title>
+  <desc id="desc">An original visual connects to an indexed page and then to a Search Console signal.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <path d="M108 139H1492M108 762H1492" stroke="#c8d6e4" stroke-width="2"/>
+  <text x="110" y="113" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#172c42">VISUAL SEARCH, NOW MEASURABLE</text>
+  <text x="111" y="802" font-family="Arial, sans-serif" font-size="21" fill="#627183">A page-level signal, not a claim of intent</text>
+  <path d="M332 469H1257" stroke="#2455a6" stroke-width="12" stroke-linecap="round"/>
+  <path d="m1242 449 28 20-28 20" fill="none" stroke="#2455a6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#fff" stroke="#c8d6e4" stroke-width="3">
+    <rect x="105" y="255" width="390" height="410" rx="6"/>
+    <rect x="605" y="255" width="390" height="410" rx="6"/>
+    <rect x="1105" y="255" width="390" height="410" rx="6"/>
+  </g>
+  <g fill="#2455a6" font-family="Arial, sans-serif" font-size="18" font-weight="700">
+    <text x="133" y="300">01 / VISUAL EVIDENCE</text>
+    <text x="633" y="300">02 / INDEXED PAGE</text>
+    <text x="1133" y="300">03 / DISCOVERY SIGNAL</text>
+  </g>
+  <g stroke="#172c42" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="195" y="358" width="205" height="128" rx="3"/>
+    <circle cx="258" cy="410" r="22"/>
+    <path d="m207 467 56-54 43 38 30-26 54 42"/>
+    <rect x="696" y="351" width="210" height="144" rx="3"/>
+    <path d="M696 389h210M728 423h143M728 450h104" stroke-width="6"/>
+    <rect x="1196" y="372" width="202" height="107" rx="3"/>
+    <path d="M1234 446v-28M1286 446v-54M1338 446v-78" stroke-width="13"/>
+  </g>
+  <g fill="#172c42" font-family="Arial, sans-serif" font-size="25" font-weight="600">
+    <text x="133" y="563">Original visual</text>
+    <text x="633" y="563">Clear page context</text>
+    <text x="1133" y="563">Search Console review</text>
+  </g>
+  <g fill="#627183" font-family="Arial, sans-serif" font-size="19">
+    <text x="133" y="599">Useful, specific evidence</text>
+    <text x="633" y="599">Crawlable and understandable</text>
+    <text x="1133" y="599">Where discovery reached</text>
+  </g>
+  <circle cx="300" cy="469" r="14" fill="#2455a6" stroke="#fff" stroke-width="5"/>
+  <circle cx="800" cy="469" r="14" fill="#2455a6" stroke="#fff" stroke-width="5"/>
+  <circle cx="1300" cy="469" r="14" fill="#168a78" stroke="#fff" stroke-width="5"/>
+</svg>
