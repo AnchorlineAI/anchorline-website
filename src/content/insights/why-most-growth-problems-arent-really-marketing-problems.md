@@ -47,6 +47,6 @@ When those pieces reinforce one another, the experience feels coherent to the cu
 
 The practical question is not, “What marketing should we add?” It is, “Where is opportunity losing momentum, and what would improve that next?”
 
-That is why Anchorline starts with diagnosis. A [Growth Audit](/growth-audit/) identifies three prioritized opportunities, supporting observations, a recommended Growth Engine configuration, and a clearer next step.
+That is why Anchorline starts with diagnosis. A [Growth Audit](/growth-audit/) identifies three prioritized opportunities, supporting observations, and a recommended starting point.
 
 That diagnosis should point to the few changes most likely to improve the customer's path and the team's ability to respond.

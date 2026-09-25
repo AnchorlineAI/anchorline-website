@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">The Anchorline Growth Audit</title>
+  <desc id="desc">A focused diagram showing a Growth Audit examining the website, search visibility, and lead path.</desc>
+  <rect width="1600" height="900" fill="#f7f9fb"/>
+  <path d="M110 148H1490M110 745H1490" stroke="#c8d6e4" stroke-width="2"/>
+  <text x="110" y="110" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#172c42">THE ANCHORLINE GROWTH AUDIT</text>
+  <text x="110" y="794" font-family="Arial, sans-serif" font-size="22" fill="#627183">A focused diagnosis before web, search, or lead-generation work begins</text>
+  <text x="110" y="192" font-family="Arial, sans-serif" font-size="20" fill="#627183">The question: can the right person find the business, understand the offer, and take a useful next step?</text>
+
+  <path d="M566 463H649M1035 463H1118" stroke="#2455a6" stroke-width="8" stroke-linecap="round"/>
+  <path d="m631 446 27 17-27 17M1100 446l27 17-27 17" fill="none" stroke="#2455a6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="#ffffff" stroke="#172c42" stroke-width="3">
+    <rect x="110" y="275" width="455" height="375" rx="6"/>
+    <rect x="650" y="275" width="385" height="375" rx="6"/>
+    <rect x="1120" y="275" width="370" height="375" rx="6"/>
+  </g>
+  <g fill="#2455a6" font-family="Arial, sans-serif" font-size="17" font-weight="700">
+    <text x="145" y="326">01</text>
+    <text x="685" y="326">02</text>
+    <text x="1155" y="326">03</text>
+  </g>
+  <g fill="#172c42" font-family="Arial, sans-serif" font-size="33" font-weight="700">
+    <text x="145" y="376">WEBSITE</text>
+    <text x="685" y="376">SEARCH VISIBILITY</text>
+    <text x="1155" y="376">LEAD PATH</text>
+  </g>
+  <g fill="#627183" font-family="Arial, sans-serif" font-size="22">
+    <text x="145" y="429">Is the offer clear?</text>
+    <text x="145" y="470">Can a buyer trust the page?</text>
+    <text x="145" y="511">Is the next step obvious?</text>
+    <text x="145" y="552">Does mobile use create friction?</text>
+    <text x="685" y="429">SEO: sound foundations and intent</text>
+    <text x="685" y="470">AEO: clear answers to real questions</text>
+    <text x="685" y="511">GEO: useful, credible information</text>
+    <text x="685" y="552">Pages worth finding and reading</text>
+    <text x="1155" y="429">Right audience and message</text>
+    <text x="1155" y="470">Relevant page and clear offer</text>
+    <text x="1155" y="511">Useful inquiry information</text>
+    <text x="1155" y="552">A clear owner for response</text>
+  </g>
+  <g fill="#eef3f7" stroke="#c8d6e4" stroke-width="2">
+    <rect x="110" y="685" width="1380" height="70" rx="5"/>
+  </g>
+  <text x="800" y="728" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#172c42">OUTPUT: THREE PRIORITIES  •  SUPPORTING OBSERVATIONS  •  A CLEARER NEXT STEP</text>
+</svg>
