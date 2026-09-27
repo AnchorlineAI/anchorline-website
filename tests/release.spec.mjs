@@ -14,6 +14,7 @@ const publicRoutes = [
   "/terms/",
   "/insights/",
   "/insights/ai-website-work-needs-verification/",
+  "/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
   "/insights/descartes-trade-intelligence-traceable-ai/",
   "/insights/why-most-growth-problems-arent-really-marketing-problems/",
   "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
@@ -150,13 +151,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders fourteen crawlable articles with article metadata", async ({
+test("Insights collection renders fifteen crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(14);
+  await expect(page.locator(".insight-card")).toHaveCount(15);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    28,
+    30,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
@@ -203,6 +204,14 @@ test("new Insights preserve sources, artwork credits, and social metadata", asyn
       ogTitle: "Before You Trust an AI Answer, Look at the Records",
     },
     {
+      path: "/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
+      sourceHref:
+        "https://www.databricks.com/company/newsroom/press-releases/databricks-acquires-row-zero-bringing-live-governed-spreadsheets",
+      sourceLabel: /Databricks announcement: Row Zero joins Genie/,
+      ogTitle: "Databricks Is Bringing a Spreadsheet Into Genie",
+      credit: "Photo by Swello on Unsplash.",
+    },
+    {
       path: "/insights/google-search-console-multimodal-visual-search/",
       sourceHref:
         "https://developers.google.com/search/blog/2026/09/web-multimodal-in-sc",
@@ -229,7 +238,7 @@ test("new Insights preserve sources, artwork credits, and social metadata", asyn
       /.+/,
     );
     await expect(page.locator(".insight-article-image figcaption")).toHaveText(
-      "Original Anchorline editorial illustration.",
+      article.credit ?? "Original Anchorline editorial illustration.",
     );
     expect(
       await page.locator(".insight-article-image img").evaluate((image) => image.naturalWidth),
