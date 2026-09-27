@@ -28,6 +28,7 @@ const expected = [
   "terms/index.html",
   "insights/index.html",
   "insights/ai-website-work-needs-verification/index.html",
+  "insights/databricks-row-zero-governed-spreadsheets-ai-agents/index.html",
   "insights/descartes-trade-intelligence-traceable-ai/index.html",
   "insights/why-most-growth-problems-arent-really-marketing-problems/index.html",
   "insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/index.html",
@@ -201,6 +202,9 @@ if (production) {
       ) &&
       sitemap.includes(
         "https://anchorlineai.com/insights/google-ai-max-reporting-ad-accountability/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
       ) &&
       sitemap.includes(
         "https://anchorlineai.com/insights/uipath-cartographer-map-of-work/",
