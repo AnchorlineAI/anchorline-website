@@ -28,6 +28,7 @@ const expected = [
   "terms/index.html",
   "insights/index.html",
   "insights/ai-website-work-needs-verification/index.html",
+  "insights/bcg-asia-study-llm-search-buying/index.html",
   "insights/databricks-row-zero-governed-spreadsheets-ai-agents/index.html",
   "insights/descartes-trade-intelligence-traceable-ai/index.html",
   "insights/why-most-growth-problems-arent-really-marketing-problems/index.html",
@@ -39,6 +40,7 @@ const expected = [
   "insights/what-technical-ai-needs-before-experts-can-trust-the-output/index.html",
   "insights/the-creator-operating-system-is-bigger-than-content-production/index.html",
   "insights/google-ai-max-reporting-ad-accountability/index.html",
+  "insights/google-tests-flipkart-buy-button-india/index.html",
   "insights/uipath-cartographer-map-of-work/index.html",
   "growth-audit/received/index.html",
   "404.html",
@@ -207,7 +209,13 @@ if (production) {
         "https://anchorlineai.com/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
       ) &&
       sitemap.includes(
+        "https://anchorlineai.com/insights/bcg-asia-study-llm-search-buying/",
+      ) &&
+      sitemap.includes(
         "https://anchorlineai.com/insights/uipath-cartographer-map-of-work/",
+      ) &&
+      sitemap.includes(
+        "https://anchorlineai.com/insights/google-tests-flipkart-buy-button-india/",
       ),
   );
 }

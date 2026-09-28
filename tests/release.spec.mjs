@@ -14,6 +14,7 @@ const publicRoutes = [
   "/terms/",
   "/insights/",
   "/insights/ai-website-work-needs-verification/",
+  "/insights/bcg-asia-study-llm-search-buying/",
   "/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
   "/insights/descartes-trade-intelligence-traceable-ai/",
   "/insights/why-most-growth-problems-arent-really-marketing-problems/",
@@ -21,6 +22,7 @@ const publicRoutes = [
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
   "/insights/the-agent-needs-an-identity-not-just-a-prompt/",
   "/insights/google-ai-max-reporting-ad-accountability/",
+  "/insights/google-tests-flipkart-buy-button-india/",
   "/insights/google-search-console-multimodal-visual-search/",
   "/insights/uipath-cartographer-map-of-work/",
   "/insights/growth-audit-website-search-lead-generation/",
@@ -151,13 +153,13 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders fifteen crawlable articles with article metadata", async ({
+test("Insights collection renders seventeen crawlable articles with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(15);
+  await expect(page.locator(".insight-card")).toHaveCount(17);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    30,
+    34,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
@@ -210,6 +212,22 @@ test("new Insights preserve sources, artwork credits, and social metadata", asyn
       sourceLabel: /Databricks announcement: Row Zero joins Genie/,
       ogTitle: "Databricks Is Bringing a Spreadsheet Into Genie",
       credit: "Photo by Swello on Unsplash.",
+    },
+    {
+      path: "/insights/google-tests-flipkart-buy-button-india/",
+      sourceHref:
+        "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/",
+      sourceLabel: /TechCrunch: Google tests buying from Flipkart through Gemini and AI Mode in India/,
+      ogTitle: "Google Is Testing a Buy Button With Flipkart",
+      credit: "Photo by Harper Sunday on Unsplash.",
+    },
+    {
+      path: "/insights/bcg-asia-study-llm-search-buying/",
+      sourceHref:
+        "https://www.bcg.com/publications/2026/llm-search-shapes-asian-consumer-buying",
+      sourceLabel: /BCG: How LLM Search Is Shaping Consumer Buying in Asia/,
+      ogTitle: "What BCG's Asia Study Says About AI and Buying",
+      credit: "Photo by Scott Graham on Unsplash.",
     },
     {
       path: "/insights/google-search-console-multimodal-visual-search/",
