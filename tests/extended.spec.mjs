@@ -12,12 +12,14 @@ const routes = [
   "/growth-audit/received/",
   "/insights/",
   "/insights/ai-website-work-needs-verification/",
+  "/insights/bcg-asia-study-llm-search-buying/",
   "/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
   "/insights/descartes-trade-intelligence-traceable-ai/",
   "/insights/why-most-growth-problems-arent-really-marketing-problems/",
   "/insights/seo-aeo-and-geo-what-they-are-and-why-they-need-to-work-together/",
   "/insights/the-growth-audit-three-priorities-a-clearer-next-step/",
   "/insights/google-ai-max-reporting-ad-accountability/",
+  "/insights/google-tests-flipkart-buy-button-india/",
   "/insights/uipath-cartographer-map-of-work/",
 ];
 test("mobile accessibility and all internal link/asset responses", async ({
