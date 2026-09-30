@@ -1,0 +1,5 @@
+Adds an Amazon Ads Agent article for nonproduction editorial review, focused on what smaller businesses could gain and how to keep campaign budgets and results understandable. Availability is separated by feature and attributed to Amazon. Includes a credited, documented free Unsplash photo.
+
+Updates the existing Insights test to compare rendered article cards with the source collection rather than hardcoding seventeen articles, and adds the new route to existing metadata checks. No site design, form, analytics, deployment configuration or live content changes are intended. This schema has no draft field, so the branch must remain unmerged until Kris approves the article.
+
+Validation: build and five unit tests passed; 59 of 63 browser tests initially passed. Three hash failures were confirmed as Windows CRLF-only checkout differences and resolved locally without a source diff. The collection count was updated for the new article; all four previously failed checks and two affected metadata checks then passed. Rendered deploy-preview review follows before handoff. No production or social publication authorized.
