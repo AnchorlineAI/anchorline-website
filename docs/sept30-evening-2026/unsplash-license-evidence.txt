@@ -1,0 +1,184 @@
+Retrieved 2026-09-30 https://unsplash.com/license
+- navigation:
+  - link "Unsplash Home":
+    - /url: /
+    - img "Unsplash Home"
+  - link "Photos":
+    - /url: /
+  - link "Illustrations":
+    - /url: /illustrations
+  - button "Explore":
+  - button "Collections":
+  - button "Download History":
+  - button "Bookmarks":
+  - link "Log in / Sign up":
+    - /url: /login?referrer=%2Flicense
+  - button "Language":
+  - button "Menu":
+- navigation:
+  - search "Find visuals sitewide":
+    - button "Search Unsplash":
+    - combobox:
+      - searchbox "Search Unsplash"
+      - listbox
+    - button "Visual search":
+  - link "Get Unsplash+":
+    - /url: /plus
+  - link "Log in":
+    - /url: /login?referrer=%2Flicense
+  - button "Submit an image"
+- list:
+  - heading "Unsplash" [level=3]
+  - link "License":
+    - /url: /license
+  - link "Privacy Policy":
+    - /url: /privacy
+  - link "Cookie Policy":
+    - /url: /cookies
+  - link "Terms & Conditions":
+    - /url: /terms
+  - link "API Terms":
+    - /url: /api-terms
+  - link "Unsplash+ License":
+    - /url: /plus/license
+  - link "Unsplash+ Terms":
+    - /url: /plus/terms
+- heading "License" [level=1]
+- paragraph: Unsplash visuals are made to be used freely. Our license reflects that.
+- list:
+  - text: ✅ All images can be
+  - strong: downloaded
+  - text: and used for
+  - strong: free
+  - text: ✅
+  - strong: Commercial
+  - text: and
+  - strong: non-commercial
+  - text: purposes
+  - text: ✅
+  - strong: No permission needed
+  - text: (though attribution is appreciated!)
+- heading "What is not permitted 👎" [level=4]
+- list:
+  - text: 🚫 Images cannot be
+  - strong: sold
+  - text: without significant modification.
+  - listitem: 🚫 Compiling images from Unsplash to replicate a similar or competing service.
+- complementary:
+  - 'heading "Tip: How to give attribution ✏" [level=5]'
+  - paragraph: Even though attribution isn’t required, Unsplash photographers appreciate it as it provides exposure to their work and encourages them to continue sharing.
+  - blockquote:
+    - paragraph:
+      - text: Photo by
+      - link "Jeremy Bishop":
+        - /url: https://unsplash.com/photos/KFIjzXYg1RM
+      - text: "on"
+      - link "Unsplash":
+        - /url: https://unsplash.com/
+- heading "Longform" [level=4]
+- paragraph: Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use images from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash. This license does not include the right to compile images from Unsplash to replicate a similar or competing service.
+- paragraph:
+  - text: Questions?
+  - link "Read our FAQ":
+    - /url: https://help.unsplash.com/en/collections/1463188-unsplash-license
+  - text: .
+- contentinfo:
+  - heading "Unsplash" [level=6]
+  - paragraph:
+    - text: Beautiful,
+    - link "free images":
+      - /url: /license
+    - text: gifted by the world’s most generous community of photographers. Better than any royalty free or stock photos.
+  - list:
+    - link "About":
+      - /url: /about
+    - link "Blog":
+      - /url: https://unsplash.com/blog?utm_source=unsplash&utm_medium=referral
+    - link "Community":
+      - /url: /community
+    - link "Join the team":
+      - /url: /hiring
+    - link "Developers/API":
+      - /url: https://unsplash.com/developers?utm_source=unsplash&utm_medium=referral
+    - link "Press":
+      - /url: /press
+    - link "Help Center":
+      - /url: https://help.unsplash.com/en?utm_source=unsplash&utm_medium=referral
+  - heading "Product" [level=6]
+  - list:
+    - link "Explore":
+      - /url: /explore
+    - link "Unsplash Awards":
+      - /url: /awards
+    - link "Unsplash for Education":
+      - /url: /education
+    - link "Unsplash for iOS":
+      - /url: /apps/ios
+    - link "Apps & Plugins":
+      - /url: /apps
+    - link "Unsplash Studio":
+      - /url: /studio
+    - link "Product Placement Ads":
+      - /url: /advertise/product-placement
+  - heading "Popular" [level=6]
+  - list:
+    - link "Backgrounds":
+      - /url: /backgrounds
+    - link "Free Images":
+      - /url: /images
+    - link "Free Stock Photos":
+      - /url: /images/stock
+    - link "Zoom Backgrounds":
+      - /url: /s/photos/zoom-background
+    - link "LinkedIn Cover Images":
+      - /url: /s/photos/linkedin-background
+    - link "Website Backgrounds":
+      - /url: /s/photos/website-background
+    - link "Gradient Backgrounds":
+      - /url: /s/photos/gradient-background
+    - link "Textured Backgrounds":
+      - /url: /s/photos/texture-background
+    - link "Paper Texture Images":
+      - /url: /s/photos/paper-texture
+    - link "White Texture Images":
+      - /url: /s/photos/white-texture
+  - heading "Wallpapers" [level=6]
+  - list:
+    - link "HD Wallpapers":
+      - /url: /wallpapers
+    - link "4k Wallpapers":
+      - /url: /s/photos/4k-wallpaper
+    - link "Desktop Wallpapers":
+      - /url: /s/photos/desktop-wallpaper
+    - link "Laptop Wallpapers":
+      - /url: /s/photos/laptop-wallpaper
+    - link "iPad Wallpapers":
+      - /url: /s/photos/ipad-wallpaper
+    - link "MacBook Wallpapers":
+      - /url: /s/photos/macbook-wallpaper
+    - link "iPhone Wallpapers":
+      - /url: /s/photos/iphone-wallpaper
+    - link "Black Wallpapers":
+      - /url: /s/photos/black-wallpaper
+    - link "Aesthetic Wallpapers":
+      - /url: /s/photos/aesthetic-wallpaper
+    - link "Flower Wallpapers":
+      - /url: /s/photos/flower-wallpaper
+  - list:
+    - link "Privacy Policy":
+      - /url: /privacy
+    - link "Terms":
+      - /url: /terms
+    - link "Security":
+      - /url: /security
+  - list:
+    - link "Unsplash Twitter":
+      - /url: https://twitter.com/unsplash?utm_source=unsplash&utm_medium=referral
+      - generic: Unsplash Twitter
+    - link "Unsplash Facebook":
+      - /url: https://www.facebook.com/pages/Unsplash/274126369394815?utm_source=unsplash&utm_medium=referral
+      - generic: Unsplash Facebook
+    - link "Unsplash Instagram":
+      - /url: https://instagram.com/unsplash?utm_source=unsplash&utm_medium=referral
+      - generic: Unsplash Instagram
+- region "Notifications"

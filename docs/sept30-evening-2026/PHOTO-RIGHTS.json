@@ -1,0 +1,19 @@
+[
+  {
+    "key": "amazon",
+    "file": "public/insights/sept30-amazon.webp",
+    "creator": "Rifki Kurniawan",
+    "source": "https://unsplash.com/photos/woman-checking-package-with-phone-near-laptop-and-boxes-k63Or81F8-M",
+    "license": "https://unsplash.com/license",
+    "verified": "2026-09-30",
+    "evidence": "photo-source-evidence.json: source page states Free to use under the Unsplash License",
+    "permittedUse": "Editorial website illustration under free Unsplash License; no endorsement implied",
+    "modifications": "Center crop to 1600x900; WebP quality 84",
+    "sha256": "c741332d28b9ed07570752fe608081cf2bcc0ab335ef711dd1ddc69bc2eab278",
+    "bytes": 51138,
+    "alt": "A woman checking a phone beside a laptop and packed shipping boxes",
+    "caption": "Rifki Kurniawan / Unsplash. Illustrative small-business work; not an identified Amazon advertiser.",
+    "dimensions": "1600x900",
+    "socialTreatment": "Website social metadata only; no social upload authorized"
+  }
+]

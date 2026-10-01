@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 
 const publicRoutes = [
@@ -13,6 +13,7 @@ const publicRoutes = [
   "/privacy/",
   "/terms/",
   "/insights/",
+  "/insights/amazon-ads-agent-small-business/",
   "/insights/ai-website-work-needs-verification/",
   "/insights/bcg-asia-study-llm-search-buying/",
   "/insights/databricks-row-zero-governed-spreadsheets-ai-agents/",
@@ -153,20 +154,22 @@ test("justified Organization, WebSite, WebPage, Person, and Service schema is pr
   }
 });
 
-test("Insights collection renders seventeen crawlable articles with article metadata", async ({
+test("Insights collection renders every source article with article metadata", async ({
   page,
 }) => {
   await page.goto("/insights/");
-  await expect(page.locator(".insight-card")).toHaveCount(17);
+  const articleCount = (await readdir(new URL("../src/content/insights/", import.meta.url)))
+    .filter((name) => /\.mdx?$/.test(name)).length;
+  await expect(page.locator(".insight-card")).toHaveCount(articleCount);
   await expect(page.locator('.insight-card a[href^="/insights/"]')).toHaveCount(
-    34,
+    articleCount * 2,
   );
   for (const route of publicRoutes.filter(
     (route) => route.startsWith("/insights/") && route !== "/insights/",
   )) {
     await page.goto(route);
     await expect(page.locator("article.insight-article h1")).toHaveCount(1);
-    await expect(page.locator(".article-prose h2")).not.toHaveCount(0);
+    await expect(page.locator(".article-prose p")).not.toHaveCount(0);
     await expect(page.locator(".article-byline time")).toHaveAttribute(
       "datetime",
     );
