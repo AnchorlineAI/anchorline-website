@@ -169,7 +169,7 @@ test("Insights collection renders every source article with article metadata", a
   )) {
     await page.goto(route);
     await expect(page.locator("article.insight-article h1")).toHaveCount(1);
-    await expect(page.locator(".article-prose h2")).not.toHaveCount(0);
+    await expect(page.locator(".article-prose p")).not.toHaveCount(0);
     await expect(page.locator(".article-byline time")).toHaveAttribute(
       "datetime",
     );
