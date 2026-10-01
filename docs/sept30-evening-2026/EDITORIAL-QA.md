@@ -9,3 +9,5 @@ Primary Amazon announcement read in browser; DVA+ launch documentation checked. 
 Photo visually inspected, free Unsplash source/license statements retained, metadata and hash in PHOTO-RIGHTS.json. Attribution in the template plus linked source/license in article body. No copied Amazon interface or logo. No new spend.
 
 Scope: one article, one photo and evidence only. Existing site layout, analytics, forms, routing and controls remain unchanged. No social scheduling, email or production release performed. Automated and rendered preview results recorded in final handoff.
+
+Voice reset: rebuilt the article around small-owner time and whether additional sales justify cost. Approximately 200 body words, down from approximately 390; removed repeated controls and rollout explanations. Existing sources and photo attribution retained. Preview only; no production authorization.
