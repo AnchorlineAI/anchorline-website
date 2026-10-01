@@ -1,6 +1,6 @@
 ---
-title: "Amazon Wants to Do More of the Ad Work for Small Teams"
-description: "Help planning and running a campaign could make a difference for a small business. The test is whether the extra sales pay for it."
+title: "Amazon Is Taking On More of the Work Behind an Ad Campaign"
+description: "A small business may have a good offer and little time to advertise it. Amazon is trying to help with that work."
 publishDate: "2026-09-30"
 author: "Kris McFadden"
 category: "Marketing & AI"
@@ -9,17 +9,15 @@ imageAlt: "A woman checking a phone beside a laptop and packed shipping boxes"
 imageCredit: "Rifki Kurniawan / Unsplash. Illustrative small-business work; not an identified Amazon advertiser."
 featured: false
 ---
-A small business can have a good product and still struggle to find the time or expertise to advertise it well. That's why Amazon's new Ads Agent is worth a look.
+[Amazon's new Ads Agent](https://advertising.amazon.com/library/news/amazon-ads-agent) is designed to help advertisers plan, run and adjust campaigns. A business supplies its goals, budget and creative direction, and the platform takes on more of the work from there.
 
-[Amazon says](https://advertising.amazon.com/library/news/amazon-ads-agent) the agent brings more campaign planning, execution and optimization into one place. Advertisers provide goals, budgets and creative direction. The platform handles more of the work of putting a campaign together and adjusting it.
+For a small team, that could make a difference. An owner may know the customers well and have something worth selling, but finding time to build a campaign and keep up with it is another matter. Help with that work could make an idea easier to try.
 
-For an owner already handling customers, staff and orders, help with that daily work could make advertising more manageable.
+Amazon says Full-Funnel Campaigns is available to U.S. advertisers, with creative approved before launch. [DVA+ is still in a limited U.S. beta](https://advertising.amazon.com/resources/whats-new/dva-plus-display-video-audio-campaigns), with an open beta planned for late October. Some additional chat features are coming later.
 
-Some of it is available now. Full-Funnel Campaigns is open to U.S. advertisers, with creative approved before launch. DVA+ is in a limited U.S. beta; Amazon plans an open beta for late October. Additional chat-based features are still coming, so businesses should check what's actually in their account.
+The useful test is whether a campaign brings in enough new business to cover its cost. A dashboard can credit an ad for an order from someone who was already going to buy. Comparing the report with actual orders and margins helps an owner make a better decision about spending more.
 
-I'd start with one campaign and a budget the business can afford to test. Then compare the results with its own orders and margins. An ad dashboard can credit a sale that would've happened anyway.
-
-If the tool saves time and brings in enough additional business to justify the cost, that's useful help for a small team. That's what I'd want to find out before spending more.
+Starting with one affordable campaign gives a small team room to learn whether the help is worth paying for.
 
 Sources: [Amazon Ads Agent announcement](https://advertising.amazon.com/library/news/amazon-ads-agent); [DVA+ rollout details](https://advertising.amazon.com/resources/whats-new/dva-plus-display-video-audio-campaigns).
 

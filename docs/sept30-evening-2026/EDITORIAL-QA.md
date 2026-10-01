@@ -11,3 +11,5 @@ Photo visually inspected, free Unsplash source/license statements retained, meta
 Scope: one article, one photo and evidence only. Existing site layout, analytics, forms, routing and controls remain unchanged. No social scheduling, email or production release performed. Automated and rendered preview results recorded in final handoff.
 
 Voice reset: rebuilt the article around small-owner time and whether additional sales justify cost. Approximately 200 body words, down from approximately 390; removed repeated controls and rollout explanations. Existing sources and photo attribution retained. Preview only; no production authorization.
+
+Latest review pass: applied the owner-selected Dots voice standard to this draft, with a direct announcement link and the DVA+ source beside its rollout claim. Small-business explanation retained without first-person product experience or a mandatory sales pitch. Preview refresh only.
