@@ -17,6 +17,15 @@ async function files(dir) {
 const all = await files(root);
 const htmls = all.filter((f) => f.endsWith(".html"));
 const expected = [
+  "services/index.html",
+  "services/website-development/index.html",
+  "services/search-visibility/index.html",
+  "services/lead-generation/index.html",
+  "services/website-care/index.html",
+  "pricing/index.html",
+  "growth-review/index.html",
+  "website-search-audit/index.html",
+  "contact/index.html",
   "index.html",
   "growth-engine/index.html",
   "growth-engine/b2b/index.html",
@@ -110,7 +119,7 @@ for (const file of htmls) {
       `Production index: ${file}`,
     );
     const expectedPath =
-      relative === "index.html" ? "" : relative.replace(/index\.html$/, "");
+      relative === "index.html" ? "" : relative === "growth-engine/index.html" ? "services/" : relative.replace(/index\.html$/, "");
     assert(
       text.includes(`href="https://anchorlineai.com/${expectedPath}"`),
       `Production canonical: ${file}`,
@@ -122,11 +131,17 @@ for (const file of htmls) {
   }
 }
 const form = await readFile(path.join(root, "growth-audit/index.html"), "utf8");
+const home = await readFile(path.join(root, "index.html"), "utf8");
+assert(!/\$\s*\d|\bfree\b|\bno[ -]cost\b/i.test(home), "Homepage must not display pricing");
+for (const page of ["pricing", "website-search-audit"]) {
+  assert((await readFile(path.join(root, page, "index.html"), "utf8")).includes("$750"), `Audit price missing from ${page}`);
+}
+assert(home.includes('/insights/growth-audit-website-search-lead-generation/'), 'Featured insight must remain pinned');
 assert(form.includes('name="growth-audit"'));
 assert(form.includes('data-submission-enabled="true"'));
 assert(form.includes('name="bot-field"'), "Growth Audit honeypot missing");
 assert(
-  form.includes(">Request Your Growth Audit<"),
+  form.includes(">Request Your Growth Review<"),
   "Growth Audit submit label missing",
 );
 const siteScript = await readFile(

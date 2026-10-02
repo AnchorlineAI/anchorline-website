@@ -1,22 +1,5 @@
 ---
-import CTA from "./CTA.astro";
-const { pathway = "", title = "Find your next three growth opportunities." } =
-  Astro.props;
+import Arrow from './DesignArrow.astro';
+const { title = "Let's see where we can help.", description = 'A brief, qualification-based Growth Review. No cost or obligation to continue.', buttonLabel = 'Book a free Growth Review' } = Astro.props;
 ---
-
-<section class="audit-close">
-  <div class="container audit-close-inner">
-    <div>
-      <p class="eyebrow">A CLEAR FIRST STEP</p><h2>{title}</h2><p>
-        A no-cost, qualification-based Growth Audit. Three priorities,
-        supporting observations, and a recommended starting point.
-      </p>
-    </div><div class="close-action">
-      <CTA
-        href={pathway ? `/growth-audit/?pathway=${pathway}` : "/growth-audit/"}
-        pathway={pathway}
-        location="closing"
-      /><span>No account. No obligation to implement.</span>
-    </div>
-  </div>
-</section>
+<section class="audit-close"><div class="container close-inner"><div><p class="eyebrow">A place to start</p><h2>{title}</h2><p>{description}</p></div><a class="button" href="/growth-review/">{buttonLabel} <Arrow /></a></div></section>

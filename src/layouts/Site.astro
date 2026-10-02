@@ -1,18 +1,15 @@
 ---
 import "@fontsource-variable/manrope";
 import "@fontsource/ibm-plex-mono/400.css";
-import "../styles/global.css";
-import "../styles/refinement.css";
-import "../styles/launch-completion.css";
-import "../styles/reconstruction.css";
-import "../styles/release.css";
-import CTA from "../components/CTA.astro";
+import "../styles/redesign.css";
+import Brand from "../components/Brand.astro";
+import Arrow from "../components/DesignArrow.astro";
 const {
-  title,
+  title = 'Anchorline Systems',
   ogTitle = title,
-  description,
+  description = 'Website development, search visibility, lead generation, and website care from Anchorline Systems.',
   page = "home",
-  canonicalPath = Astro.url.pathname,
+  canonicalPath = Astro.url.pathname === '/growth-engine/' ? '/services/' : Astro.url.pathname,
   forceNoindex = false,
   schemaType = "WebPage",
   ogType = "website",
@@ -84,14 +81,8 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [organization, webSite, webPage, ...(service ? [service] : [])],
 };
-const links = [
-  ["/growth-engine/", "The Growth Engine", "engine"],
-  ["/growth-engine/b2b/", "B2B Growth", "b2b"],
-  ["/growth-engine/local/", "Local Growth", "local"],
-  ["/approach/", "Our Approach", "approach"],
-  ["/about/", "About", "about"],
-  ["/insights/", "Insights", "insights"],
-];
+const path = Astro.url.pathname;
+const links = [["/services/", "Services"], ["/approach/", "Approach"], ["/insights/", "Insights"], ["/pricing/", "Pricing"]];
 ---
 
 <!doctype html>
@@ -169,123 +160,23 @@ gtag('config', 'G-KPQ0G7C2YY');`}
     />
   </head>
   <body data-page={page}>
-    <a href="#main" class="skip-link">Skip to content</a>
-    {
-      showPreviewChrome && (
-        <div class="preview-bar">
-          <span class="preview-dot" aria-hidden="true" /> Deploy Preview{" "}
-          <span class="preview-detail">— not production</span>
-        </div>
-      )
-    }
-    <header class="site-header">
-      <div class="nav-wrap">
-        <a class="wordmark" href="/" aria-label="Anchorline Systems home"
-          ><img src="/brand/mark.webp" width="36" height="36" alt="" /><span
-            >ANCHORLINE<small>SYSTEMS</small></span
-          ></a
-        >
-        <nav class="desktop-nav" aria-label="Main navigation">
-          {
-            links.map(([href, text, key]) => (
-              <a href={href} aria-current={page === key ? "page" : undefined}>
-                {text}
-              </a>
-            ))
-          }
-        </nav>
-        <div class="header-actions">
-          <CTA location="header" /><a
-            class="mobile-audit-link"
-            href="/growth-audit/"
-            data-cta="audit"
-            data-location="header"
-            aria-label="Request Your Growth Audit"
-            >Growth Audit <span aria-hidden="true">↗</span></a
-          ><button
-            class="menu-toggle"
-            aria-label="Open navigation"
-            aria-expanded="false"
-            aria-controls="mobile-navigation"><span></span><span></span></button
-          >
-        </div>
-      </div>
-      <nav
-        id="mobile-navigation"
-        class="mobile-nav"
-        aria-label="Mobile navigation"
-        hidden
-      >
-        {
-          links.map(([href, text, key]) => (
-            <a href={href} aria-current={page === key ? "page" : undefined}>
-              {text}
-            </a>
-          ))
-        }<a href="/growth-audit/" data-cta="audit" data-location="mobile-menu"
-          >Request Your Growth Audit</a
-        >
+    <a class="skip-link" href="#main">Skip to content</a>
+    {showPreviewChrome && <div class="preview-strip"><div class="container"><span><i aria-hidden="true"></i> Release preview</span><span>Not production</span></div></div>}
+    <header class="site-header container">
+      <Brand />
+      <nav class="desktop-nav" aria-label="Main navigation">{links.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}</nav>
+      <a class="button header-contact" href="/contact/">Get in touch <Arrow /></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Open navigation"><span class="menu-lines" aria-hidden="true"></span></button>
+      <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        {links.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}<Arrow /></a>)}
+        <a href="/about/">About Anchorline <Arrow /></a><a href="/contact/">Get in touch <Arrow /></a>
       </nav>
     </header>
-    {
-      !["audit", "receipt", "404"].includes(page) && (
-        <div class="r-atmosphere" aria-hidden="true">
-          {Array.from({ length: 14 }, (_, i) => (
-            <i
-              style={`--i:${i};--x:${[12, 83, 6, 92, 38, 71, 17, 88, 4, 77, 29, 94, 8, 65][i]}%;--y:${3 + i * 6.8}%`}
-            />
-          ))}
-        </div>
-      )
-    }
     <main id="main" tabindex="-1"><slot /></main>
-    <footer class="site-footer">
-      <div class="container footer-top">
-        <div>
-          <a class="wordmark" href="/"
-            >ANCHORLINE<span class="sr-only"> home</span></a
-          ><p>
-            We build the systems that help<br />good organizations grow.
-          </p>
-        </div><div class="footer-nav">
-          <a href="/growth-engine/">The Growth Engine</a><a
-            href="/growth-engine/b2b/">B2B Growth</a
-          ><a href="/growth-engine/local/">Local Growth</a><a href="/approach/"
-            >Our Approach</a
-          ><a href="/about/">About Anchorline</a><a href="/insights/"
-            >Insights</a
-          ><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a
-            href="/growth-audit/"
-            data-cta="audit"
-            data-location="footer">Request Your Growth Audit</a
-          >
-        </div>
-      </div>
-      <div class="container footer-bottom">
-        <span>© 2026 Anchorline Systems LLC · Pennsylvania</span><a
-          href="https://amg.anchorlineai.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Client Login <span aria-hidden="true">↗</span></a
-        >{
-          showPreviewChrome && (
-            <span class="preview-footer">Deploy Preview · not production</span>
-          )
-        }
-      </div>
+    <footer class="footer">
+      <div class="container footer-top"><div><Brand /><p>Websites, search &amp; lead generation.</p></div><nav aria-label="Footer navigation"><a href="/services/">Services</a><a href="/pricing/">Pricing</a><a href="/about/">About</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav></div>
+      <div class="container footer-bottom"><span>&copy; 2026 Anchorline Systems LLC</span><a href="https://amg.anchorlineai.com" target="_blank" rel="noopener noreferrer">Client Login <Arrow /></a>{showPreviewChrome && <span>Release preview / not production</span>}</div>
     </footer>
-    {
-      !["audit", "receipt", "404"].includes(page) && (
-        <div class="r-motion-control">
-          <button type="button" data-motion-toggle aria-pressed="false">
-            Pause page motion
-          </button>
-        </div>
-      )
-    }
-    <script>
-      import "../scripts/discovery-motion.js";
-      import "../scripts/site.js";
-    </script>
+    <script>import "../scripts/site.js";</script>
   </body>
 </html>
