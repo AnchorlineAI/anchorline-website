@@ -1,0 +1,40 @@
+[
+  {
+    "article": "shopify-canvas-sidekick-store-design",
+    "file": "public/insights/oct02-canvas-store-design.webp",
+    "subject": "Fashion designer working on a laptop in her studio",
+    "creator": "Vitaly Gariev",
+    "source": "https://unsplash.com/photos/fashion-designer-working-on-a-laptop-in-her-studio-KolBZlJbiro",
+    "download": "https://images.unsplash.com/photo-1753164597967-b41945a05e89?auto=format&fit=crop&fm=jpg&q=85&w=2400",
+    "license": "https://unsplash.com/license",
+    "verified": "2026-10-02",
+    "evidence": "Source page explicitly states: Free to use under the Unsplash License. Existing package-work image was considered first but rejected after preview revealed adjacent repetition with the Amazon article.",
+    "permittedUse": "Editorial business-work illustration, commercial website permitted under free Unsplash License; no endorsement or Canvas use implied.",
+    "modifications": "2400x1350 source resized to 1600x900, center fit, WebP quality 84. No AI alteration or fabricated interface.",
+    "sourceSha256": "8d489ea8bd597faae9ecde162e9341fc709e1aee22ac6075d02110b65c7678a3",
+    "sha256": "81275f643f8d808b6343f660422589f6aaa413754678c3266d5e6f43f5b00d8e",
+    "alt": "A clothing designer working on a laptop beside fabric, sketches and a garment rack",
+    "caption": "Vitaly Gariev / Unsplash. Illustrative small-business design work; not a Canvas demonstration.",
+    "rightsLimits": "Photo license does not independently clear all personality or trademark rights. Ordinary illustrative context; no sensitive attributes, staff relationship or endorsement claimed.",
+    "socialTreatment": "Website metadata only. No social publishing authorized."
+  },
+  {
+    "article": "google-ai-content-manual-fact-checking",
+    "file": "public/insights/oct02-google-content-review.webp",
+    "subject": "Two colleagues reviewing documents at an office desk",
+    "creator": "Vitaly Gariev",
+    "source": "https://unsplash.com/photos/two-colleagues-reviewing-documents-at-an-office-desk-zQXdDfmkevA",
+    "download": "https://images.unsplash.com/photo-1758611972678-bc3b29b4718f?auto=format&fit=crop&fm=jpg&q=85&w=2400",
+    "license": "https://unsplash.com/license",
+    "verified": "2026-10-02",
+    "evidence": "Source page explicitly states: Free to use under the Unsplash License. License permits free commercial and noncommercial use, copying and modification; no competing image service or unmodified image resale.",
+    "permittedUse": "Editorial illustration of document review on a commercial website; no Google or Anchorline staff relationship implied.",
+    "modifications": "2400x1350 source resized to 1600x900, center fit, WebP quality 84. No AI alteration or fabricated interface.",
+    "sourceSha256": "2b28abf66d1271dd47d9504987106a4b88cd80794ee4d14b7108e09614058fa4",
+    "sha256": "a6e558990f93a390c9bb84ae9c214bd07019252136d8b38ed03a2e01e586cca7",
+    "alt": "Two colleagues reviewing a document beside an open laptop",
+    "caption": "Vitaly Gariev / Unsplash. Illustrative document review; not Google or Anchorline staff.",
+    "rightsLimits": "Photo license does not independently clear all personality or trademark rights. Ordinary illustrative context, no false endorsement or sensitive attributes.",
+    "socialTreatment": "Website metadata only. No social publishing authorized."
+  }
+]
