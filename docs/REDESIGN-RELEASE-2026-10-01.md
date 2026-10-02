@@ -29,7 +29,7 @@ No DNS, credentials, auth, portal, CRM, notification routing, payment, or integr
 
 ## Dependency assessment
 
-The baseline has Astro 7.3.1 -> devalue 5.9.2, flagged by npm audit. The built site is static, with no application SSR adapter or devalue usage found in source/client bundles. That limits the identified public runtime exposure but does not make the build dependency clean. A narrow dependency repair is awaiting explicit authorization before publication. Reference: https://github.com/advisories/GHSA-j22f-vq7h-c4qm (patched 5.9.3).
+The baseline had Astro 7.3.1 -> devalue 5.9.2, flagged by npm audit. The authorized narrow repair updates only devalue to 5.9.4 in the lockfile; package.json and other dependencies are unchanged. npm audit reports zero vulnerabilities after the update. The production build (39 pages), 59-reference release check, and five diagnostic unit tests passed again. Reference: https://github.com/advisories/GHSA-j22f-vq7h-c4qm (patched beginning in 5.9.3).
 
 ## Assets
 
