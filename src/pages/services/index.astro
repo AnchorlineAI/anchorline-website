@@ -1,0 +1,7 @@
+---
+import Site from '../../layouts/Site.astro';
+import Arrow from '../../components/DesignArrow.astro';
+import AuditClose from '../../components/AuditClose.astro';
+import { services } from '../../data';
+---
+<Site description="Explore Anchorline website development, SEO and AI-search visibility, lead-generation pilots, and website care." title="Services | Anchorline Systems"><section class="container page-intro"><p class="eyebrow">Our services</p><h1>Better websites.<br />Useful growth work.</h1><p class="lede">Website development, search visibility, and focused lead generation. Choose the work you need without taking on a bigger package.</p></section><section class="container section service-list services-full">{services.map(s => <a href={`/services/${s.slug}/`}><span class="mono">{s.number}</span><div><h2>{s.title}</h2><p>{s.short}</p></div><Arrow /></a>)}</section><AuditClose /></Site>

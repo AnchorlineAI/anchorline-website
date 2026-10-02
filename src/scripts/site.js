@@ -70,7 +70,7 @@ document.addEventListener("click", (e) => {
       pathway: cta.dataset.pathway || "unspecified",
     });
 });
-window.matchMedia("(min-width: 1081px)").addEventListener("change", (e) => {
+window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => {
   if (e.matches && menu) closeMenu();
 });
 if (page === "b2b" || page === "local")
@@ -162,7 +162,7 @@ if (form) {
     sending = true;
     button.disabled = true;
     button.setAttribute("aria-busy", "true");
-    status.textContent = "Sending your Growth Audit request…";
+    status.textContent = "Sending your Growth Review request…";
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 12000);
     try {
@@ -199,7 +199,7 @@ if (form) {
           JSON.stringify(receipt),
         );
       } catch {}
-      status.textContent = "Growth Audit request received.";
+      status.textContent = "Growth Review request received.";
       status.classList.add("is-success");
       location.assign("/growth-audit/received/");
     } catch (error) {
@@ -232,9 +232,9 @@ if (page === "receipt") {
       Date.now() - receipt.receivedAt < 10 * 60 * 1000
     ) {
       document.querySelector("[data-receipt-title]").textContent =
-        "Growth Audit request received.";
+        "Growth Review request received.";
       document.querySelector("[data-receipt-message]").textContent =
-        "Your Growth Audit request was received.";
+        "Your Growth Review request was received.";
     }
   } catch {}
   // Receipt page visits do not fire conversion events.

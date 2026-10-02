@@ -5,9 +5,17 @@ export const prerender = true;
 
 const staticPaths = [
   "/",
-  "/growth-engine/",
   "/growth-engine/b2b/",
   "/growth-engine/local/",
+  "/services/",
+  "/services/website-development/",
+  "/services/search-visibility/",
+  "/services/lead-generation/",
+  "/services/website-care/",
+  "/pricing/",
+  "/growth-review/",
+  "/website-search-audit/",
+  "/contact/",
   "/approach/",
   "/about/",
   "/growth-audit/",
