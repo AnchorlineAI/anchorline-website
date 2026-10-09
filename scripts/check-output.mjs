@@ -25,6 +25,7 @@ const expected = [
   "pricing/index.html",
   "growth-review/index.html",
   "website-search-audit/index.html",
+  "data-partnerships/index.html",
   "contact/index.html",
   "index.html",
   "growth-engine/index.html",

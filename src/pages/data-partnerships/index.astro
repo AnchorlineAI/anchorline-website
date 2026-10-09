@@ -1,0 +1,85 @@
+---
+import Site from '../../layouts/Site.astro';
+import Arrow from '../../components/DesignArrow.astro';
+import '../../styles/data-partnerships.css';
+
+const ownerEmail = 'mailto:hello@anchorlineai.com?subject=Data%20Partnership%20Inquiry';
+const buyerEmail = 'mailto:hello@anchorlineai.com?subject=Data%20Sourcing%20Partnership%20Inquiry';
+const safetyNote = "Please share only a high-level description of your business. Don't send documents, personal records, credentials or confidential information.";
+const steps = [
+  ['Understand your business', "We start with a high-level conversation about your operation and the documentation your company has developed."],
+  ['Explore potential fit', "We're developing relationships with prospective data buyers. An initial conversation helps us understand your business and what a buyer would need to evaluate. Where current requirements are available, we use them to guide the discussion."],
+  ['Authorize an introduction', "When a potential match is identified, we explain who would receive the introduction and what information would be shared. You decide whether to proceed."],
+  ['Your company reviews any offer', "Your authorized team and advisers review the proposed terms. Any licensing agreement or data transfer follows the process agreed with the prospective buyer."],
+];
+const questions = [
+  ['Does Anchorline already have data-buyer partnerships?', "Anchorline is an independent business developing its data-partnership service. We do not currently have signed buyer relationships. Any future relationship and applicable compensation will be explained before an introduction."],
+  ['What does the initial conversation cost?', "There's no charge for the exploratory conversation or high-level fit review. Our intended model is a buyer-paid referral or sourcing fee. Any separately paid advisory work would need an agreed scope and fee."],
+  ['Should I send you files?', "No. Start with a description of your business and the kinds of documentation it creates. We aren't offering file collection, dataset preparation, redaction, legal clearance or data transfers. If an opportunity progresses, your company uses the submission process agreed with the buyer."],
+  ['Who decides what can be shared?', "Your company does. Creating a document doesn't necessarily give you the right to license everything in it. Your authorized team and advisers need to review ownership, permissions, confidentiality and the proposed terms before any material is shared or licensed."],
+  ['Is an introduction a guarantee of a deal?', "No. A buyer may decide the material isn't a fit, and your company may decide an offer isn't right for you. We don't promise acceptance, a licensing agreement or earnings."],
+];
+---
+
+<Site
+  page="data-partnerships"
+  title="Data Partnerships | Anchorline Systems"
+  description="Explore whether your company's operational documentation could fit an AI data-licensing opportunity. Independent introductions and coordination from Anchorline."
+>
+  <section class="container dp-hero" aria-labelledby="partnerships-title">
+    <p class="eyebrow">Anchorline Systems / Data partnerships</p>
+    <h1 id="partnerships-title">Your business knowledge may have value beyond your business.</h1>
+    <p class="lede">We help business owners explore whether their company-created documentation could fit an AI data-licensing opportunity.</p>
+    <div class="actions">
+      <a class="button" href={ownerEmail} aria-describedby="hero-email-note">Discuss Your Company's Fit <Arrow /></a>
+      <a class="text-link" href="#data-buyers">For Data Buyers and Partners <Arrow /></a>
+    </div>
+    <p id="hero-email-note" class="dp-contact-note">{safetyNote}</p>
+    <div class="dp-hero-foot mono"><span>Independent introduction service</span><span>No-cost exploratory conversation</span></div>
+  </section>
+
+  <section class="service-band" aria-labelledby="opportunity-title">
+    <div class="container section two-col dp-opportunity">
+      <div><p class="eyebrow">What could fit</p><h2 id="opportunity-title">Start with the work your company knows.</h2><p class="dp-section-copy">A business may have useful documentation from years of doing its work. Whether it fits a licensing opportunity depends on the buyer's needs and your company's rights to the material.</p></div>
+      <div>
+        <ul class="ruled-list">
+          <li>Processes &amp; procedures<p>Company-developed operating instructions, workflow guides and training materials.</p></li>
+          <li>Technical documentation<p>Engineering explanations, product documentation and maintenance guidance.</p></li>
+          <li>Operational know-how<p>Quality methods, logistics procedures and service-delivery playbooks.</p></li>
+        </ul>
+        <p class="boundary">These are examples to discuss, not a request for files. Patient or treatment records, personal employee or customer records, credentials and confidential third-party material are outside our initial process.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section dp-process" aria-labelledby="process-title">
+    <div class="section-heading"><p class="eyebrow">How it works</p><h2 id="process-title">A conversation first.<br />An introduction only with your say.</h2></div>
+    <ol class="dp-steps">{steps.map(([title, copy], i) => <li><span class="mono dp-step-number" aria-hidden="true">0{i + 1}</span><h3>{title}</h3><p>{copy}</p></li>)}</ol>
+    <p class="dp-follow-through">We stay involved to organize questions, coordinate next steps and track the introduction as you work through the buyer's evaluation. You manage the licensing decision with your advisers; we don't negotiate the agreement or handle the data transfer.</p>
+  </section>
+
+  <section class="container section dp-founder" aria-labelledby="founder-title">
+    <img src="/kris-mcfadden.webp" alt="Kris McFadden, founder of Anchorline Systems" width="600" height="601" loading="lazy" />
+    <div><p class="eyebrow">Your point of contact</p><h2 id="founder-title">Kris McFadden</h2><p class="dp-founder-role mono">Founder, Anchorline Systems / MBA</p><p>I'm an executive leader and the founder of Anchorline Systems. I'll manage the relationship and the commercial decisions on our side, from the first conversation through any introduction.</p><p>We'll be clear about what we know, what still needs checking and who's responsible for the next step.</p><a class="text-link" href="/about/">About Anchorline <Arrow /></a></div>
+  </section>
+
+  <section id="data-buyers" class="dp-buyer-band" aria-labelledby="buyers-title">
+    <div class="container section two-col">
+      <div><p class="eyebrow">For data buyers &amp; partners</p><h2 id="buyers-title">Tell us what you're looking for.</h2></div>
+      <div><p class="dp-buyer-lede">We're exploring independent sourcing and referral relationships. We'd like to understand your current data needs, company eligibility requirements and referral terms before approaching business owners.</p><p>We obtain a business's permission before making an introduction. We aren't representing a committed supplier pool.</p><a class="button" href={buyerEmail} aria-describedby="buyer-email-note">Discuss a Sourcing Partnership <Arrow /></a><p id="buyer-email-note" class="dp-contact-note">{safetyNote}</p><a class="dp-email" href={buyerEmail}>hello@anchorlineai.com</a></div>
+    </div>
+  </section>
+
+  <section class="container section two-col faq" aria-labelledby="questions-title">
+    <div><p class="eyebrow">A few things to know</p><h2 id="questions-title">Before we talk.</h2></div>
+    <div>{questions.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div>
+  </section>
+
+  <section class="dp-contact-band" aria-labelledby="contact-title">
+    <div class="container section two-col">
+      <div><p class="eyebrow">Start a conversation</p><h2 id="contact-title">Tell us a little about your business.</h2></div>
+      <div><p>A short description of what your company does and the documentation it creates is enough to start.</p><a class="button" href={ownerEmail} aria-describedby="owner-email-note">Discuss Your Company's Fit <Arrow /></a><p id="owner-email-note" class="dp-contact-note">{safetyNote}</p><a class="dp-email" href={ownerEmail}>hello@anchorlineai.com</a><p class="dp-privacy-link">Read how we handle inquiries in our <a href="/privacy/">privacy notice</a>.</p></div>
+    </div>
+    <div class="container dp-disclosure"><p>Anchorline may receive a referral or sourcing fee from a prospective data partner. Before you authorize an introduction, we'll explain any applicable compensation relationship. Any separately paid advisory work requires an agreed scope and fee.</p></div>
+  </section>
+</Site>
