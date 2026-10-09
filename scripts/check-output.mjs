@@ -63,8 +63,7 @@ for (const file of htmls) {
   const text = await readFile(file, "utf8");
   const relative = path.relative(root, file).split(path.sep).join("/");
   const sensitive =
-    relative === "growth-audit/received/index.html" || relative === "404.html" ||
-    relative === "data-partnerships/index.html";
+    relative === "growth-audit/received/index.html" || relative === "404.html";
   assert.equal(
     (text.match(/<h1(?:\s|>)/g) || []).length,
     1,

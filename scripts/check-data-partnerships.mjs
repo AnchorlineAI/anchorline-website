@@ -9,9 +9,9 @@ const sitemap = await read('dist/sitemap.xml');
 const production = process.env.CONTEXT === 'production';
 const origin = production ? 'https://anchorlineai.com' : process.env.DEPLOY_PRIME_URL || 'http://localhost:4321';
 
-assert(html.includes('content="noindex, nofollow, noarchive"'), 'Draft must stay noindex until release approval');
+assert(html.includes(`content="${production ? 'index, follow' : 'noindex, nofollow, noarchive'}"`), 'Index only in production');
 assert(html.includes(`href="${origin}/data-partnerships/"`), 'Context-specific canonical');
-assert(!sitemap.includes('/data-partnerships/'), 'Draft must stay outside the production sitemap');
+assert.equal(sitemap.includes('https://anchorlineai.com/data-partnerships/'), production, 'Only the production sitemap includes the page');
 assert(!/<(?:form|input|textarea|select)\b/i.test(html), 'No form, upload or intake controls');
 assert(html.includes('href="#data-buyers"') && html.includes('id="data-buyers"'), 'Buyer anchor must resolve');
 for (const subject of ['Data%20Partnership%20Inquiry', 'Data%20Sourcing%20Partnership%20Inquiry']) {
@@ -30,4 +30,4 @@ for (const text of ['Data partnership inquiries', 'not a submission form', "Emai
 }
 const analyticsLoader = 'https://www.googletagmanager.com/gtag/js?';
 assert.equal(html.includes(analyticsLoader), production, 'Existing analytics behavior must remain production-only');
-console.log(`Data Partnerships checks passed (${production ? 'production-shaped local build' : 'preview'}): draft indexing, canonical, email subjects, disclosures, privacy, intake boundary and navigation.`);
+console.log(`Data Partnerships checks passed (${production ? 'production-shaped local build' : 'preview'}): context-specific indexing, canonical, email subjects, disclosures, privacy, intake boundary and navigation.`);
