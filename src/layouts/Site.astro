@@ -2,6 +2,7 @@
 import "@fontsource-variable/manrope";
 import "@fontsource/ibm-plex-mono/400.css";
 import "../styles/redesign.css";
+import "../styles/company.css";
 import Brand from "../components/Brand.astro";
 import Arrow from "../components/DesignArrow.astro";
 const {
@@ -82,7 +83,7 @@ const schema = {
   "@graph": [organization, webSite, webPage, ...(service ? [service] : [])],
 };
 const path = Astro.url.pathname;
-const links = [["/services/", "Services"], ["/approach/", "Approach"], ["/insights/", "Insights"], ["/pricing/", "Pricing"]];
+const links = [["/services/", "Digital Services"], ["/commerce/", "Commerce"], ["/data-partnerships/", "Data Partnerships"], ["/insights/", "Insights"], ["/about/", "About"]];
 ---
 
 <!doctype html>
@@ -169,12 +170,12 @@ gtag('config', 'G-KPQ0G7C2YY');`}
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Open navigation"><span class="menu-lines" aria-hidden="true"></span></button>
       <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden>
         {links.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}<Arrow /></a>)}
-        <a href="/about/">About Anchorline <Arrow /></a><a href="/contact/">Get in touch <Arrow /></a>
+        <a href="/contact/">Get in touch <Arrow /></a>
       </nav>
     </header>
     <main id="main" tabindex="-1"><slot /></main>
     <footer class="footer">
-      <div class="container footer-top"><div><Brand /><p>Websites, search &amp; lead generation.</p></div><nav aria-label="Footer navigation"><a href="/services/">Services</a><a href="/pricing/">Pricing</a><a href="/about/">About</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav></div>
+      <div class="container footer-top"><div><Brand /><p>Digital services, commerce &amp; data partnerships.</p></div><nav aria-label="Footer navigation"><a href="/services/">Digital Services</a><a href="/commerce/">Commerce</a><a href="/data-partnerships/">Data Partnerships</a><a href="/approach/">Approach</a><a href="/pricing/">Pricing</a><a href="/about/">About</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav></div>
       <div class="container footer-bottom"><span>&copy; 2026 Anchorline Systems LLC</span><a href="https://amg.anchorlineai.com" target="_blank" rel="noopener noreferrer">Client Login <Arrow /></a>{showPreviewChrome && <span>Release preview / not production</span>}</div>
     </footer>
     <script>import "../scripts/site.js";</script>

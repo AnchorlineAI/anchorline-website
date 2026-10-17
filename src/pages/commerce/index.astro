@@ -1,0 +1,28 @@
+---
+import Site from '../../layouts/Site.astro';
+import Arrow from '../../components/DesignArrow.astro';
+const inquiry = 'mailto:hello@anchorlineai.com?subject=Commerce%20Partnership%20Inquiry';
+---
+<Site page="commerce" title="Commerce | Anchorline Systems" description="We operate a marketplace retail business and welcome relationships with manufacturers and authorized distributors.">
+  <section class="container page-intro commerce-intro">
+    <p class="eyebrow">Commerce</p>
+    <h1>Marketplace retail.</h1>
+    <p class="lede">We operate a marketplace retail business and welcome relationships with manufacturers and authorized distributors.</p>
+    <div class="actions"><a class="button" href={inquiry}>Discuss a partnership <Arrow /></a></div>
+  </section>
+  <section class="service-band">
+    <div class="container section two-col commerce-contact">
+      <div><p class="eyebrow">Supplier relationships</p><h2>Let's talk.</h2></div>
+      <div>
+        <p class="lede">If you're a manufacturer or authorized distributor, contact us about working with Anchorline.</p>
+        <a class="text-link" href={inquiry}>hello@anchorlineai.com <Arrow /></a>
+        <p class="boundary">Start with a brief introduction to your company. Please don't send confidential documents or account credentials.</p>
+        <a class="text-link" href="/privacy/">Privacy notice <Arrow /></a>
+      </div>
+    </div>
+  </section>
+  <section class="container section two-col">
+    <h2>Part of <br />Anchorline Systems.</h2>
+    <div><p class="lede">Commerce is our own retail operation. Our digital services are separate work we provide for clients.</p><a class="text-link" href="/about/">About Anchorline <Arrow /></a></div>
+  </section>
+</Site>
