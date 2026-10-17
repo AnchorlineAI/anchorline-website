@@ -1,0 +1,49 @@
+.desktop-nav{gap:26px}
+.footer-top>div{max-width:390px}
+.footer-top nav{max-width:650px;row-gap:20px}
+.company-hero h1{max-width:60%}
+.company-hero .hero-description{max-width:560px}
+.company-hero .hero-art::after,.company-hero .hero-caption::before{display:none}
+.company-services{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:64px}
+.company-introduction h2{font-size:42px}
+.company-introduction>p:not(.eyebrow){color:var(--muted);margin-top:26px;max-width:510px;font-size:18px}
+.company-introduction .button{margin-top:28px}
+.company-services .service-list>a{grid-template-columns:28px minmax(0,1fr) 22px;gap:20px;padding-block:24px}
+.company-services .service-list h3{font-size:24px}
+.company-services .service-list p{font-size:15px;margin-top:10px}
+.company-area h2{max-width:680px}
+.company-area>p:not(.eyebrow){max-width:640px;margin-top:24px;color:var(--muted);font-size:18px}
+.company-area>.text-link{margin-top:24px}
+.company-partnerships{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:64px;align-items:center}
+.company-aside{padding:40px;border-left:1px solid var(--line);color:var(--muted);font-size:15px}
+.company-close h2{font-size:40px}
+.company-contact-links{display:flex;flex-wrap:wrap;gap:16px 48px;margin-top:24px}
+.commerce-intro{padding-bottom:80px}
+.commerce-contact .text-link{overflow-wrap:anywhere}
+.commerce-contact .boundary{margin-block:28px;color:var(--muted);max-width:540px}
+.company-about-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:64px;border-top:1px solid var(--line);padding-block:36px}
+.company-about-row h2{font-size:34px}
+.company-about-row p{max-width:650px;color:var(--muted);font-size:18px}
+.company-about-row .text-link{margin-top:20px}
+@media(max-width:1270px){
+  .desktop-nav{gap:20px}.desktop-nav a{font-size:11px}.header-contact{font-size:11px;padding-inline:16px}
+  .company-services,.company-partnerships{gap:40px}.company-introduction h2{font-size:36px}
+  .company-hero .hero-description{max-width:500px}
+}
+@media(min-width:641px) and (max-width:960px){
+  .company-hero .hero-art{top:35px}
+  .company-hero .hero-description{max-width:52%}
+}
+@media(max-width:760px){
+  .company-services,.company-partnerships,.company-about-row{grid-template-columns:1fr;gap:32px}
+  .company-aside{padding:22px 0 0;border-left:0;border-top:1px solid var(--line)}
+}
+@media(max-width:640px){
+  .company-hero h1,.company-hero .hero-description{max-width:100%}
+  .company-introduction h2,.company-about-row h2,.company-close h2{font-size:32px}
+  .company-introduction>p:not(.eyebrow),.company-area>p:not(.eyebrow),.company-about-row p{font-size:16px}
+  .company-services .service-list>a{gap:12px}.company-services .service-list h3{font-size:23px}
+  .company-contact-links{flex-direction:column;align-items:flex-start;gap:12px}
+  .commerce-intro{padding-bottom:44px}
+  .company-about-row{padding-block:28px;gap:18px}
+}

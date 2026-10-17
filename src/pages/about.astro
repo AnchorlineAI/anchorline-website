@@ -1,8 +1,19 @@
 ---
 import Site from '../layouts/Site.astro';
-import AuditClose from '../components/AuditClose.astro';
+import CompanyClose from '../components/CompanyClose.astro';
+import Arrow from '../components/DesignArrow.astro';
 ---
-<Site page="about" schemaType="AboutPage" description="Meet Kris McFadden and learn how Anchorline approaches website development, search visibility, lead generation, and ongoing website care." title="About Anchorline Systems"><section class="container page-intro"><p class="eyebrow">About Anchorline</p><h1>Founder-led.<br />Close to the work.</h1><p class="lede">Anchorline Systems helps businesses improve their websites, search visibility, and lead-generation efforts with clearly scoped, practical work.</p></section><section class="container section founder"><img src="/kris-mcfadden.webp" alt="Kris McFadden, founder of Anchorline Systems" width="600" height="601" /><div><p class="eyebrow">Founder & CEO</p><h2 id="kris-mcfadden">Kris McFadden</h2><p>Kris leads Anchorline's work from the first conversation through the decisions that shape a project.</p><p>AI and research tools help with the work. Human judgment, review, and accountability remain part of delivery.</p><p>Our current focus is website development, SEO and AI-search visibility, focused lead generation, and website care.</p></div></section><AuditClose />  <script
+<Site page="about" schemaType="AboutPage" description="Meet Kris McFadden and learn about Anchorline Systems LLC's digital services, marketplace retail business, and independent data introductions." title="About Anchorline Systems">
+  <section class="container page-intro"><p class="eyebrow">About Anchorline</p><h1>Founder-led.<br />Close to the work.</h1><p class="lede">Anchorline Systems LLC provides digital services, operates an online retail business, and helps companies explore data-licensing opportunities.</p></section>
+  <section class="container section founder"><img src="/kris-mcfadden.webp" alt="Kris McFadden, founder of Anchorline Systems" width="600" height="601" /><div><p class="eyebrow">Founder &amp; CEO</p><h2 id="kris-mcfadden">Kris McFadden</h2><p>Kris leads Anchorline's work from the first conversation through the decisions that shape a project.</p><p>AI and research tools help with the work. Human judgment, review, and accountability remain part of delivery.</p></div></section>
+  <section class="service-band"><div class="container section company-about">
+    <p class="eyebrow">Our work</p>
+    <div class="company-about-row"><h2>Digital services</h2><div><p>We build websites, improve search visibility, and help businesses turn interest into conversations. Our work includes focused lead generation and ongoing website care.</p><a class="text-link" href="/services/">Explore services <Arrow /></a></div></div>
+    <div class="company-about-row"><h2>Commerce</h2><div><p>We operate our own marketplace retail business and welcome relationships with manufacturers and authorized distributors.</p><a class="text-link" href="/commerce/">Explore commerce <Arrow /></a></div></div>
+    <div class="company-about-row"><h2>Data partnerships</h2><div><p>We help business owners explore whether their company-created documentation could fit an AI data-licensing opportunity. Our role is independent introductions and coordination, with permission before information is shared.</p><a class="text-link" href="/data-partnerships/">Explore data partnerships <Arrow /></a></div></div>
+  </div></section>
+  <CompanyClose />
+  <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",

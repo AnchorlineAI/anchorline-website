@@ -16,6 +16,7 @@ const staticPaths = [
   "/growth-review/",
   "/website-search-audit/",
   "/data-partnerships/",
+  "/commerce/",
   "/contact/",
   "/approach/",
   "/about/",
