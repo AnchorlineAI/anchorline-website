@@ -16,6 +16,7 @@ const insights = defineCollection({
     imageAlt: z.string().optional(),
     imageCredit: z.string().optional(),
     featured: z.boolean().default(false),
+    showCommercialClose: z.boolean().default(true),
   }),
 });
 
