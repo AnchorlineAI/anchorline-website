@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="1600" height="900" fill="#142f30"/>
+<text x="100" y="130" fill="#cbbb87" font-family="Arial,sans-serif" font-size="22" letter-spacing="4">ANCHORLINE / SEARCH VISIBILITY</text>
+<text x="100" y="260" fill="#fff" font-family="Georgia,serif" font-size="70">They found you through AI.</text>
+<text x="100" y="345" fill="#fff" font-family="Georgia,serif" font-size="70">What happened next?</text>
+<path d="M150 540 H1450" stroke="#cbbb87" stroke-width="3"/>
+<g fill="#cbbb87"><circle cx="150" cy="540" r="10"/><circle cx="475" cy="540" r="10"/><circle cx="800" cy="540" r="10"/><circle cx="1125" cy="540" r="10"/><circle cx="1450" cy="540" r="10"/></g>
+<g fill="#fff" font-family="Arial,sans-serif" font-size="27" text-anchor="middle">
+<text x="150" y="610">AI visibility</text><text x="475" y="610">Accurate</text><text x="475" y="646">representation</text><text x="800" y="610">Qualified action</text><text x="1125" y="610">Conversion</text><text x="1450" y="610">Revenue</text></g>
+<text x="100" y="810" fill="#c4d0ca" font-family="Arial,sans-serif" font-size="22">A proposed measurement approach — not measured results or a guaranteed journey.</text>
+</svg>
